@@ -12,11 +12,20 @@ import java.util.Date;
 
 @SpringBootApplication
 public class ServerApplication {
+
+	@Autowired
+	TreatHistoryRepository treatHistoryRepository;
+	@Autowired
+	DoctorRepository doctorRepository;
+	@Autowired 
+	MedicineRepository medicineRepository;
 	public static void main(String[] args) {
 		SpringApplication.run(ServerApplication.class, args);
 	}
 	@Bean
-	ApplicationRunner init(RegisterRepository registerrepository, ProvinceRepository provincerepository, PatienttypeRepository patienttyperepository, SexRepository sexrepository) {
+	ApplicationRunner init(RegisterRepository registerrepository, ProvinceRepository provincerepository, PatienttypeRepository patienttyperepository, SexRepository sexrepository,
+	TreatHistoryRepository treatHistoryRepository, DoctorRepository doctorRepository,
+	MedicineRepository medicineRepository	) {
 		return args -> {
 			//set Patient type
 			Patienttype pat1 = new Patienttype();
@@ -59,6 +68,17 @@ public class ServerApplication {
 			Province p1 = new Province();
 			p1.setProvince("Nakonratchasima");
 			provincerepository.save(p1);
+
+			//set medicine
+			Medicine med1 = new Medicine();
+			Medicine med2 = new Medicine();
+			Medicine med3 = new Medicine();
+			med1.setMedicine("ยาแก้ไข้");
+			med2.setMedicine("ยาแก้ปวด");
+			med3.setMedicine("ยาแก้อักเสบ");
+			medicineRepository.save(med1);
+			medicineRepository.save(med2);
+			medicineRepository.save(med3);
 		};
 	}
 }
