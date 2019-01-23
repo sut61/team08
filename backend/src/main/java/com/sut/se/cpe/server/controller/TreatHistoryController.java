@@ -1,13 +1,13 @@
-package com.example.demo.controller;
+package com.sut.se.cpe.server.controller;
 
-import com.example.demo.entity.TreatHistory;
-import com.example.demo.entity.Register;
-import com.example.demo.entity.Doctor;
-import com.example.demo.entity.Medicine;
-import com.example.demo.repository.DoctorRepository;
-import com.example.demo.repository.MedicineRepository;
-import com.example.demo.repository.RegisterRepository;
-import com.example.demo.repository.TreatHistoryRepository;
+import com.sut.se.cpe.server.entity.TreatHistory;
+import com.sut.se.cpe.server.entity.Register;
+import com.sut.se.cpe.server.entity.Doctor;
+import com.sut.se.cpe.server.entity.Medicine;
+import com.sut.se.cpe.server.repository.DoctorRepository;
+import com.sut.se.cpe.server.repository.MedicineRepository;
+import com.sut.se.cpe.server.repository.RegisterRepository;
+import com.sut.se.cpe.server.repository.TreatHistoryRepository;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.*;

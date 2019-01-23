@@ -2,7 +2,7 @@ package com.sut.se.cpe.server;
 
 import com.sut.se.cpe.server.entity.*;
 import com.sut.se.cpe.server.repository.*;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -17,8 +17,9 @@ public class ServerApplication {
 	TreatHistoryRepository treatHistoryRepository;
 	@Autowired
 	DoctorRepository doctorRepository;
-	@Autowired 
+	@Autowired
 	MedicineRepository medicineRepository;
+
 	public static void main(String[] args) {
 		SpringApplication.run(ServerApplication.class, args);
 	}
@@ -79,6 +80,12 @@ public class ServerApplication {
 			medicineRepository.save(med1);
 			medicineRepository.save(med2);
 			medicineRepository.save(med3);
+
+			//set doctor
+			Doctor doc1 = new Doctor();
+			doc1.setDoctor("Tonkaw");
+			doc1.setPassword("Tonkaw");
+			doctorRepository.save(doc1);
 		};
 	}
 }

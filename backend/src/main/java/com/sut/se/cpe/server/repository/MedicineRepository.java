@@ -1,5 +1,5 @@
-package com.example.demo.repository;
-import com.example.demo.entity.Medicine;
+package com.sut.se.cpe.server.repository;
+import com.sut.se.cpe.server.entity.Medicine;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;

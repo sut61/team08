@@ -1,4 +1,4 @@
-package com.example.demo.entity;
+package com.sut.se.cpe.server.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.*;
@@ -14,6 +14,7 @@ public class Doctor {
     private Long id;
 
     private String doctor;
+    private String password;
 
     public Doctor(){}
 
@@ -31,6 +32,12 @@ public class Doctor {
     }
     public String getDoctor(){
         return doctor;
+    }
+    public void setPassword(String password){
+        this.password = password;
+    }
+    public String getPassword(){
+        return password;
     }
 }
 
