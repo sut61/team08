@@ -17,6 +17,15 @@ public class Register {
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="REG_seq")
     @Column(name="IdReg")
     private @NonNull Long id;
+    private String firstname;
+    private String lastname;
+    private int age;
+    private String birthday;
+    private String district;
+    private String subdistrict;
+    private String housenumber;
+    private String postcode;
+
     private Date date;
 
     public void setDate(Date date) {
