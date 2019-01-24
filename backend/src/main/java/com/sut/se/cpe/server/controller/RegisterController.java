@@ -5,10 +5,12 @@ import com.sut.se.cpe.server.entity.Register;
 import com.sut.se.cpe.server.entity.Sex;
 import com.sut.se.cpe.server.entity.Patienttype;
 import com.sut.se.cpe.server.entity.Province;
+import com.sut.se.cpe.server.entity.Doctor;
 import com.sut.se.cpe.server.repository.RegisterRepository;
 import com.sut.se.cpe.server.repository.SexRepository;
 import com.sut.se.cpe.server.repository.PatienttypeRepository;
 import com.sut.se.cpe.server.repository.ProvinceRepository;
+import com.sut.se.cpe.server.repository.DoctorRepository;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,6 +33,63 @@ public class RegisterController {
     private PatienttypeRepository patienttypeRepository;
     @Autowired
     private SexRepository sexRepository;
+    @Autowired
+    private DoctorRepository doctorRepository;
 
+    @GetMapping("/doctor/{doctorname}/{password}")
+    public boolean doctor(@PathVariable String doctorname ,@PathVariable String password){
+        Doctor doctor = doctorRepository.findByDoctor(doctorname);
+        String x = doctor.getPassword();
+        System.out.println(doctorname);
+        System.out.println(x + "=" + password);
+        return x.matches(password);
+    }
 
+    @GetMapping(path = "provinces", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Collection<Province> Province() {
+        return provinceRepository.findAll().stream().collect(Collectors.toList());
+    }
+    @GetMapping("/provinces/{id}")
+    public Optional<Province> province(@PathVariable Long id) {
+        Optional<Province> t = provinceRepository.findById(id);
+        return t;
+    }
+
+    @GetMapping(path = "sexes", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Collection<Sex> Sex() {
+        return sexRepository.findAll().stream().collect(Collectors.toList());
+    }
+
+    @GetMapping("/sexes/{id}")
+    public Optional<Sex> sex(@PathVariable Long id) {
+        Optional<Sex> a = sexRepository.findById(id);
+        return a;
+    }
+
+    @GetMapping(path = "patienttypes", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Collection<Patienttype> Patienttype() {
+        return patienttypeRepository.findAll().stream().collect(Collectors.toList());
+    }
+    @GetMapping("/patienttypes/{id}")
+    public Optional<Patienttype> patienttype(@PathVariable Long id) {
+        Optional<Patienttype> c = patienttypeRepository.findById(id);
+        return c;
+    }
+
+    @PostMapping(path ="/register/{provinces}/{sexes}/{patienttypes}")
+    public Register register( @PathVariable Long provinces,@PathVariable Long sexes,@PathVariable Long patienttypes){
+        Province province = provinceRepository.findById(provinces).get();
+        Sex sex = sexRepository.findById(sexes).get();
+        Patienttype patienttype = patienttypeRepository.findById(patienttypes).get();
+
+        Register register = new Register();
+        Date date = new Date();
+
+        register.setProvince(province);
+        register.setSex(sex);
+        register.setPatienttype(patienttype);
+        register.setDate(date);
+        registerRepository.save(register);
+        return register;
+    }
 }

@@ -1,3 +1,15 @@
-<p>
-  login works!
-</p>
+
+<mat-card class="exCard w3-display-middle" style="margin-top: 20%;text-align: center">
+  <div style="text-align: center;font-size: 18px" >
+    กรุณาเข้าสู่ระบบ
+  </div>
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Username" [(ngModel)]="Doctor.doctorname" name="doctorname" required>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Password" [(ngModel)]="Doctor.password" type="password" name="password" required>
+    </mat-form-field>
+    <button mat-raised-button (click)="login()" color="primary">Login</button>
+  </form></mat-card>
