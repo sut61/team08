@@ -1,69 +1,78 @@
 <h1>ระบบเพิ่มผู้ป่วย</h1>
+  <mat-card>
+<h2>Patient Information</h2>
+  Please enter your patient information :<br>
+<mat-form-field>
+  <mat-select [(ngModel)]="sexSelect" placeholder ="Name Title" name="IdSex">
+    <mat-option *ngFor="let sex of sexTitle" [value]="sex.id">
+      {{sex.nametitle}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<br>
 
-Select your NameTitle  :
-<!--<mat-form-field>-->
-  <!--<mat-select [(ngModel)]="petidSelect" placeholder ="ID สัตว์เลี้ยง" name="IdPet">-->
-    <!--<mat-option *ngFor="let petInfo of petInfoName" [value]="petInfo.id">-->
-      <!--{{petInfo.id}}-->
-    <!--</mat-option>-->
-  <!--</mat-select>-->
-<!--</mat-form-field>-->
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Firstname" [(ngModel)]="firstNameEnter">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Lastname" [(ngModel)]="lastNameEnter">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select placeholder="Age" [(ngModel)]="years">
+      <mat-option *ngFor="let age of ages" [value]="age.value">
+        {{age.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Birthday" [(ngModel)]="birthDay">
+  </mat-form-field>
+
+  <h2>Patient Address</h2>
+  Enter your pateint address  :
+  <mat-form-field>
+    <mat-select [(ngModel)]="provinceSelect" placeholder ="จังหวัด" name="IdProvince">
+      <mat-option *ngFor="let province of provinceName" [value]="province.id">
+        {{province.province}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
 <br>
-Enter your FirstName  :
-<mat-form-field class="firstname">
-  <textarea matInput placeholder="ชื่อ"></textarea>
-</mat-form-field>
-<br>
-Enter your LastName  :
-<mat-form-field class="lastname">
-  <textarea matInput placeholder="นามสกุล"></textarea>
-</mat-form-field>
-<br>
-Select your age  :
-<mat-form-field class="age">
-  <textarea matInput placeholder="อายุ"></textarea>
-</mat-form-field>
-<br>
-Enter your Birth-Day  :
-<mat-form-field class="Birth-Day">
-  <textarea matInput placeholder="วันเกิด"></textarea>
-</mat-form-field>
-<br>
-Select your Province  :
-<mat-form-field class="Province">
-  <textarea matInput placeholder="จังหวัด"></textarea>
-</mat-form-field>
-<br>
-Enter your distract  :
-<mat-form-field class="distract">
-  <textarea matInput placeholder="อำเภอ"></textarea>
-</mat-form-field>
-<br>
-Enter your sub-distract  :
-<mat-form-field class="sub-distract">
-  <textarea matInput placeholder="ตำบล"></textarea>
-</mat-form-field>
-<br>
-Enter your House No.  :
-<mat-form-field class="House No.">
-  <textarea matInput placeholder="เลขที่บ้าน"></textarea>
-</mat-form-field>
-<br>
-Select your postcode  :
-<!--<mat-form-field>-->
-<!--<mat-select [(ngModel)]="cageSelect" placeholder ="กรงสำหรับ" name="IdCage">-->
-<!--<mat-option *ngFor="let cage of cageid" [value]="cage.id">-->
-<!--{{cage.detail}}-->
-<!--</mat-option>-->
-<!--</mat-select>-->
-<!--</mat-form-field>-->
-<br>
-Enter your Patient-type  :
-<mat-form-field class="House No.">
-  <textarea matInput placeholder="ประเภทผู้ป่วย"></textarea>
-</mat-form-field>
-<br>
-Enter your Patient-Detail  :
-<mat-form-field class="Patient-Detail">
-  <textarea matInput placeholder="อาการผุ้ป่วย"></textarea>
-</mat-form-field>
+
+  <mat-form-field name="district">
+    <input matInput placeholder="District" [(ngModel)]="district">
+  </mat-form-field>
+  <br>
+  <mat-form-field name="subdistrict">
+    <input matInput placeholder="Sub-district" [(ngModel)]="subdistrict">
+  </mat-form-field>
+  <br>
+
+  <mat-form-field>
+    <mat-select [(ngModel)]="patienttypeSelect" placeholder ="ประเภทผู้ป่วย" name="IdPatienttype">
+      <mat-option *ngFor="let patienttype of patientType" [value]="patienttype.id">
+        {{patienttype.type}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br>
+  <mat-form-field class="example-full-width" name="patientdetail">
+    <input matInput placeholder="Patientdetail" [(ngModel)]="patientdetail">
+  </mat-form-field>
+    <br>
+  <mat-form-field class="example-full-width" name="housenumber">
+    <input matInput placeholder="Housenumber" [(ngModel)]="housenumber">
+  </mat-form-field>
+    <br>
+    <mat-form-field class="example-full-width" name="postcode">
+      <input matInput placeholder="Postcode" [(ngModel)]="postcode">
+    </mat-form-field>
+    <br>
+  <mat-card-actions>
+    <button class="click" mat-raised-button (click)="save()">บันทึก</button>
+    <button mat-flat-button routerLink="/login" >ยกเลิก</button>
+  </mat-card-actions>
+</mat-card>

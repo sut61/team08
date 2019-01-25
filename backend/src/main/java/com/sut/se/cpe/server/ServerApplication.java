@@ -86,6 +86,8 @@ public class ServerApplication {
 			doc1.setDoctor("Tonkaw");
 			doc1.setPassword("Tonkaw");
 			doctorRepository.save(doc1);
+
+
 		};
 	}
 }
