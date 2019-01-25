@@ -25,6 +25,7 @@ public class Register {
     private String subdistrict;
     private String housenumber;
     private String postcode;
+    private String patientdetail;
 
     private Date date;
 
@@ -50,7 +51,7 @@ public class Register {
     @JoinColumn(name = "IdSex")
     private Sex sex;
 
-    public void setPatienttype(Patienttype medinfo){this.patienttype=patienttype;}
+    public void setPatienttype(Patienttype patienttype){this.patienttype=patienttype;}
     public Patienttype getPatienttype() { return patienttype; }
 
     public void setProvince(Province province){this.province=province;}
@@ -59,10 +60,19 @@ public class Register {
     public void setSex(Sex sex){this.sex=sex;}
     public Sex getSex() { return sex; }
 
-    public Register(Patienttype patienttype,Province province,Date date,Sex sex) {
+    public Register(Patienttype patienttype,Province province,Date date,Sex sex,String firstname,String lastname,int age,String birthday,String district,String subdistrict,String housenumber,String postcode,String patientdetail) {
         this.patienttype=patienttype;
         this.province=province;
         this.date=date;
         this.sex=sex;
+        this.firstname=firstname;
+        this.lastname=lastname;
+        this.age=age;
+        this.birthday=birthday;
+        this.district=district;
+        this.subdistrict=subdistrict;
+        this.housenumber=housenumber;
+        this.postcode=postcode;
+        this.patientdetail=patientdetail;
     }
 }

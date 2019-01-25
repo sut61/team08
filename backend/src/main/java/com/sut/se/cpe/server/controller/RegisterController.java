@@ -76,8 +76,8 @@ public class RegisterController {
         return c;
     }
 
-    @PostMapping(path ="/register/{provinces}/{sexes}/{patienttypes}")
-    public Register register( @PathVariable Long provinces,@PathVariable Long sexes,@PathVariable Long patienttypes){
+    @PostMapping(path ="/register/{provinces}/{sexes}/{patienttypes}/{firstnameenter}/{lastnameenter}/{ages}/{birthday}/{district}/{subdistrict}/{housenumber}/{postcode}/{patientdetail}")
+    public Register register( @PathVariable Long provinces,@PathVariable Long sexes,@PathVariable Long patienttypes,@PathVariable String firstnameenter,@PathVariable String lastnameenter,@PathVariable int ages,@PathVariable String birthday,@PathVariable String district,@PathVariable String subdistrict,@PathVariable String housenumber,@PathVariable String postcode,@PathVariable String patientdetail){
         Province province = provinceRepository.findById(provinces).get();
         Sex sex = sexRepository.findById(sexes).get();
         Patienttype patienttype = patienttypeRepository.findById(patienttypes).get();
@@ -88,6 +88,15 @@ public class RegisterController {
         register.setProvince(province);
         register.setSex(sex);
         register.setPatienttype(patienttype);
+        register.setFirstname(firstnameenter);
+        register.setLastname(lastnameenter);
+        register.setAge(ages);
+        register.setBirthday(birthday);
+        register.setDistrict(district);
+        register.setSubdistrict(subdistrict);
+        register.setHousenumber(housenumber);
+        register.setPostcode(postcode);
+        register.setPatientdetail(patientdetail);
         register.setDate(date);
         registerRepository.save(register);
         return register;
