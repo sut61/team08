@@ -13,12 +13,16 @@ import { RegisterController } from 'src/app/controller/register-controller';
 import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './login/login.component';
 import { MatDialogModule} from '@angular/material/dialog';
+import { MainpageComponent } from './mainpage/mainpage.component';
+import { OndutyComponent } from './onduty/onduty.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    MainpageComponent,
+    OndutyComponent
   ],
   imports: [
     BrowserModule,

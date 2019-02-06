@@ -1,6 +1,8 @@
 package com.sut.se.cpe.server.entity;
 import lombok.*;
 import javax.persistence.*;
+import javax.validation.constraints.*;
+
 @Entity
 @Getter @Setter
 @ToString @EqualsAndHashCode
@@ -12,8 +14,8 @@ public class Province {
     @SequenceGenerator(name="PROVINCE_seq",sequenceName="PROVINCE_seq")
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="PROVINCE_seq")
     @Column(name = "IdProvince")
-    private @NonNull Long id;
-    private String province;
+    private @NotNull Long id;
+    private @NotNull String province;
 
     public Province(){}
     public Province(Long id){}

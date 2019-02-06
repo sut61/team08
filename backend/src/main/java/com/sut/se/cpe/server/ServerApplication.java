@@ -25,8 +25,7 @@ public class ServerApplication {
 	}
 	@Bean
 	ApplicationRunner init(RegisterRepository registerrepository, ProvinceRepository provincerepository, PatienttypeRepository patienttyperepository, SexRepository sexrepository,
-	TreatHistoryRepository treatHistoryRepository, DoctorRepository doctorRepository,
-	MedicineRepository medicineRepository	) {
+	TreatHistoryRepository treatHistoryRepository, DoctorRepository doctorRepository, MedicineRepository medicineRepository	,LabRepository labRepository) {
 		return args -> {
 			//set Patient type
 			Patienttype pat1 = new Patienttype();
@@ -70,6 +69,10 @@ public class ServerApplication {
 			p1.setProvince("Nakonratchasima");
 			provincerepository.save(p1);
 
+			Province p2 = new Province();
+			p2.setProvince("Bangkok");
+			provincerepository.save(p2);
+
 			//set medicine
 			Medicine med1 = new Medicine();
 			Medicine med2 = new Medicine();
@@ -83,11 +86,16 @@ public class ServerApplication {
 
 			//set doctor
 			Doctor doc1 = new Doctor();
-			doc1.setDoctor("Tonkaw");
+			doc1.setDoctorname("Dr.Tonkaw");
+			doc1.setDoctorid("Tonkaw");
 			doc1.setPassword("Tonkaw");
 			doctorRepository.save(doc1);
 
-
+			//set lab
+			Lab lab1 = new Lab();
+			lab1.setLabid("112");
+			lab1.setLabaddress("main building 2 floor");
+			labRepository.save(lab1);
 		};
 	}
 }

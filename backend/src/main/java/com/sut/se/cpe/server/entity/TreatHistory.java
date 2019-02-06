@@ -62,10 +62,10 @@ public class TreatHistory{
         return weight;
     }
 
-    public void setDoctor(Doctor doctor){
+    public void setDoctorname(Doctor doctor){
         this.doctor = doctor;
     }
-    public Doctor getDoctor(){
+    public Doctor getDoctorname(){
         return doctor;
     }
     public void setRegister(Register register){

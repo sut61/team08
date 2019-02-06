@@ -1,20 +1,20 @@
 #import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 #
-#import { RegisterComponent } from './register.component';
+#import { MainpageComponent } from './mainpage.component';
 #
-#describe('RegisterComponent', () => {
-#  let component: RegisterComponent;
-#  let fixture: ComponentFixture<RegisterComponent>;
+#describe('MainpageComponent', () => {
+#  let component: MainpageComponent;
+#  let fixture: ComponentFixture<MainpageComponent>;
 #
 #  beforeEach(async(() => {
 #    TestBed.configureTestingModule({
-#      declarations: [ RegisterComponent ]
+#      declarations: [ MainpageComponent ]
 #    })
 #    .compileComponents();
 #  }));
 #
 #  beforeEach(() => {
-#    fixture = TestBed.createComponent(RegisterComponent);
+#    fixture = TestBed.createComponent(MainpageComponent);
 #    component = fixture.componentInstance;
 #    fixture.detectChanges();
 #  });
