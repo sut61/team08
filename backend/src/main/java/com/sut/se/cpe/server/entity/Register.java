@@ -4,6 +4,8 @@ import lombok.*;
 import javax.persistence.*;
 import java.util.Date;
 
+import javax.validation.constraints.*;
+
 @Data
 @Entity
 @Table(name="Register")
@@ -16,16 +18,39 @@ public class Register {
     @SequenceGenerator(name="REG_seq",sequenceName="REG_seq")
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="REG_seq")
     @Column(name="IdReg")
-    private @NonNull Long id;
-    private String firstname;
-    private String lastname;
-    private int age;
-    private String birthday;
-    private String district;
-    private String subdistrict;
-    private String housenumber;
-    private String postcode;
-    private String patientdetail;
+    private Long id;
+
+    @Size(min=1,max=20)
+    @Pattern(regexp="\\D+")
+    private @NotNull String firstname;
+
+    @Size(min=1,max=20)
+    @Pattern(regexp="\\D+")
+    private @NotNull String lastname;
+
+    private @NotNull int age;
+
+    @Size(min=1,max=30)
+    private @NotNull String birthday;
+
+    @Size(min=1,max=15)
+    @Pattern(regexp="\\D+")
+    private @NotNull String district;
+
+    @Size(min=1,max=15)
+    @Pattern(regexp="\\D+")
+    private @NotNull String subdistrict;
+
+    @Size(min=1,max=10)
+    private @NotNull String housenumber;
+
+    @Size(min=1,max=5)
+    @Pattern(regexp="\\d+")
+    private @NotNull String postcode;
+
+    @Size(min=1,max=100)
+    @Pattern(regexp="\\D+")
+    private @NotNull String patientdetail;
 
     private Date date;
 

@@ -5,6 +5,7 @@ import javax.persistence.*;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import lombok.*;
+import javax.validation.constraints.*;
 
 @Entity
 @Data
@@ -12,8 +13,8 @@ public class Doctor {
     @Id
     @GeneratedValue
     private Long id;
-
-    private String doctor;
+    private String doctorname;
+    private String doctorid;
     private String password;
 
     public Doctor(){}
@@ -24,20 +25,29 @@ public class Doctor {
     public Long getId(){
         return id;
     }
-    public Doctor(String doctor){
-        this.doctor = doctor;
+    public void setDoctorname(String doctorname){
+        this.doctorname = doctorname;
     }
-    public void setDoctor(String doctor){
-        this.doctor = doctor;
-    }
-    public String getDoctor(){
-        return doctor;
+    public String getDoctorname(){
+        return doctorname;
     }
     public void setPassword(String password){
         this.password = password;
     }
     public String getPassword(){
         return password;
+    }
+    public void setDoctorid(String doctorid){
+        this.doctorid = doctorid;
+    }
+    public String getDoctorid(){
+        return doctorid;
+    }
+    public void setDoctor(String doctorname){
+        this.doctorname = doctorname;
+    }
+    public String getDoctor(){
+        return doctorname;
     }
 }
 

@@ -36,11 +36,11 @@ public class RegisterController {
     @Autowired
     private DoctorRepository doctorRepository;
 
-    @GetMapping("/doctor/{doctorname}/{password}")
-    public boolean doctor(@PathVariable String doctorname ,@PathVariable String password){
-        Doctor doctor = doctorRepository.findByDoctor(doctorname);
+    @GetMapping("/doctor/{doctorid}/{password}")
+    public boolean doctor(@PathVariable String doctorid ,@PathVariable String password){
+        Doctor doctor = doctorRepository.findByDoctorid(doctorid);
         String x = doctor.getPassword();
-        System.out.println(doctorname);
+        System.out.println(doctorid);
         System.out.println(x + "=" + password);
         return x.matches(password);
     }

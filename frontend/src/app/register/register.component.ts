@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import { Router } from '@angular/router';
 import { RegisterController } from 'src/app/controller/register-controller';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 export interface Age {
 value: string;
@@ -60,9 +61,11 @@ export class RegisterComponent implements OnInit {
       .subscribe(
         data => {
            console.log('PUT Request is successful', data);
+           alert('บันทึกข้อมูล')
         },
         error => {
           console.log('Error', error);
+          alert('error ไม่สามารถบันทึกข้อมูลได้')
         }
        );
 
