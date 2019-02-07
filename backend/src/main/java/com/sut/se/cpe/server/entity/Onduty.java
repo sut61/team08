@@ -15,9 +15,11 @@ public class Onduty {
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="ONDUTY_seq")
     @Column(name = "IdOnduty")
 
-
     private @NonNull Long id;
     private Date ondutydate;
+    private String sign;
+    private String dailyreport;
+    private String brokenreport;
 
     public Onduty(){}
     public Onduty(Long id){}
@@ -27,6 +29,7 @@ public class Onduty {
 
     @ManyToOne
     private Doctor doctor;
+
     @ManyToOne(fetch = FetchType.LAZY, targetEntity = Patienttype.class)
     @JoinColumn(name = "IdLab")
     private Lab lab;
@@ -37,12 +40,11 @@ public class Onduty {
     public void setDoctor(Doctor doctor){this.doctor=doctor;}
     public Doctor getDoctor() { return doctor; }
 
-
-
-
-
-    public Onduty(Doctor doctor,Lab lab){
+    public Onduty(Doctor doctor,Lab lab,String sign,String dailyreport,String brokenreport){
         this.doctor = doctor;
         this.lab = lab;
+        this.sign = sign;
+        this.dailyreport = dailyreport;
+        this.brokenreport = brokenreport;
     }
 }
