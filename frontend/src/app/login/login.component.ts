@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
 import { HttpClient} from '@angular/common/http';
 @Component({
   selector: 'app-login',
@@ -28,7 +27,7 @@ export class LoginComponent implements OnInit {
           this.check = data;
           console.log('PUT Request is successful',data);
           if(this.check === true){
-            this.router.navigate(["register"]);
+            this.router.navigate(["mainpage"]);
           }
           else{
             alert('Username หรือ Password ไม่ถูกต้อง')
