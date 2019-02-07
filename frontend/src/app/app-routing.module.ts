@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent  },
   { path: 'mainpage', component: MainpageComponent },
   { path: 'onduty', component: OndutyComponent },
-  { path: '',redirectTo: '/mainpage',pathMatch: 'full'},
+  { path: '',redirectTo: '/login',pathMatch: 'full'},
 
 ];
 

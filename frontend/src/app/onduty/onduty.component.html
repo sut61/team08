@@ -1,3 +1,35 @@
-<p>
-  onduty works!
-</p>
+<h1>ระบบเข้าเวรแพทย์</h1>
+<mat-card>
+  <mat-form-field>
+   <mat-select [(ngModel)]="doctorSelect" placeholder ="Select Doctor" name="IdDoc">
+      <mat-option *ngFor="let doctor of docTor" [value]="doctor.id">
+        {{doctor.doctorname}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <mat-select [(ngModel)]="labSelect" placeholder ="Select Lab id" name="IdLab">
+      <mat-option *ngFor="let lab of labId" [value]="lab.id">
+       {{lab.labid}}
+      </mat-option>
+   </mat-select>
+  </mat-form-field>
+  <br>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Daily Report" [(ngModel)]="dailyreport">
+  </mat-form-field>
+  <br>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Sign" [(ngModel)]="sign">
+  </mat-form-field>
+  <br>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Broken Report" [(ngModel)]="brokenreport">
+  </mat-form-field>
+  <br>
+  <mat-card-actions>
+    <button class="click" mat-raised-button (click)="saveonduty()">Accept</button>
+    <button mat-flat-button routerLink="/mainpage" >ยกเลิก</button>
+  </mat-card-actions>
+</mat-card>
