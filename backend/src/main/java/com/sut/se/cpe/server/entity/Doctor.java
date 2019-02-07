@@ -13,7 +13,9 @@ public class Doctor {
     @Id
     @GeneratedValue
     private Long id;
-    private String doctorname;
+    @Size(min=1,max=30)
+    @Pattern(regexp="\\D+")
+    private @NotNull String doctorname;
     private String doctorid;
     private String password;
 
@@ -43,11 +45,11 @@ public class Doctor {
     public String getDoctorid(){
         return doctorid;
     }
-    public void setDoctor(String doctorname){
-        this.doctorname = doctorname;
+    public void setDoctor(Long id){
+        this.id = id;
     }
-    public String getDoctor(){
-        return doctorname;
+    public Long getDoctor(){
+        return id;
     }
 }
 

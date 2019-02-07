@@ -16,9 +16,6 @@ public class Lab {
     @Column(name = "IdLab")
     private @NonNull Long id;
 
-    @Size(min=2,max=5)
-    @Pattern(regexp="\\d+")
-    @Column(unique = true)
     private @NotNull String labid;
     private @NotNull String labaddress;
 
