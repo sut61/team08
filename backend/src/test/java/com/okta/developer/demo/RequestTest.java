@@ -11,12 +11,11 @@ import org.springframework.test.context.junit4.SpringRunner;
 import com.sut.se.cpe.server.entity.*;
 import com.sut.se.cpe.server.repository.*;
 
+
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
