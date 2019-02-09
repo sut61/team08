@@ -10,6 +10,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { HomemainComponent } from './components/homemain/homemain.component';
 import { LogingComponent } from './components/loging/loging.component';
+import { SuggestionComponent } from './components/suggestion/suggestion.component';
 
 const routes: Routes = [
   { path: '',redirectTo: '/homemain',pathMatch: 'full'},
@@ -21,7 +22,8 @@ const routes: Routes = [
   {path: 'loging', component: LogingComponent},
   {path: 'home', component: HomeComponent},
   {path: 'homemain', component: HomemainComponent},
-  {path: 'workSchedule-register', component: WorkScheduleRegComponent}
+  {path: 'workSchedule-register', component: WorkScheduleRegComponent},
+  {path: 'suggestion', component: SuggestionComponent}
 
 ];
 
