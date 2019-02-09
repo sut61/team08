@@ -1,4 +1,4 @@
-package com.example.demo.entity;
+package com.sut.se.cpe.server.entity;
 import lombok.*;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
