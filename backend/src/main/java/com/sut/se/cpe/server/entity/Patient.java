@@ -8,12 +8,12 @@ import javax.validation.constraints.*;
 
 @Data
 @Entity
-@Table(name="Register")
+@Table(name="Patient")
 @Getter @Setter
 
 @ToString
 @EqualsAndHashCode
-public class Register {
+public class Patient {
     @Id
     @SequenceGenerator(name="REG_seq",sequenceName="REG_seq")
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="REG_seq")
@@ -58,7 +58,7 @@ public class Register {
         this.date = date;
     }
 
-    public Register(){}
+    public Patient(){}
 
     public Long getId() {
         return id;
@@ -85,7 +85,7 @@ public class Register {
     public void setSex(Sex sex){this.sex=sex;}
     public Sex getSex() { return sex; }
 
-    public Register(Patienttype patienttype,Province province,Date date,Sex sex,String firstname,String lastname,int age,String birthday,String district,String subdistrict,String housenumber,String postcode,String patientdetail) {
+    public Patient(Patienttype patienttype,Province province,Date date,Sex sex,String firstname,String lastname,int age,String birthday,String district,String subdistrict,String housenumber,String postcode,String patientdetail) {
         this.patienttype=patienttype;
         this.province=province;
         this.date=date;

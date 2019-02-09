@@ -16,7 +16,11 @@ public class Lab {
     @Column(name = "IdLab")
     private @NonNull Long id;
 
+    @Size(min=2,max=10)
+    @Pattern(regexp="\\d+")
+    @Column(unique = true)
     private @NotNull String labid;
+    @Size(min=0,max=255)
     private @NotNull String labaddress;
 
     public Lab(){}

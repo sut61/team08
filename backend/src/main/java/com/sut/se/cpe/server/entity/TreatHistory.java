@@ -26,7 +26,7 @@ public class TreatHistory{
     @ManyToOne
     private Doctor doctor;
     @ManyToOne
-    private Register register;
+    private Patient patient;
     @ManyToOne
     private Medicine medicine;
 
@@ -39,12 +39,12 @@ public class TreatHistory{
         return id;
     }
 
-    public TreatHistory(Register register, Integer pressure, Integer weight, String symptom, Date date, Medicine medicine, Doctor doctor){
+    public TreatHistory(Patient patient, Integer pressure, Integer weight, String symptom, Date date, Medicine medicine, Doctor doctor){
         this.pressure = pressure;
         this.weight = weight;
         this.symptom = symptom;
         this.doctor = doctor;
-        this.register = register;
+        this.patient = patient;
         this.medicine = medicine;
         this.date = date;
     }
@@ -68,11 +68,11 @@ public class TreatHistory{
     public Doctor getDoctorname(){
         return doctor;
     }
-    public void setRegister(Register register){
-        this.register = register;
+    public void setPatient(Patient patient){
+        this.patient = patient;
     }
-    public Register getRegister(){
-        return register;
+    public Patient getPatient(){
+        return patient;
     }
     public void setMedicine(Medicine medicine){
         this.medicine = medicine;

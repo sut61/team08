@@ -19,13 +19,23 @@ public class ServerApplication {
 	DoctorRepository doctorRepository;
 	@Autowired
 	MedicineRepository medicineRepository;
+	@Autowired
+	ApproverRepository approverRepository;
+	@Autowired
+	DepartmentRepository departmentRepository;
+	@Autowired
+	RequestFormRepository requestformRepository;
+	@Autowired
+	SurrogateRepository surrogateRepository;
+	@Autowired
+	ToolRepository toolRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(ServerApplication.class, args);
 	}
 	@Bean
-	ApplicationRunner init(RegisterRepository registerrepository, ProvinceRepository provincerepository, PatienttypeRepository patienttyperepository, SexRepository sexrepository,
-	TreatHistoryRepository treatHistoryRepository, DoctorRepository doctorRepository, MedicineRepository medicineRepository	,LabRepository labRepository) {
+	ApplicationRunner init(PatientRepository patientRepository, ProvinceRepository provincerepository, PatienttypeRepository patienttyperepository, SexRepository sexrepository,
+	TreatHistoryRepository treatHistoryRepository, DoctorRepository doctorRepository, MedicineRepository medicineRepository	,LabRepository labRepository,ApproverRepository approverRepository, DepartmentRepository departmentRepository,RequestFormRepository requestformRepository,SurrogateRepository surrogateRepository, ToolRepository toolRepository) {
 		return args -> {
 			//set Patient type
 			Patienttype pat1 = new Patienttype();
@@ -96,6 +106,41 @@ public class ServerApplication {
 			lab1.setLabid("112");
 			lab1.setLabaddress("main building 2 floor");
 			labRepository.save(lab1);
+
+			//set surrogent
+			Surrogate sg1 = new Surrogate();
+			Surrogate sg2 = new Surrogate();
+			sg1.setSurrogate("พยาบาล");
+			sg2.setSurrogate("ผู้ช่วยพยาบาล");
+			surrogateRepository.save(sg1);
+			surrogateRepository.save(sg2);
+
+			//set approver
+			Approver app1 = new Approver();
+			app1.setApprover("นายญาติ");
+			approverRepository.save(app1);
+
+			//set department
+			Department dep1 = new Department();
+			Department dep2 = new Department();
+			Department dep3 = new Department();
+			dep1.setDepartment("แผนกอยุรกรรม");
+			dep2.setDepartment("แผนกสูตินารีแพทย์");
+			dep3.setDepartment("แผนกอยุรแแพทย์ทั่วไป");
+			departmentRepository.save(dep1);
+			departmentRepository.save(dep2);
+			departmentRepository.save(dep3);
+
+			//set tool
+			Tool t1 = new Tool();
+			Tool t2 = new Tool();
+			Tool t3 = new Tool();
+			t1.setTool("กระดาษ(รีม)");
+			t2.setTool("หมึกเครื่องปริ้น(ขวด)");
+			t3.setTool("ปากกา(โหล)");
+			toolRepository.save(t1);
+			toolRepository.save(t2);
+			toolRepository.save(t3);
 		};
 	}
 }

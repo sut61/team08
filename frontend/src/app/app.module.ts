@@ -15,6 +15,7 @@ import { LoginComponent } from './login/login.component';
 import { MatDialogModule} from '@angular/material/dialog';
 import { MainpageComponent } from './mainpage/mainpage.component';
 import { OndutyComponent } from './onduty/onduty.component';
+import { RequestComponent } from './request/request.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { OndutyComponent } from './onduty/onduty.component';
     RegisterComponent,
     LoginComponent,
     MainpageComponent,
-    OndutyComponent
+    OndutyComponent,
+    RequestComponent
   ],
   imports: [
     BrowserModule,
