@@ -1,4 +1,4 @@
-import { ControllerService } from './../controller/controller.service';
+import { RequestformController } from './../controller/requestform-controller';
 import { Component, OnInit } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -27,26 +27,26 @@ export class RequestComponent implements OnInit {
 
 
 
-  constructor(private controllerService: ControllerService, private httpClient: HttpClient) { }
+  constructor(private requestformController: RequestformController, private httpClient: HttpClient) { }
 
   ngOnInit() {
-    this.controllerService.getDepartment().subscribe(data => {
+    this.requestformController.getDepartment().subscribe(data => {
       this.department = data;
       console.log(this.department);
     });
-    this.controllerService.getApprover().subscribe(data => {
+    this.requestformController.getApprover().subscribe(data => {
       this.approver = data;
       console.log(this.approver);
     });
-    this.controllerService.getDoctor().subscribe(data => {
+    this.requestformController.getDoctor().subscribe(data => {
       this.doctor = data;
       console.log(this.doctor);
     });
-    this.controllerService.getSurrogate().subscribe(data => {
+    this.requestformController.getSurrogate().subscribe(data => {
       this.surrogate = data;
       console.log(this.surrogate);
     });
-    this.controllerService.getTool().subscribe(data => {
+    this.requestformController.getTool().subscribe(data => {
       this.tool = data;
       console.log(this.tool);
     });
