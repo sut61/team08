@@ -1,4 +1,4 @@
-package com.okta.developer.demo;
+package com.sut.se.cpe.server;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -53,10 +53,6 @@ public class RequestTest {
         validator = factory.getValidator();
     }
 
-    @Test
-    public void contextLoads() {
-        System.out.println("Test Successful");
-    }
     @Test
     public void testSuccess() {
         RequestForm rq = new RequestForm();
