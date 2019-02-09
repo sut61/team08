@@ -51,6 +51,10 @@ public class ServerApplication {
 						StaffPositionRepository staffPositionRepository,
 						StaffRepository staffRepository,
 						WorkScheduleRepository workScheduleRepository,
+						HealthProgramRepository healthProgramRepository,
+						RequestSuggestionRepository requestSuggestionRepository,
+						PersonnelRepository personnelRepository,
+						SuggestionRepository suggestionRepository,
 						UserRepository userRepository) {
 		
 		return args -> {
@@ -175,6 +179,38 @@ public class ServerApplication {
 					staffPositionRepository.save(staffPosition);
 				});
 
+				// For HealthProgram
+				Stream.of("ตรวจหาความสมบรูณ์ของเม็ดเลือด(C.B.C.)").forEach(program -> {
+					HealthProgram healthProgram = new HealthProgram();
+					healthProgram.setProgramName(program);
+					healthProgram.setPrice("250-");
+					healthProgramRepository.save(healthProgram);
+				});
+
+				Stream.of("เอ็กซเรย์ปอด(Chest X-ray)", "ตรวจโรคติดต่อ").forEach(program -> {
+					HealthProgram healthProgram1 = new HealthProgram();
+					healthProgram1.setProgramName(program);
+					healthProgram1.setPrice("500-");
+					healthProgramRepository.save(healthProgram1);
+				});
+
+				// For Question
+				Stream.of("ผมสงสัยเกี่ยวกับการตรวจเม็ดเลือดครับว่าต้อง  เตรียมตัวยังไงราคาเท่าไหร่ครับ").forEach(request -> {
+					RequestSuggestion requestSuggestion1 = new RequestSuggestion();
+					requestSuggestion1.setQuestion(request);
+					requestSuggestion1.setUserRequestName("Tongchai Jaidee");
+					requestSuggestion1.setEmail("tongchai@gmail.com");
+					requestSuggestionRepository.save(requestSuggestion1);
+				});
+
+				Stream.of("ขอราคาการตรวจโรคติดต่อหน่อยค่ะ").forEach(request -> {
+					RequestSuggestion requestSuggestion2 = new RequestSuggestion();
+					requestSuggestion2.setQuestion(request);
+					requestSuggestion2.setUserRequestName("Manee Jairai");
+					requestSuggestion2.setEmail("manee@gmail.com");
+					requestSuggestionRepository.save(requestSuggestion2);
+				});
+				
 				// For User Login
 				Stream.of("staff", "cpe").forEach(username ->{
 
