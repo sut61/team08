@@ -1,0 +1,17 @@
+.header{
+    font-size: 30;
+    color: white;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-color: #4169E1;
+    padding: 15px;
+    text-align: center
+}
+.card {
+  width: 50%;
+  margin: 15px;
+  padding: 0;
+  height: 100%;
+  border-radius: 15px;
+  text-align: center;
+}
