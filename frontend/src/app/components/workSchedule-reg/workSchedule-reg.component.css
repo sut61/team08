@@ -1,0 +1,171 @@
+.card {
+    width: 90%;
+    margin: 15px;
+    padding: 0;
+    height: 100%;
+    border-radius: 15px;
+    background-color: lightgray;
+}
+.header{
+    font-size: 20;
+    color: white;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-color: #4169E1;
+    padding: 15px;
+}
+.headertable{
+    font-size: 15px;
+    text-align: center;
+    color: gray;
+    padding: 15px;
+}
+.datatable{
+    text-align: center;
+}
+.title-lists{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    opacity: 10%;
+    color: black;
+}
+.form-pick {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+  }
+.group-sub-card{
+    margin: auto;
+    padding: 15px;
+}
+.group-sub-card2{
+    width: 90%;
+    margin: auto;
+    padding: 15px;
+}
+.content, .content-sub2{
+    margin: 10px;
+}
+.card-form-sub1{
+    padding: 0;
+    width: 70%;
+    height: 80vh;
+    margin-bottom: 15px;
+    border-radius: 15px;
+}
+.name-input,.day, .select-lab{
+    width: 80%;
+    margin-bottom: 2px;
+}
+.select-date{
+    width: 100%;
+    margin-bottom: 3px;
+}
+.select-staffPosition{
+    width: 40%;
+    margin-bottom: 3px;
+}
+.select-lab{
+    display: flex;
+    flex-direction: column;
+}
+.lab-list{
+    margin-bottom: 15px;
+}
+.button-submit{
+    margin-top: 10px;
+}
+.button1{
+    text-align: center;
+}
+.button-can{
+    color:white;
+    background-color: salmon;
+}
+.button-submit > button{
+    width: 45%;
+    height: 50px;
+    font-size: 20px;
+}
+table {
+    width: 100%;
+}
+.mat-radio-button{
+    display: inline;
+    margin-right: 15px;
+}
+
+@media(min-width:80%){
+    .card {
+        width: 90%;
+        margin: 10px;
+        padding: 0;
+        height: 85vh;
+        border-radius: 15px;
+        background-color: lightgray;
+    }
+    .header{
+        font-size: 20;
+        color: white;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        background-color: #4169E1;
+        padding: 15px;
+    }
+    .headertable{
+    font-size: 15px;
+    text-align: center;
+    color: gray;
+    padding: 15px;
+    }
+    .datatable{
+    text-align: center;
+    }
+    .content, .content-sub2{
+        margin: 10px;
+    }
+    .group-sub-card{
+        display: flex;
+    }
+    .group-sub-card2{
+        width: 90%;
+        margin: auto;
+        padding:15px;
+        display: flex;
+    }
+    .card-form-sub1{
+        padding: 0;
+        margin: 15px;
+        width: 70%;
+        height: 70vh;
+        border-radius: 15px;
+    }
+    .name-input,.day, .select-lab{
+        width: 80%;
+        margin-bottom: 2px;
+    }
+    .select-date{
+    width: 100%;
+    margin-bottom: 3px;
+    }
+    .select-staffPosition{
+    width: 40%;
+    margin-bottom: 3px;
+    }
+    .select-lab{
+        display: flex;
+        flex-direction: column;
+    }
+    .lab-list{
+        margin-bottom: 10px;
+    }
+    .button-submit > button{
+        width: 45%;
+        height: 50px;
+        font-size: 20px;
+    }
+    table {
+        width: 100%;
+    }
+}
