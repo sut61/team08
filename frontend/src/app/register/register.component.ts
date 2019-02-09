@@ -57,7 +57,7 @@ export class RegisterComponent implements OnInit {
   }
 
   save() {
-      this.httpClient.post('http://localhost:8080/patient/' + this.provinceSelect + '/' + this.sexSelect + '/' + this.patienttypeSelect + '/' + this.firstNameEnter + '/' + this.lastNameEnter + '/' + this.years + '/' + this.birthDay + '/' + this.district + '/' + this.subdistrict + '/' + this.housenumber + '/' + this.postcode + '/' + this.patientdetail,{})
+      this.httpClient.post('http://localhost:8080/Patient/' + this.provinceSelect + '/' + this.sexSelect + '/' + this.patienttypeSelect + '/' + this.firstNameEnter + '/' + this.lastNameEnter + '/' + this.years + '/' + this.birthDay + '/' + this.district + '/' + this.subdistrict + '/' + this.housenumber + '/' + this.postcode + '/' + this.patientdetail,{})
       .subscribe(
         data => {
            console.log('PUT Request is successful', data);
