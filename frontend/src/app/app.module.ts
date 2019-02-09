@@ -39,6 +39,8 @@ import { HomeComponent } from './components/home/home.component';
 import { HomemainComponent } from './components/homemain/homemain.component';
 import { WorkScheduleRegComponent } from './components/workSchedule-reg/workSchedule-reg.component';
 import { WorkScheduleRegService } from './shared/workSchedule-reg/workSchedule-reg.service';
+import { SuggestionComponent } from './components/suggestion/suggestion.component';
+import { SuggestionService } from './shared/suggestion/suggestion.service';
 
 
 @NgModule({
@@ -53,7 +55,8 @@ import { WorkScheduleRegService } from './shared/workSchedule-reg/workSchedule-r
     NavbarComponent,
     HomeComponent,
     HomemainComponent,
-    WorkScheduleRegComponent
+    WorkScheduleRegComponent,
+    SuggestionComponent
   ],
   imports: [
     HttpModule,
@@ -80,7 +83,8 @@ import { WorkScheduleRegService } from './shared/workSchedule-reg/workSchedule-r
   ],
   providers: [ 
       LogingService,
-      WorkScheduleRegService
+      WorkScheduleRegService,
+      SuggestionService
   ],
   bootstrap: [AppComponent]
 })
