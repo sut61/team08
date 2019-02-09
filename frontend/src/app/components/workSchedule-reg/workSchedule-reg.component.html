@@ -1,0 +1,151 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <mat-card class="card">
+    <mat-card-header class="header">
+      เลือกเวรประจำห้องแลป
+    </mat-card-header>
+    <div class="group-sub-card">
+    
+      <mat-card>
+      <fieldset>    
+          <legend style="color:grey; size:30px; margin-bottom:10px"><b>กรอกข้อมูลเลือกเวรประจำห้องแลป</b></legend>
+        
+        <mat-card-content class="content">
+          <form #regisForm="ngForm" (ngSubmit)="register()">
+            <div class="example-container">
+
+              <mat-form-field appearance="outline" class="name-input">
+                <mat-label>ชื่อ - นามสกุล</mat-label>
+                <input matInput placeholder="ชื่อ - นามสกุล" [(ngModel)]="staff.staffName" name="staffName">
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" class="name-input">
+                <mat-label>เลขประจำตัวเจ้าหน้าที่</mat-label>
+                <input matInput placeholder="เลขประจำตัวเจ้าหน้าที่" [(ngModel)]="staff.labStaffId" name="labStaffId">
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" class="name-input">
+                <mat-label>เบอร์โทรศัพท์</mat-label>
+                <input matInput placeholder="เบอร์โทรศัพท์" [(ngModel)]="staff.tel" name="tel">
+              </mat-form-field>              
+
+              <br><div class="title-lists">
+              <b>  เลือกหน้าที่ : </b>
+              </div>
+              <mat-form-field class="select-staffPosition">
+                <mat-select placeholder="เลือกหน้าที่" name="staffPosition" [(ngModel)]="staffPositionSelected" required>
+                  <mat-option *ngFor="let staffPosition of staffPositions" [value]="staffPosition">
+                    {{staffPosition.staffPositName}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <br><div class="title-lists">
+              <b>  เลือกวันทำงาน : </b>
+              </div>
+              <div class="day">
+                <mat-radio-group name="dayWork" [(ngModel)]="staff.dayWork" required>
+                  <mat-radio-button *ngFor="let dayWork of dayWorks" [value]="dayWork">
+                    {{dayWork}}
+                  </mat-radio-button>
+                </mat-radio-group>
+              </div>
+
+              <br><div class="title-lists">
+              <b>  เลือกเวลาทำงาน : </b>
+              </div>
+              <mat-form-field class="time">
+                <mat-select placeholder="เลือกเวลาทำงาน" name="workTime" [(ngModel)]="staff.workTime" required>
+                  <mat-option *ngFor="let workTime of workTimes" [value]="workTime">
+                    {{workTime}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <br><div class="title-lists">
+              <b>  เลือกห้องแลปตรวจ : </b>
+              </div>
+              <section class="select-lab">
+                <mat-checkbox class="lab-list"
+                  *ngFor="let lab of labs; let i = index" 
+                  (change)="selected($event, lab)">
+                  {{lab.sname}}
+                </mat-checkbox>
+              </section>
+
+            </div>
+            <div class="button1">
+              &nbsp; &nbsp;
+              <button mat-flat-button color="warn" class="button-submit" id="reg" [disabled]="regisForm.invalid || checkSelected == false">
+                บันทึก
+              </button>
+              &nbsp;
+              <button mat-raised-button type="reset" class="button-can">ยกเลิก</button>
+
+            </div>
+          </form>
+        </mat-card-content>
+      </fieldset>
+      </mat-card>
+    </div>
+
+    <mat-card-header class="header">
+      เวรประจำห้องแลป
+    </mat-card-header>
+
+    <div class="group-sub-card2">
+    <mat-card>
+      <fieldset>    
+      <legend style="color:grey; size:30px; margin-bottom:10px"><b>ตารางเวลาเวรประจำห้องแลป</b></legend>
+
+    <mat-card-content class="content-sub2">
+      <table mat-table [dataSource]="workSchedules" border="1">
+  
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef class="headertable"> ชื่อ - นามสกุล </th>
+          <td mat-cell *matCellDef="let element" class="datatable"> {{element.staff.staffName}} </td>
+        </ng-container>
+        
+        <ng-container matColumnDef="labStaffID">
+          <th mat-header-cell *matHeaderCellDef class="headertable"> เลขประจำตัวเจ้าหน้าที่ </th>
+          <td mat-cell *matCellDef="let element" class="datatable"> {{element.staff.labStaffId}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="telNumber">
+          <th mat-header-cell *matHeaderCellDef class="headertable"> เบอร์โทรศัพท์ </th>
+          <td mat-cell *matCellDef="let element" class="datatable"> {{element.staff.tel}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="dayWork">
+          <th mat-header-cell *matHeaderCellDef class="headertable"> วันทำงาน </th>
+          <td mat-cell *matCellDef="let element" class="datatable"> {{element.staff.dayWork}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="workTime">
+          <th mat-header-cell *matHeaderCellDef class="headertable"> เวลาทำงาน </th>
+          <td mat-cell *matCellDef="let element" class="datatable"> {{element.staff.workTime}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="staffPosition">
+          <th mat-header-cell *matHeaderCellDef class="headertable"> ทำหน้าที่ </th>
+          <td mat-cell *matCellDef="let element" class="datatable"> {{element.staffPosition.staffPositName}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="lab">
+          <th mat-header-cell *matHeaderCellDef class="headertable"> ห้องแลปตรวจ </th>
+          <td mat-cell *matCellDef="let element" class="datatable"> {{element.healthLab.sname}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="uiTable"></tr>
+        <tr mat-row *matRowDef="let row; columns: uiTable;"></tr>
+      </table>
+    </mat-card-content>
+    
+    <br>
+
+    </fieldset>
+  </mat-card>
+</div>
+
+</mat-card>
+</div>

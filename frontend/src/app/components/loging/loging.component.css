@@ -1,0 +1,44 @@
+.card{
+    width: 100%;
+    text-align: center;
+    background-color: salmon;
+}
+.card-loging{
+    width: 50%;
+    text-align: center;
+    margin-left: 22%;
+}
+.h1{
+    text-align: center;
+    font-color: white;
+}
+.h2{
+    text-align: center;
+}
+.content{
+    width: 93%;
+    text-align: center;
+}
+@media(min-width: 800px){
+    .card{
+    width: 100%;
+    text-align: center;
+    background-color: salmon;
+    }
+    .card-loging{
+    width: 50%;
+    text-align: center;
+    margin-left: 22%;
+    }
+    .h1{
+    text-align: center;
+    font-color: white;
+    }
+    .h2{
+    text-align: center;
+    }
+    .content{
+    width: 93%;
+    text-align: center;
+    }
+}

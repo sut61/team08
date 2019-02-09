@@ -1,0 +1,38 @@
+.card{
+    width: 100%;
+    text-align: center;
+    background-color: salmon;
+}
+.card-loging{
+    width: 35%;
+    text-align: center;
+    margin-left: 30%;
+}
+.content{
+    width: 93%;
+    text-align: center;
+}
+.button{
+    width:50%;
+    margin:auto;
+}
+@media(min-width: 800px){
+    .card{
+    width: 100%;
+    text-align: center;
+    background-color: salmon;
+    }
+    .card-loging{
+    width: 35%;
+    text-align: center;
+    margin-left: 30%;
+    }
+    .content{
+    width: 93%;
+    text-align: center;
+    }
+.button{
+    width:50%;
+    margin:auto;
+}
+}
