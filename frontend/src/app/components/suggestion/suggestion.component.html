@@ -1,0 +1,139 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <mat-card class="card">
+    <mat-card-header class="header">
+      ให้คำปรึกษาและเเจ้งข่าวสาร
+    </mat-card-header>
+    <div class="group-sub-card">
+    
+      <mat-card>
+      <fieldset>    
+          <legend style="color:grey; size:30px; margin-bottom:10px"><b>กรอกข้อมูลให้คำปรึกษาและเเจ้งข่าวสาร</b></legend>
+        <form #guidedForm="ngForm" (ngSubmit)="direction()">
+          <mat-card-content class="content">
+          
+            <div class="example-container">
+
+              <mat-form-field appearance="outline" class="name-input">
+                <mat-label>ชื่อ - นามสกุล</mat-label>
+                <input matInput placeholder="ชื่อ - นามสกุล" [(ngModel)]="personnel.personnelName" name="personnelName" >
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" class="name-input">
+                <mat-label>เลขประจำตัวเจ้าหน้าที่</mat-label>
+                <input matInput placeholder="เลขประจำตัวเจ้าหน้าที่" [(ngModel)]="personnel.labPersonnelId" name="labPersonnelId">
+              </mat-form-field>
+
+              <br><div class="title-lists">
+              <b>  ปัญหาข้อสงสัย : </b>
+              </div>
+              <mat-form-field class="select-staffPosition">
+                <mat-select placeholder="เลือกปัญหาข้อสงสัย" name="request" [(ngModel)]="requestSelected" required>
+                  <mat-option *ngFor="let request of requests" [value]="request">
+                    {{request.question}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              
+              <br><div class="title-lists">
+              <b>  กรอกคำแนะนำ : </b>
+              </div>
+              <mat-form-field appearance="outline" class="name-input">
+                <mat-label>กรอกคำแนะนำ</mat-label>
+                <textarea matInput placeholder="คำแนะนำ" [(ngModel)]="personnel.guidanced" name="personnel" cols="10" rows="10"></textarea>
+              </mat-form-field> 
+
+              <br><div class="title-lists">
+              <b>  เลือกข่าวสารกิจกรรม : </b>
+              </div>
+              <mat-form-field class="select-staffPosition">
+                <mat-select placeholder="เลือกข่าวสารกิจกรรม" name="infoActivities" [(ngModel)]="personnel.infoActivities" required>
+                  <mat-option *ngFor="let infoActivities of infoActivitiess" [value]="infoActivities">
+                    {{infoActivities}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <br><div class="title-lists">
+              <b>  เลือกโปรแกรมตรวจสุขภาพ : </b>
+              </div>
+              <section class="select-lab">
+                <mat-checkbox class="lab-list"
+                  *ngFor="let program of programs; let i = index" 
+                  (change)="selected($event, program)">
+                  {{program.programName}}
+                </mat-checkbox>
+              </section>
+
+            </div>
+
+          
+        </mat-card-content>
+        <div class="button1">
+              &nbsp; &nbsp;
+              <button mat-flat-button color="warn" class="button-submit" id="reg" [disabled]="guidedForm.invalid || checkSelected == false">
+                บันทึก
+              </button>
+              &nbsp;
+              <button mat-raised-button type="reset" class="button-can">ยกเลิก</button>
+        </div>
+        </form>
+      </fieldset>
+      </mat-card>
+    </div>
+
+    <mat-card-header class="header">
+      คำปรึกษาและข่าวสาร
+    </mat-card-header>
+
+    <div class="group-sub-card2">
+    <mat-card>
+      <fieldset>    
+      <legend style="color:grey; size:30px; margin-bottom:10px"><b>ตารางบันทึกคำปรึกษาและเเจ้งข่าวสาร</b></legend>
+
+    <mat-card-content class="content-sub2">
+      <table mat-table [dataSource]="suggestions" border="1">
+  
+        <ng-container matColumnDef="userRequestName">
+          <th mat-header-cell *matHeaderCellDef class="headertable"> ชื่อ </th>
+          <td mat-cell *matCellDef="let element" class="datatable"> {{element.requestSuggestion.userRequestName}} </td>
+        </ng-container>
+        
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef class="headertable"> email </th>
+          <td mat-cell *matCellDef="let element" class="datatable"> {{element.requestSuggestion.email}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="infoActivities">
+          <th mat-header-cell *matHeaderCellDef class="headertable"> ข่าวสารและกิจกรรม </th>
+          <td mat-cell *matCellDef="let element" class="datatable"> {{element.personnel.infoActivities}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="request">
+          <th mat-header-cell *matHeaderCellDef class="headertable"> ปัญหาข้อสงสัย </th>
+          <td mat-cell *matCellDef="let element" class="datatable"> {{element.requestSuggestion.question}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="guidanced">
+          <th mat-header-cell *matHeaderCellDef class="headertable"> คำแนะนำ </th>
+          <td mat-cell *matCellDef="let element" class="datatable"> {{element.personnel.guidanced}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="program">
+          <th mat-header-cell *matHeaderCellDef class="headertable"> โปรแกรมตรวจสุขภาพ </th>
+          <td mat-cell *matCellDef="let element" class="datatable"> {{element.healthProgram.programName}} : ราคา{{element.healthProgram.price}}</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="uiTable"></tr>
+        <tr mat-row *matRowDef="let row; columns: uiTable;"></tr>
+      </table>
+    </mat-card-content>
+    
+    <br>
+
+    </fieldset>
+  </mat-card>
+</div>
+
+</mat-card>
+</div>
