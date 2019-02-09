@@ -34,8 +34,25 @@ public class ServerApplication {
 		SpringApplication.run(ServerApplication.class, args);
 	}
 	@Bean
-	ApplicationRunner init(PatientRepository patientRepository, ProvinceRepository provincerepository, PatienttypeRepository patienttyperepository, SexRepository sexrepository,
-	TreatHistoryRepository treatHistoryRepository, DoctorRepository doctorRepository, MedicineRepository medicineRepository	,LabRepository labRepository,ApproverRepository approverRepository, DepartmentRepository departmentRepository,RequestFormRepository requestformRepository,SurrogateRepository surrogateRepository, ToolRepository toolRepository) {
+	ApplicationRunner init(PatientRepository patientRepository,
+						ProvinceRepository provincerepository, 
+						PatienttypeRepository patienttyperepository, 
+						SexRepository sexrepository,
+						TreatHistoryRepository treatHistoryRepository, 
+						DoctorRepository doctorRepository, 
+						MedicineRepository medicineRepository,
+						LabRepository labRepository,
+						ApproverRepository approverRepository, 
+						DepartmentRepository departmentRepository,
+						RequestFormRepository requestformRepository,
+						SurrogateRepository surrogateRepository, 
+						ToolRepository toolRepository,
+						HealthLabRepository healthLabRepository,
+						StaffPositionRepository staffPositionRepository,
+						StaffRepository staffRepository,
+						WorkScheduleRepository workScheduleRepository,
+						UserRepository userRepository) {
+		
 		return args -> {
 			//set Patient type
 			Patienttype pat1 = new Patienttype();
@@ -141,6 +158,38 @@ public class ServerApplication {
 			toolRepository.save(t1);
 			toolRepository.save(t2);
 			toolRepository.save(t3);
+
+
+				// For Registration
+				Stream.of("ตรวจร่างกาย/สุขภาพทั่วไป", "ตรวจเลือด", "ตรวจโรคติดต่อ", "จักษุ/ทันตกรรม", "X-ray/Untrasound").forEach(lab -> {
+
+					HealthLab healthLab = new HealthLab();
+					healthLab.setSName(lab);
+					healthLabRepository.save(healthLab);
+				});
+
+				// For Staff set Staff
+				Stream.of("บันทึกผลการตรวจ", "ประจำอุปกรณ์เครื่องตรวจ", "เก็บตัวอย่าง(เลือด,ปัสสะวะ,ฯลฯ)", "ผู้ช่วยแพทย์", "ติดต่อประสานงาน").forEach(name -> {
+					StaffPosition staffPosition = new StaffPosition();
+					staffPosition.setStaffPositName(name);
+					staffPositionRepository.save(staffPosition);
+				});
+
+				// For User Login
+				Stream.of("staff", "cpe").forEach(username ->{
+
+					if(username == "staff"){
+						User user = new User();
+						user.setUsername(username);
+						user.setPasswordd("123456");
+						userRepository.save(user);
+					}else{
+						User user = new User();
+						user.setUsername(username);
+						user.setPasswordd("111111");
+						userRepository.save(user);
+					}
+				});
 		};
 	}
 }
