@@ -1,18 +1,18 @@
 package com.sut.se.cpe.server.controller;
 
 
-import com.example.demo.entity.Approver;
-import com.example.demo.entity.Department;
-import com.example.demo.entity.Doctor;
-import com.example.demo.entity.Surrogate;
-import com.example.demo.entity.Tool;
-import com.example.demo.entity.RequestForm;
-import com.example.demo.repository.ApproverRepository;
-import com.example.demo.repository.DepartmentRepository;
-import com.example.demo.repository.DoctorRepository;
-import com.example.demo.repository.RequestFormRepository;
-import com.example.demo.repository.SurrogateRepository;
-import com.example.demo.repository.ToolRepository;
+import com.sut.se.cpe.server.entity.Approver;
+import com.sut.se.cpe.server.entity.Department;
+import com.sut.se.cpe.server.entity.Doctor;
+import com.sut.se.cpe.server.entity.Surrogate;
+import com.sut.se.cpe.server.entity.Tool;
+import com.sut.se.cpe.server.entity.RequestForm;
+import com.sut.se.cpe.server.repository.ApproverRepository;
+import com.sut.se.cpe.server.repository.DepartmentRepository;
+import com.sut.se.cpe.server.repository.DoctorRepository;
+import com.sut.se.cpe.server.repository.RequestFormRepository;
+import com.sut.se.cpe.server.repository.SurrogateRepository;
+import com.sut.se.cpe.server.repository.ToolRepository;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.*;
@@ -40,7 +40,7 @@ public class RequestFormController{
     private RequestFormRepository requestformRepository;
     @Autowired
     private SurrogateRepository surrogateRepository;
-    @Autowired 
+    @Autowired
     private ToolRepository toolRepository;
 
     @GetMapping(path = "/approver")
@@ -74,7 +74,7 @@ public class RequestFormController{
 
     @PostMapping(path = "/requestform/{department}/{tool}/{amount}/{date}/{objective}/{surrogate}/{sgname}/{doctor}/{approver}")
     public RequestForm requestform(@PathVariable Long approver, @PathVariable Long department, @PathVariable Long doctor,@PathVariable Long surrogate,
-                             @PathVariable Long tool, @PathVariable Date date, @PathVariable Integer amount, @PathVariable String objective, @PathVariable String sgname ) {
+                                   @PathVariable Long tool, @PathVariable Date date, @PathVariable Integer amount, @PathVariable String objective, @PathVariable String sgname ) {
         RequestForm rf = new RequestForm();
         rf.setDate(date);
         rf.setAmount(amount);
@@ -93,9 +93,9 @@ public class RequestFormController{
         requestformRepository.save(rf);
         return rf;
     }
-    
-    
-    
+
+
+
 
 
 

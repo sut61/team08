@@ -40,11 +40,12 @@ public class Onduty {
     public void setDoctor(Doctor doctor){this.doctor=doctor;}
     public Doctor getDoctor() { return doctor; }
 
-    public Onduty(Doctor doctor,Lab lab,String sign,String dailyreport,String brokenreport){
+    public Onduty(Doctor doctor,Lab lab,String sign,String dailyreport,String brokenreport,Date ondutydate){
         this.doctor = doctor;
         this.lab = lab;
         this.sign = sign;
         this.dailyreport = dailyreport;
         this.brokenreport = brokenreport;
+        this.ondutydate=ondutydate;
     }
 }

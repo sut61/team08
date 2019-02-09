@@ -1,12 +1,12 @@
 package com.sut.se.cpe.server.controller;
 
 import org.springframework.stereotype.Controller;
-import com.sut.se.cpe.server.entity.Register;
+import com.sut.se.cpe.server.entity.Patient;
 import com.sut.se.cpe.server.entity.Sex;
 import com.sut.se.cpe.server.entity.Patienttype;
 import com.sut.se.cpe.server.entity.Province;
 import com.sut.se.cpe.server.entity.Doctor;
-import com.sut.se.cpe.server.repository.RegisterRepository;
+import com.sut.se.cpe.server.repository.PatientRepository;
 import com.sut.se.cpe.server.repository.SexRepository;
 import com.sut.se.cpe.server.repository.PatienttypeRepository;
 import com.sut.se.cpe.server.repository.ProvinceRepository;
@@ -24,9 +24,9 @@ import java.util.stream.Collectors;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-public class RegisterController {
+public class PatientController {
     @Autowired
-    private RegisterRepository registerRepository;
+    private PatientRepository patientRepository;
     @Autowired
     private ProvinceRepository provinceRepository;
     @Autowired
@@ -76,29 +76,29 @@ public class RegisterController {
         return c;
     }
 
-    @PostMapping(path ="/register/{provinces}/{sexes}/{patienttypes}/{firstnameenter}/{lastnameenter}/{ages}/{birthday}/{district}/{subdistrict}/{housenumber}/{postcode}/{patientdetail}")
-    public Register register( @PathVariable Long provinces,@PathVariable Long sexes,@PathVariable Long patienttypes,@PathVariable String firstnameenter,@PathVariable String lastnameenter,@PathVariable int ages,@PathVariable String birthday,@PathVariable String district,@PathVariable String subdistrict,@PathVariable String housenumber,@PathVariable String postcode,@PathVariable String patientdetail){
+    @PostMapping(path ="/Patient/{provinces}/{sexes}/{patienttypes}/{firstnameenter}/{lastnameenter}/{ages}/{birthday}/{district}/{subdistrict}/{housenumber}/{postcode}/{patientdetail}")
+    public Patient patient( @PathVariable Long provinces,@PathVariable Long sexes,@PathVariable Long patienttypes,@PathVariable String firstnameenter,@PathVariable String lastnameenter,@PathVariable int ages,@PathVariable String birthday,@PathVariable String district,@PathVariable String subdistrict,@PathVariable String housenumber,@PathVariable String postcode,@PathVariable String patientdetail){
         Province province = provinceRepository.findById(provinces).get();
         Sex sex = sexRepository.findById(sexes).get();
         Patienttype patienttype = patienttypeRepository.findById(patienttypes).get();
 
-        Register register = new Register();
+        Patient patient = new Patient();
         Date date = new Date();
 
-        register.setProvince(province);
-        register.setSex(sex);
-        register.setPatienttype(patienttype);
-        register.setFirstname(firstnameenter);
-        register.setLastname(lastnameenter);
-        register.setAge(ages);
-        register.setBirthday(birthday);
-        register.setDistrict(district);
-        register.setSubdistrict(subdistrict);
-        register.setHousenumber(housenumber);
-        register.setPostcode(postcode);
-        register.setPatientdetail(patientdetail);
-        register.setDate(date);
-        registerRepository.save(register);
-        return register;
+        patient.setProvince(province);
+        patient.setSex(sex);
+        patient.setPatienttype(patienttype);
+        patient.setFirstname(firstnameenter);
+        patient.setLastname(lastnameenter);
+        patient.setAge(ages);
+        patient.setBirthday(birthday);
+        patient.setDistrict(district);
+        patient.setSubdistrict(subdistrict);
+        patient.setHousenumber(housenumber);
+        patient.setPostcode(postcode);
+        patient.setPatientdetail(patientdetail);
+        patient.setDate(date);
+        patientRepository.save(patient);
+        return patient;
     }
 }

@@ -1,12 +1,7 @@
 package com.sut.se.cpe.server.entity;
 import lombok.*;
 import javax.persistence.*;
-import javax.validation.constraints.AssertTrue;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-import javax.validation.constraints.Email;
+import javax.validation.constraints.*;
 @Entity
 @ToString @EqualsAndHashCode
 @Table(name="Sex")
@@ -18,7 +13,11 @@ public class Sex {
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SEX_seq")
     @Column(name = "IdSex")
     private @NonNull Long id;
+    @Size(min=2,max=15)
+    @Pattern(regexp="\\D+")
     private @NotNull String sex;
+    @Size(min=2,max=15)
+    @Pattern(regexp="\\D+")
     private @NotNull String nametitle;
 
     public Sex(){}

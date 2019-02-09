@@ -12,7 +12,7 @@ export class RegisterController {
         return this.http.get(this.API + '/sexes');
     }
     public  getRegister(): Observable<any> {
-        return this.http.get(this.API + '/registers');
+        return this.http.get(this.API + '/patients');
     }
     public  getPatienttype(): Observable<any> {
         return this.http.get(this.API + '/patienttypes');
