@@ -18,4 +18,7 @@ export class LogingComponent implements OnInit {
   loging(){
     this.logingServie.loging(this.user);
   }
+  getUrl() {
+    return "url('assets/staff.jpg')";
+  }
 }

@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" [ngStyle]="{'background-image': getUrl(), 'height' : '695px', 'background-size' : 'cover', 'background-repeat': 'no-repeat'}">
   <mat-card class="card">      
         <h1>ระบบห้องแลปตรวจโรค/ตรวจสุขภาพ</h1>
   </mat-card>
@@ -7,7 +7,7 @@
   <div>
   <mat-card class="card-loging">
     <mat-card>
-        <h2>เข้าสู่ระบบ</h2>
+        <h2>กรุณาเข้าสู่ระบบ</h2>
     </mat-card>
     <mat-card class="content">
       <form #form="ngForm" (ngSubmit)="loging()">
@@ -16,7 +16,7 @@
         </mat-form-field>
         <br>
         <mat-form-field>
-          <input matInput type="passwordd" placeholder="Passwordd" [(ngModel)]="user.passwordd" name="passwordd">
+          <input matInput type="password" placeholder="Password" [(ngModel)]="user.passwordd" name="passwordd">
         </mat-form-field>
 
         <div class="button">
