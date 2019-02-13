@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" [ngStyle]="{'background-image': getUrl(), 'height' : '695px', 'background-size' : 'cover', 'background-repeat': 'no-repeat'}">
   <mat-card class="card">      
         <h1>ระบบห้องแลปตรวจโรค/ตรวจสุขภาพ</h1>
   </mat-card>
@@ -8,14 +8,15 @@
     <mat-card class="card-loging">
         <mat-card class="content">
           <div class="button">
-            <button mat-raised-button routerLink="/loging"><h2>เข้าสู่ระบบโดยเจ้าหน้าที่</h2></button>
+            <button mat-flat-button routerLink="/loging"><h2>เข้าสู่ระบบโดยเจ้าหน้าที่</h2></button>
         </div>
         </mat-card>
     </mat-card>
+    <br>
     <mat-card class="card-loging">
         <mat-card class="content">
           <div class="button">
-            <button mat-raised-button routerLink="/login"><h2>เข้าสู่ระบบโดยเเพทย์</h2></button>
+            <button mat-flat-button routerLink="/login"><h2>เข้าสู่ระบบโดยเเพทย์</h2></button>
         </div>
         </mat-card>
     </mat-card>

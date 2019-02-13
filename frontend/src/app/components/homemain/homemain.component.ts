@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./homemain.component.css']
 })
 export class HomemainComponent implements OnInit {
-
   constructor() { }
 
   ngOnInit() {
   }
 
+  getUrl() {
+    return "url('assets/bg.jpg')";
+  }
 }
