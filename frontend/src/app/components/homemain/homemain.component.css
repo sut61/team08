@@ -1,5 +1,4 @@
 .card{
-    width: 100%;
     text-align: center;
     background-color: salmon;
 }
@@ -16,9 +15,9 @@
     width:50%;
     margin:auto;
 }
+
 @media(min-width: 800px){
     .card{
-    width: 100%;
     text-align: center;
     background-color: salmon;
     }
@@ -31,8 +30,8 @@
     width: 93%;
     text-align: center;
     }
-.button{
+    .button{
     width:50%;
-    margin:auto;
-}
+    margin:auto; 
+    }
 }
