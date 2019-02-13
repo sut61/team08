@@ -11,5 +11,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  getUrl() {
+    return "url('assets/staff.jpg')";
+  }
 }
