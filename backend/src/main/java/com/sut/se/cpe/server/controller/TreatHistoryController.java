@@ -49,6 +49,10 @@ public class TreatHistoryController{
     public Collection<Medicine> Medicine(){
         return medicineRepository.findAll().stream().collect(Collectors.toList());
     }
+    @GetMapping(path = "/patient")
+    public Collection<Patient> Patient(){
+        return patientRepository.findAll().stream().collect(Collectors.toList());
+    }
 
 
     @GetMapping(path = "/treathistory")
