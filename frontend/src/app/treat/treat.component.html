@@ -1,0 +1,65 @@
+<body class = "cen">
+  <mat-card class="card">
+  <mat-card-header class ="topcard">
+    บันทึกประวัติผู้ป่วย
+  </mat-card-header>
+  <br><br>
+  <mat-card-content class = "input">
+    <mat-form-field class = "example-mid-width">
+      <mat-select placeholder="คนไข้"[(ngModel)]="patientSelect" name="patient">
+        <mat-option *ngFor="let p of patient" [value]="p.id">
+          {{p.firstname}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br>
+    <mat-form-field class = "example-mid-width">
+      <input matInput placeholder="ความดัน" [(ngModel)] = "pressure">
+    </mat-form-field>
+    &nbsp;
+
+    <mat-form-field class = "example-mid-width">
+      <input matInput placeholder="น้ำหนัก" [(ngModel)] = "weight">
+    </mat-form-field>
+    <br>
+    <mat-form-field class = "box">
+        <textarea matInput [(ngModel)] = "symptom" [ngModelOptions]="{standalone: true}" type="text" placeholder="กรอกอาการ"></textarea>
+      </mat-form-field>
+      <br>
+
+
+      <mat-form-field  class="example-mid-width">
+        <input matInput [matDatepicker]="picker" placeholder="วันที่" [(ngModel)]="dateSelect">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+
+      <!-- <mat-form-field>
+        <input matInput [matDatepicker]="picker" placeholder="Choose a date" [ngModel]="dateSelect" [ngModelOptions]="{standalone: true}">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field> -->
+      <br>
+      <mat-form-field class = "example-mid-width">
+        <mat-select placeholder="ยาที่ให้"[(ngModel)]="medicineSelect" name="medicine">
+          <mat-option *ngFor="let med of medicine" [value]="med.id">
+            {{med.medicine}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br>
+      <mat-form-field class = "example-mid-width">
+        <mat-select placeholder="แพทย์ผู้รักษา"[(ngModel)]="doctorSelect" name="doctor">
+          <mat-option *ngFor="let doc of doctor" [value]="doc.id">
+            {{doc.doctorname}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+  </mat-card-content>
+<br>
+<button mat-raised-button color ="primary" class ="example-mid-width" (click)="insert()">Submit</button>&nbsp;&nbsp;
+<button mat-raised-button color ="primary" class ="example-mid-width" routerLink="/mainpage" >ยกเลิก</button>
+</mat-card>
+</body>
+

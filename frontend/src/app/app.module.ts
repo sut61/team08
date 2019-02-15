@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { 
+import {
         MatInputModule,
         MatCardModule,
         MatButtonModule,
@@ -41,6 +41,7 @@ import { WorkScheduleRegComponent } from './components/workSchedule-reg/workSche
 import { WorkScheduleRegService } from './shared/workSchedule-reg/workSchedule-reg.service';
 import { SuggestionComponent } from './components/suggestion/suggestion.component';
 import { SuggestionService } from './shared/suggestion/suggestion.service';
+import { TreatComponent } from './treat/treat.component';
 
 
 @NgModule({
@@ -56,7 +57,8 @@ import { SuggestionService } from './shared/suggestion/suggestion.service';
     HomeComponent,
     HomemainComponent,
     WorkScheduleRegComponent,
-    SuggestionComponent
+    SuggestionComponent,
+    TreatComponent
   ],
   imports: [
     HttpModule,
@@ -81,7 +83,7 @@ import { SuggestionService } from './shared/suggestion/suggestion.service';
     MatOptionModule,
     MatRadioModule
   ],
-  providers: [ 
+  providers: [
       LogingService,
       WorkScheduleRegService,
       SuggestionService
