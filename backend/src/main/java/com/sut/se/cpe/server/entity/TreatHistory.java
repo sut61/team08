@@ -19,7 +19,7 @@ public class TreatHistory{
     private String symptom;
 
     @Temporal(TemporalType.DATE)
-    private @io.micrometer.core.lang.NonNull
+    //private @io.micrometer.core.lang.NonNull
     Date date;
 
 
