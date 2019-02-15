@@ -1,0 +1,14 @@
+.cen {
+  text-align: center;
+}
+.card {
+  width: 35%;
+  position: center;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 30px;
+}
+.topcard {
+  background-color: rgb(83, 209, 209);
+  color: white;
+}
