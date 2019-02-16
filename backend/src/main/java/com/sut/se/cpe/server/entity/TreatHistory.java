@@ -6,7 +6,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import lombok.*;
 import java.util.Date;
-
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+import org.hibernate.validator.constraints.Range;
 @Entity
 @Data
 public class TreatHistory{
@@ -14,8 +17,15 @@ public class TreatHistory{
     @GeneratedValue
     private Long id;
 
+    @NotNull
+    @Range(min = 60, max = 200)
     private Integer pressure;
+    @NotNull
+    @Range(min = 35, max = 200)
     private Integer weight;
+    @NotNull
+    @Pattern(regexp = "[ก-๛]+")
+    @Size(min = 5, max = 40)
     private String symptom;
 
     @Temporal(TemporalType.DATE)
