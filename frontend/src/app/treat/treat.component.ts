@@ -22,15 +22,15 @@ export class TreatComponent implements OnInit {
   doctor: Array<any>;
   doctorSelect = '';
 
-  patient: Array<any>;
+  patients: Array<any>;
   patientSelect = '';
 
   constructor(private treatService: TreatService, private httpClient: HttpClient) { }
 
   ngOnInit() {
-    this.treatService.getPatient().subscribe(data => {
-      this.patient = data;
-      console.log(this.patient);
+    this.treatService.getRegister().subscribe(data => {
+      this.patients = data;
+      console.log(this.patients);
     });
     this.treatService.getMedicine().subscribe(data => {
       this.medicine = data;
