@@ -10,8 +10,8 @@ export class TreatService {
   public API = '//localhost:8080';
 
   constructor(private httpClient: HttpClient) { }
-  getPatient(): Observable<any> {
-    return this.httpClient.get(this.API + '/patient');
+  getRegister(): Observable<any> {
+    return this.httpClient.get(this.API + '/patients');
   }
   getDoctor(): Observable<any> {
     return this.httpClient.get(this.API + '/doctor');

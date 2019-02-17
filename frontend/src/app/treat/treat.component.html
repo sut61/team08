@@ -6,9 +6,9 @@
   <br><br>
   <mat-card-content class = "input">
     <mat-form-field class = "example-mid-width">
-      <mat-select placeholder="คนไข้"[(ngModel)]="patientSelect" name="patient">
-        <mat-option *ngFor="let p of patient" [value]="p.id">
-          {{p.firstname}}
+      <mat-select placeholder="คนไข้"[(ngModel)]="patientSelect" name="patients">
+        <mat-option *ngFor="let pat of patients" [value]="pat.id">
+          {{pat.firstname}}
         </mat-option>
       </mat-select>
     </mat-form-field>
