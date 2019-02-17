@@ -163,6 +163,19 @@ public class ServerApplication {
 			toolRepository.save(t2);
 			toolRepository.save(t3);
 
+			Patient p = new Patient();
+			p.setFirstname("ไงงง");			
+			p.setLastname("wlll");
+			p.setAge(15);
+			p.setBirthday("dvdvd");
+			p.setDistrict("sdsd");
+			p.setSubdistrict("dfdfd");
+			p.setHousenumber("dfdfdf");
+			p.setPostcode("15616");
+			p.setPatientdetail("dfsvssdv");
+			patientRepository.save(p);
+		
+
 
 				// For Registration
 				Stream.of("ตรวจร่างกาย/สุขภาพทั่วไป", "ตรวจเลือด", "ตรวจโรคติดต่อ", "จักษุ/ทันตกรรม", "X-ray/Untrasound").forEach(lab -> {
