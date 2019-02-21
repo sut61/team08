@@ -76,8 +76,8 @@ public class PatientController {
         return c;
     }
 
-    @PostMapping(path ="/Patient/{provinces}/{sexes}/{patienttypes}/{firstnameenter}/{lastnameenter}/{ages}/{birthday}/{district}/{subdistrict}/{housenumber}/{postcode}/{patientdetail}")
-    public Patient patient( @PathVariable Long provinces,@PathVariable Long sexes,@PathVariable Long patienttypes,@PathVariable String firstnameenter,@PathVariable String lastnameenter,@PathVariable int ages,@PathVariable String birthday,@PathVariable String district,@PathVariable String subdistrict,@PathVariable String housenumber,@PathVariable String postcode,@PathVariable String patientdetail){
+    @PostMapping(path ="/Patient/{provinces}/{sexes}/{patienttypes}/{firstnameenter}/{lastnameenter}/{ages}/{district}/{subdistrict}/{housenumber}/{postcode}/{patientdetail}")
+    public Patient patient( @PathVariable Long provinces,@PathVariable Long sexes,@PathVariable Long patienttypes,@PathVariable String firstnameenter,@PathVariable String lastnameenter,@PathVariable int ages,@PathVariable String district,@PathVariable String subdistrict,@PathVariable String housenumber,@PathVariable String postcode,@PathVariable String patientdetail){
         Province province = provinceRepository.findById(provinces).get();
         Sex sex = sexRepository.findById(sexes).get();
         Patienttype patienttype = patienttypeRepository.findById(patienttypes).get();
@@ -91,7 +91,6 @@ public class PatientController {
         patient.setFirstname(firstnameenter);
         patient.setLastname(lastnameenter);
         patient.setAge(ages);
-        patient.setBirthday(birthday);
         patient.setDistrict(district);
         patient.setSubdistrict(subdistrict);
         patient.setHousenumber(housenumber);

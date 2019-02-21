@@ -45,6 +45,8 @@ public class ServerApplication {
 						ApproverRepository approverRepository, 
 						DepartmentRepository departmentRepository,
 						RequestFormRepository requestformRepository,
+						   NurseRepository nurseRepository,
+						   MediRepository mediRepository,
 						SurrogateRepository surrogateRepository, 
 						ToolRepository toolRepository,
 						HealthLabRepository healthLabRepository,
@@ -103,6 +105,21 @@ public class ServerApplication {
 			Province p2 = new Province();
 			p2.setProvince("Bangkok");
 			provincerepository.save(p2);
+
+			Nurse nurse = new Nurse();
+			Nurse nurse1 = new Nurse();
+			nurse.setNameNurse("N1");
+			nurse1.setNameNurse("N2");
+			nurseRepository.save(nurse);
+			nurseRepository.save(nurse1);
+
+			Medi medi = new Medi();
+			Medi medi1 = new Medi();
+			medi.setMediName("M1");
+			medi1.setMediName("M2");
+			mediRepository.save(medi);
+			mediRepository.save(medi1);
+
 
 			//set medicine
 			Medicine med1 = new Medicine();
@@ -167,7 +184,6 @@ public class ServerApplication {
 			p.setFirstname("ไงงง");			
 			p.setLastname("wlll");
 			p.setAge(15);
-			p.setBirthday("dvdvd");
 			p.setDistrict("sdsd");
 			p.setSubdistrict("dfdfd");
 			p.setHousenumber("dfdfdf");

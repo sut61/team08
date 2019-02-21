@@ -30,9 +30,6 @@ public class Patient {
 
     private @NotNull int age;
 
-    @Size(min=1,max=30)
-    private @NotNull String birthday;
-
     @Size(min=1,max=15)
     @Pattern(regexp="\\D+")
     private @NotNull String district;
@@ -85,7 +82,7 @@ public class Patient {
     public void setSex(Sex sex){this.sex=sex;}
     public Sex getSex() { return sex; }
 
-    public Patient(Patienttype patienttype,Province province,Date date,Sex sex,String firstname,String lastname,int age,String birthday,String district,String subdistrict,String housenumber,String postcode,String patientdetail) {
+    public Patient(Patienttype patienttype,Province province,Date date,Sex sex,String firstname,String lastname,int age,String district,String subdistrict,String housenumber,String postcode,String patientdetail) {
         this.patienttype=patienttype;
         this.province=province;
         this.date=date;
@@ -93,7 +90,6 @@ public class Patient {
         this.firstname=firstname;
         this.lastname=lastname;
         this.age=age;
-        this.birthday=birthday;
         this.district=district;
         this.subdistrict=subdistrict;
         this.housenumber=housenumber;
