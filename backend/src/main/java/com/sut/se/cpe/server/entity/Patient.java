@@ -61,16 +61,13 @@ public class Patient {
         return id;
     }
 
-    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Patienttype.class)
-    @JoinColumn(name = "IdPatienttype")
+    @ManyToOne
     private Patienttype patienttype;
 
-    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Province.class)
-    @JoinColumn(name = "IdProvince")
+    @ManyToOne
     private Province province;
 
-    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Sex.class)
-    @JoinColumn(name = "IdSex")
+    @ManyToOne
     private Sex sex;
 
     public void setPatienttype(Patienttype patienttype){this.patienttype=patienttype;}
