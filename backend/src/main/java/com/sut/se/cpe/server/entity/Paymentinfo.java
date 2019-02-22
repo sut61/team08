@@ -28,47 +28,52 @@ public class Paymentinfo {
 
 
     private  Long PaymentinfoID;
-
-
-    private String PaymentinfoName;
-
+    private String PayPrice;
 
     public Paymentinfo() {
     }
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "Doctor_ID", insertable = true)
-    private  Doctor doctor;
+    @JoinColumn(name = "Nurse_ID", insertable = true)
+    private  Nurse nurse;
 
     @OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "Medi_ID", insertable = true)
-    private  Medi medi;
+    @JoinColumn(name = "Payer_ID", insertable = true)
+    private  Payer payer;
 
     @OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name= "IdTeartment",insertable = true)
-    private Teartment teartment;
+    @JoinColumn(name= "PaymentStatus_ID",insertable = true)
+    private PaymentStatus paymentStatus;
+
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name= "PayType_ID",insertable = true)
+    private PayType paytype;
 
 
-   /* public void setAmountMedi(String AmountMedi){this.AmountMedi=AmountMedi;}
-    public String getAmountMedi(){return AmountMedi;}
-    public void setMedi(Medi medi){    this.medi = medi;  }
-    public Medi getMedi() {        return medi;    }
-    public void setDoctor(Doctor doctor){this.doctor=doctor;}
-    public Doctor getDoctor() { return doctor; }
-    public void setPatient(Patient patient){this.patient=patient;}
-    public Patient getPatient(){return patient;}
+    public void setPayPrice(String PayPrice){this.PayPrice=PayPrice;}
+    public String getPayPrice(){return PayPrice;}
+    public void setPaymentStatus(PaymentStatus paymentStatus){
+        this.paymentStatus = paymentStatus;
+    }
+    public PaymentStatus getPaymentStatus() {
+        return paymentStatus;
+    }
+    public void setNurse(Nurse nurse){this.nurse=nurse;}
+    public Nurse getNurse() { return nurse; }
+    public void setPayType(PayType paytype){this.paytype=paytype;}
+    public PayType getPayType(){return paytype;}
+    public void setPayer(Payer payer){this.payer=payer;}
+    public Payer getPayer() { return payer; }
 
 
 
-    public Paymentinfo(String AmountMedi, Doctor doctor,  Patient patient,Medi medi) {
+    public Paymentinfo(String PayPrice, Nurse nurse,Payer payer,  PayType paytype,PaymentStatus paymentStatus) {
 
-        this.AmountMedi=AmountMedi;
-        this.medi=medi;
-        this.doctor=doctor;
+        this.PayPrice=PayPrice;
+        this.paymentStatus=paymentStatus;
+        this.nurse=nurse;
+        this.paytype=paytype;
+        this.payer=payer;
 
-        this.patient=patient;
-
-
-
-    }*/
+    }
 }
 
