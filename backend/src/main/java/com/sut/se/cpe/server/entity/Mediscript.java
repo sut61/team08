@@ -44,8 +44,8 @@ public class Mediscript {
     private  Medi medi;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name= "IdPatient",insertable = true)
-    private Patient patient;
+    @JoinColumn(name= "IdCompany",insertable = true)
+    private Company company;
 
 
     public void setAmountMedi(String AmountMedi){this.AmountMedi=AmountMedi;}
@@ -58,18 +58,18 @@ public class Mediscript {
     }
     public void setDoctor(Doctor doctor){this.doctor=doctor;}
     public Doctor getDoctor() { return doctor; }
-    public void setPatient(Patient patient){this.patient=patient;}
-    public Patient getPatient(){return patient;}
+    public void setCompany(Company company){this.company=company;}
+    public Company getCompany(){return company;}
 
 
 
-    public Mediscript(String AmountMedi, Doctor doctor,  Patient patient,Medi medi) {
+    public Mediscript(String AmountMedi, Doctor doctor,  Company company,Medi medi) {
 
         this.AmountMedi=AmountMedi;
         this.medi=medi;
         this.doctor=doctor;
 
-        this.patient=patient;
+        this.company=company;
 
 
 

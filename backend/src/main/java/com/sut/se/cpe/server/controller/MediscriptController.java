@@ -23,35 +23,41 @@ public class MediscriptController {
     @Autowired
     private MediRepository  mediRepository;
     @Autowired
-    private PatientRepository patientRepository;
+    private CompanyRepository companyRepository;
 
     @GetMapping(path = "Mediscript", produces = MediaType.APPLICATION_JSON_VALUE)
     public Collection<Mediscript> Mediscript() {
         return mediscriptRepository.findAll().stream().collect(Collectors.toList());
     }
 
-    @GetMapping("/Mediscript/{id}")
-    public Optional<Mediscript> Mediscript(@PathVariable Long id)  {
-        Optional<Mediscript> mediscript = mediscriptRepository.findById(id);
-        return mediscript;
+
+    @GetMapping(path = "/CompanyNameSelect")
+    public Collection<Company> Company() {
+        return companyRepository.findAll().stream().collect(Collectors.toList());
     }
-    @PostMapping(path ="/Mediscript/{MediNameSelect}/{PatientNameSelect}/{DoctornameSelecte}/{amountMedi}")
+
+    @GetMapping(path = "/DoctorSelecte")
+    public Collection<Doctor> Doctor() {
+        return doctorRepository.findAll().stream().collect(Collectors.toList());
+    }
+
+    @PostMapping(path ="/Mediscript/{MediNameSelect}/{CompanyNameSelect}/{DoctorSelecte}/{amountMedi}")
     @CrossOrigin(origins = "http://localhost:4200")
     public Mediscript Mediscript(
             @PathVariable  Long MediNameSelect,
-            @PathVariable  Long PatientNameSelect,
-            @PathVariable  Long DoctornameSelecte,
+            @PathVariable  Long CompanyNameSelect,
+            @PathVariable  Long DoctorSelecte,
              @PathVariable  String amountMedi
 
     ){
         Medi medi = mediRepository.findById(MediNameSelect).get();
-        Patient patient = patientRepository.findById(PatientNameSelect).get();
-        Doctor doctor = doctorRepository.findById(DoctornameSelecte).get();
+        Company company = companyRepository.findById(CompanyNameSelect).get();
+        Doctor doctorr = doctorRepository.findById(DoctorSelecte).get();
 
         Mediscript mediscript = new Mediscript();
         mediscript.setMedi(medi);
-        mediscript.setPatient(patient);
-        mediscript.setDoctor(doctor);
+        mediscript.setCompany(company);
+        mediscript.setDoctor(doctorr);
         mediscript.setAmountMedi(amountMedi);
 
         mediscriptRepository.save(mediscript);
