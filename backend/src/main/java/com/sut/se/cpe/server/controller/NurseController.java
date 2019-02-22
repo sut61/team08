@@ -1,7 +1,6 @@
 package com.sut.se.cpe.server.controller;
-
-import com.sut.se.cpe.server.entity.Nurse;
-import com.sut.se.cpe.server.repository.NurseRepository;
+import com.sut.se.cpe.server.entity.*;
+import com.sut.se.cpe.server.repository.*;
 
 import lombok.*;
 import org.springframework.web.bind.annotation.*;

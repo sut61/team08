@@ -1,6 +1,5 @@
 package com.sut.se.cpe.server.repository;
-
-import com.sut.se.cpe.server.entity.Nurse;
+import com.sut.se.cpe.server.entity.*;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;

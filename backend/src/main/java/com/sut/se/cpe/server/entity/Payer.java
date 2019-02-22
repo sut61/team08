@@ -22,16 +22,12 @@ public class Payer {
     @Column(name="Payer")
 
     private  Long PayerID;
-
-
     private String PayerName;
 
 
 
-
     public Payer() {}
-
-    public Payer (Long PayerID, String PayerName){
+    public Payer(Long PayerID, String PayerName){
         this.PayerName = PayerName;
 
     }
