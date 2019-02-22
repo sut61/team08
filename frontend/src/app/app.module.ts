@@ -42,6 +42,8 @@ import { WorkScheduleRegService } from './shared/workSchedule-reg/workSchedule-r
 import { SuggestionComponent } from './components/suggestion/suggestion.component';
 import { SuggestionService } from './shared/suggestion/suggestion.service';
 import { TreatComponent } from './treat/treat.component';
+import { MediscriptComponent } from './mediscript/mediscript.component';
+import { MediscriptService } from './mediscript.service';
 
 
 @NgModule({
@@ -58,7 +60,8 @@ import { TreatComponent } from './treat/treat.component';
     HomemainComponent,
     WorkScheduleRegComponent,
     SuggestionComponent,
-    TreatComponent
+    TreatComponent,
+    MediscriptComponent
   ],
   imports: [
     HttpModule,

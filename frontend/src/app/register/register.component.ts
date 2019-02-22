@@ -69,17 +69,7 @@ export class RegisterComponent implements OnInit {
         }
        );
 
-    console.log(this.provinceSelect);
-    console.log(this.sexSelect);
-    console.log(this.patienttypeSelect);
-    console.log(this.firstNameEnter);
-    console.log(this.lastNameEnter);
-    console.log(this.years);
-    console.log(this.district);
-    console.log(this.subdistrict);
-    console.log(this.housenumber);
-    console.log(this.postcode);
-    console.log(this.patientdetail);
+
   }
 
 }

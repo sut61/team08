@@ -1,0 +1,66 @@
+<html>
+<form>
+  <h2 style = "text-align:center">ระบบออกใบสั่งยา</h2>
+  <mat-grid-list cols="1" rowHeight="2:1">
+    <mat-grid-tile class="nav-color">
+      <div  >
+
+        <mat-card-content>
+          &nbsp; Company : &nbsp;&nbsp;&nbsp;
+          <mat-form-field appearance="outline">
+            <mat-select placeholder="" [(ngModel)]="CompanyNameSelect" name="CompanyName">
+              <mat-option *ngFor="let Company of CompanyName" [value]="Company.companyID"> {{Company.companyName}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-card-content>
+        <br>
+
+
+
+
+        <mat-form-field>
+          <mat-select [(ngModel)]="MediNameSelect" placeholder ="Medi:" name="MediName">
+            <mat-option *ngFor="let Medi of MediName" [value]="Medi.mediID">
+              {{Medi.mediName}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <br>
+
+
+
+        <mat-form-field>
+          <mat-select [(ngModel)]="DoctorSelecte"  placeholder ="Doctor:"  name="docter" >
+            <mat-option *ngFor="let doctorr of doctor" [value]="doctorr.id">
+              {{doctorr.doctorname}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field> &nbsp;&nbsp;
+        <br>
+
+        <mat-form-field >
+          <input matInput [(ngModel)]="amountMedi" [ngModelOptions]="{standalone: true}" placeholder="amountMedi"  name="amountMedi">
+        </mat-form-field>
+
+
+        <br>
+
+
+
+        <br>
+        <button mat-raised-button size="2" color="primary"  (click)= "insert()"  >Save</button>&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+
+      </div>
+
+    </mat-grid-tile>
+  </mat-grid-list>
+</form>
+</html>
+
