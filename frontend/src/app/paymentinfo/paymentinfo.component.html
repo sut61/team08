@@ -1,0 +1,83 @@
+<html>
+<form>
+  <h2 style = "text-align:center">ระบบออก.บเสร็จชำระเงิน</h2>
+  <mat-grid-list cols="1" rowHeight="2:1">
+    <mat-grid-tile>
+      <div  >
+
+
+        <mat-form-field>
+          <mat-select [(ngModel)]="PayTypeNameSelect" placeholder ="PayType:" name="PayTypeName">
+            <mat-option *ngFor="let PayType of PayTypeName" [value]="PayType.payTypeID">
+              {{PayType.payTypeName}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <br>
+
+
+        <mat-card-content>
+          &nbsp; Payer : &nbsp;&nbsp;&nbsp;
+          <mat-form-field appearance="outline">
+            <mat-select placeholder="Payer" [(ngModel)]="PayerNameSelect" name="PayerName">
+              <mat-option *ngFor="let Payer of PayerName" [value]="Payer.payerID"> {{Payer.payerName}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-card-content>
+        <br>
+
+        <mat-card-content>
+          &nbsp; Nurse : &nbsp;&nbsp;&nbsp;
+          <mat-form-field appearance="outline">
+            <mat-select [(ngModel)]="NurseNameSelecte"  placeholder ="Nurse:"  name="NurseName" >
+              <mat-option *ngFor="let Nurse of NurseName" [value]="Nurse.nurseId"> {{Nurse.nameNurse}}
+
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-card-content>
+        <br>
+
+        <!--<mat-form-field appearance="outline">-->
+          <!--<mat-select [(ngModel)]="NurseNameSelecte"  placeholder ="Nurse:"  name="NurseName" >-->
+            <!--<mat-option *ngFor="let Nurse of NurseName" [value]="Nurse.nurseID"> {{Nurse.NurseName}}-->
+            <!--</mat-option>-->
+          <!--</mat-select>-->
+        <!--</mat-form-field>-->
+        <!--<br>-->
+
+        <mat-form-field >
+          <input matInput [(ngModel)]="PayPrice" [ngModelOptions]="{standalone: true}" placeholder="PayPrice"  name="PayPrice">
+        </mat-form-field>
+        <br>
+        <mat-card-content>
+          &nbsp; PaymentStatus : &nbsp;&nbsp;&nbsp;
+          <mat-form-field appearance="outline">
+            <mat-select placeholder="PaymentStatus" [(ngModel)]="PaymentStatusNameSelect" name="PaymentStatusName">
+              <mat-option *ngFor="let PaymentStatus of PaymentStatusName" [value]="PaymentStatus.paymentStatusID"> {{PaymentStatus.paymentStatusName}}
+
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-card-content>
+        <br>
+
+
+
+        <br>
+        <button mat-raised-button size="2" color="primary"  (click)= "insert()"  >Save</button>&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+
+      </div>
+
+    </mat-grid-tile>
+  </mat-grid-list>
+</form>
+</html>
+
