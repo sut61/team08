@@ -8,13 +8,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.Column;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.*;
-import java.util.List;
 import javax.persistence.*;
-import java.sql.Timestamp;
-import java.util.Date;
-import java.util.Collection;
+import javax.validation.constraints.NotNull;
+import javax.persistence.*;
+import lombok.*;
+import javax.validation.constraints.*;
 
 @Getter @Setter
 @Entity
@@ -26,26 +24,34 @@ public class Paymentinfo {
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="Paymentinfo_seq")
     @Column(name="Paymentinfo_ID")
 
+    @NotNull
+    private Long PaymentinfoID;
 
-    private  Long PaymentinfoID;
+    @NotNull
+    @Pattern(regexp = "[0-9]+")
+    @Size(min = 1, max = 5 )
     private String PayPrice;
 
     public Paymentinfo() {
     }
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "Nurse_ID", insertable = true)
+    @NotNull
     private  Nurse nurse;
 
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "Payer_ID", insertable = true)
+    @NotNull
     private  Payer payer;
 
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name= "PaymentStatus_ID",insertable = true)
+    @NotNull
     private PaymentStatus paymentStatus;
 
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name= "PayType_ID",insertable = true)
+    @NotNull
     private PayType paytype;
 
 
