@@ -20,32 +20,32 @@ public class Patient {
     @Column(name="IdReg")
     private Long id;
 
-    @Size(min=1,max=20)
+    @Size(min=2,max=20)
     @Pattern(regexp="\\D+")
     private @NotNull String firstname;
 
-    @Size(min=1,max=20)
+    @Size(min=2,max=20)
     @Pattern(regexp="\\D+")
     private @NotNull String lastname;
 
     private @NotNull int age;
 
-    @Size(min=1,max=15)
+    @Size(min=2,max=15)
     @Pattern(regexp="\\D+")
     private @NotNull String district;
 
-    @Size(min=1,max=15)
+    @Size(min=2,max=15)
     @Pattern(regexp="\\D+")
     private @NotNull String subdistrict;
 
-    @Size(min=1,max=10)
+    @Size(min=2,max=10)
     private @NotNull String housenumber;
 
-    @Size(min=1,max=5)
+    @Size(min=2,max=5)
     @Pattern(regexp="\\d+")
     private @NotNull String postcode;
 
-    @Size(min=1,max=100)
+    @Size(min=2,max=50)
     @Pattern(regexp="\\D+")
     private @NotNull String patientdetail;
 
