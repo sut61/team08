@@ -341,6 +341,864 @@ public class DemoApplicationTests {
 		entityManager.flush();
 	}
 
+	//Patient
+	@Test
+	public void PatientInsertTest(){
+		Patient p = new Patient();
+		Patienttype b = this.patienttypeRepository.findByid(1L);
+        Province o = this.provinceRepository.findByid(1L);
+        Sex n = this.sexRepository.findByid(1L);
+        p.setPatienttype(b);
+        p.setProvince(o);
+        p.setSex(n);
+		p.setFirstname("NUTTAWUT");
+		p.setLastname("TUNPRASERT");
+		p.setDistrict("เมือง");
+		p.setSubdistrict("ในเมือง");
+		p.setHousenumber("386");
+		p.setPostcode("30000");
+		p.setPatientdetail("caght a cold");
+		entityManager.persist(p);
+		entityManager.flush();
+	}
+
+	@Test
+	public void PatientNullFirstnameTest(){
+		//Patient null test
+		Patient p = new Patient();
+		Patienttype b = this.patienttypeRepository.findByid(1L);
+        Province o = this.provinceRepository.findByid(1L);
+        Sex n = this.sexRepository.findByid(1L);
+        p.setPatienttype(b);
+        p.setProvince(o);
+        p.setSex(n);
+		p.setFirstname(null);
+		p.setLastname("TUNPRASERT");
+		p.setDistrict("เมือง");
+		p.setSubdistrict("ในเมือง");
+		p.setHousenumber("386");
+		p.setPostcode("30000");
+		p.setPatientdetail("caght a cold");
+		try {
+			entityManager.persist(p);
+			entityManager.flush();
+			fail("Should not pass to this line");
+		} catch (javax.validation.ConstraintViolationException e) {
+			Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+			assertEquals(violations.isEmpty(), false);
+			assertEquals(violations.size(), 1);
+			System.out.println("can detect Null Firstname");
+			System.out.println(e);
+			System.out.println();
+		}
+	}
+
+	@Test
+	public void PatientNullLastnameTest(){
+		//Patient null test
+		Patient p = new Patient();
+		Patienttype b = this.patienttypeRepository.findByid(1L);
+        Province o = this.provinceRepository.findByid(1L);
+        Sex n = this.sexRepository.findByid(1L);
+        p.setPatienttype(b);
+        p.setProvince(o);
+        p.setSex(n);
+		p.setFirstname("NUTTAWUT");
+		p.setLastname(null);
+		p.setDistrict("เมือง");
+		p.setSubdistrict("ในเมือง");
+		p.setHousenumber("386");
+		p.setPostcode("30000");
+		p.setPatientdetail("caght a cold");
+		try {
+			entityManager.persist(p);
+			entityManager.flush();
+			fail("Should not pass to this line");
+		} catch (javax.validation.ConstraintViolationException e) {
+			Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+			assertEquals(violations.isEmpty(), false);
+			assertEquals(violations.size(), 1);
+			System.out.println("can detect Null Lastname");
+			System.out.println(e);
+			System.out.println();
+		}
+	}
+
+	@Test
+	public void PatientNullDistrictTest(){
+		//Patient null test
+		Patient p = new Patient();
+		Patienttype b = this.patienttypeRepository.findByid(1L);
+        Province o = this.provinceRepository.findByid(1L);
+        Sex n = this.sexRepository.findByid(1L);
+        p.setPatienttype(b);
+        p.setProvince(o);
+        p.setSex(n);
+		p.setFirstname("NUTTAWUT");
+		p.setLastname("TUNPRASERT");
+		p.setDistrict(null);
+		p.setSubdistrict("ในเมือง");
+		p.setHousenumber("386");
+		p.setPostcode("30000");
+		p.setPatientdetail("caght a cold");
+		try {
+			entityManager.persist(p);
+			entityManager.flush();
+			fail("Should not pass to this line");
+		} catch (javax.validation.ConstraintViolationException e) {
+			Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+			assertEquals(violations.isEmpty(), false);
+			assertEquals(violations.size(), 1);
+			System.out.println("can detect Null District");
+			System.out.println(e);
+			System.out.println();
+		}
+	}
+
+	@Test
+	public void PatientNullSubdistrictTest(){
+		//Patient null test
+		Patient p = new Patient();
+		Patienttype b = this.patienttypeRepository.findByid(1L);
+        Province o = this.provinceRepository.findByid(1L);
+        Sex n = this.sexRepository.findByid(1L);
+        p.setPatienttype(b);
+        p.setProvince(o);
+        p.setSex(n);
+		p.setFirstname("NUTTAWUT");
+		p.setLastname("TUNPRASERT");
+		p.setDistrict("เมือง");
+		p.setSubdistrict(null);
+		p.setHousenumber("386");
+		p.setPostcode("30000");
+		p.setPatientdetail("caght a cold");
+		try {
+			entityManager.persist(p);
+			entityManager.flush();
+			fail("Should not pass to this line");
+		} catch (javax.validation.ConstraintViolationException e) {
+			Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+			assertEquals(violations.isEmpty(), false);
+			assertEquals(violations.size(), 1);
+			System.out.println("can detect Null Subdistrict");
+			System.out.println(e);
+			System.out.println();
+		}
+	}
+
+	@Test
+	public void PatientNullHousenumberTest(){
+		//Patient null test
+		Patient p = new Patient();
+		Patienttype b = this.patienttypeRepository.findByid(1L);
+        Province o = this.provinceRepository.findByid(1L);
+        Sex n = this.sexRepository.findByid(1L);
+        p.setPatienttype(b);
+        p.setProvince(o);
+        p.setSex(n);
+		p.setFirstname("NUTTAWUT");
+		p.setLastname("TUNPRASERT");
+		p.setDistrict("เมือง");
+		p.setSubdistrict("ในเมือง");
+		p.setHousenumber(null);
+		p.setPostcode("30000");
+		p.setPatientdetail("caght a cold");
+		try {
+			entityManager.persist(p);
+			entityManager.flush();
+			fail("Should not pass to this line");
+		} catch (javax.validation.ConstraintViolationException e) {
+			Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+			assertEquals(violations.isEmpty(), false);
+			assertEquals(violations.size(), 1);
+			System.out.println("can detect Null Housenumber");
+			System.out.println(e);
+			System.out.println();
+		}
+	}
+
+	@Test
+	public void PatientNullPostcodeTest(){
+		//Patient null test
+		Patient p = new Patient();
+		Patienttype b = this.patienttypeRepository.findByid(1L);
+        Province o = this.provinceRepository.findByid(1L);
+        Sex n = this.sexRepository.findByid(1L);
+        p.setPatienttype(b);
+        p.setProvince(o);
+        p.setSex(n);
+		p.setFirstname("NUTTAWUT");
+		p.setLastname("TUNPRASERT");
+		p.setDistrict("เมือง");
+		p.setSubdistrict("ในเมือง");
+		p.setHousenumber("386");
+		p.setPostcode(null);
+		p.setPatientdetail("caght a cold");
+		try {
+			entityManager.persist(p);
+			entityManager.flush();
+			fail("Should not pass to this line");
+		} catch (javax.validation.ConstraintViolationException e) {
+			Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+			assertEquals(violations.isEmpty(), false);
+			assertEquals(violations.size(), 1);
+			System.out.println("can detect Null Postcode");
+			System.out.println(e);
+			System.out.println();
+		}
+	}
+
+	@Test
+	public void PatientNullPatientdetailTest(){
+		//Patient null test
+		Patient p = new Patient();
+		Patienttype b = this.patienttypeRepository.findByid(1L);
+        Province o = this.provinceRepository.findByid(1L);
+        Sex n = this.sexRepository.findByid(1L);
+        p.setPatienttype(b);
+        p.setProvince(o);
+        p.setSex(n);
+		p.setFirstname("NUTTAWUT");
+		p.setLastname("TUNPRASERT");
+		p.setDistrict("เมือง");
+		p.setSubdistrict("ในเมือง");
+		p.setHousenumber("386");
+		p.setPostcode("30000");
+		p.setPatientdetail(null);
+		try {
+			entityManager.persist(p);
+			entityManager.flush();
+			fail("Should not pass to this line");
+		} catch (javax.validation.ConstraintViolationException e) {
+			Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+			assertEquals(violations.isEmpty(), false);
+			assertEquals(violations.size(), 1);
+			System.out.println("can detect Null Patientdetail");
+			System.out.println(e);
+			System.out.println();
+		}
+	}
+
+	@Test
+	public void PatientShortenFirstnameTest(){
+		//Patient null test
+		Patient p = new Patient();
+		Patienttype b = this.patienttypeRepository.findByid(1L);
+        Province o = this.provinceRepository.findByid(1L);
+        Sex n = this.sexRepository.findByid(1L);
+        p.setPatienttype(b);
+        p.setProvince(o);
+        p.setSex(n);
+		p.setFirstname("N");
+		p.setLastname("TUNPRASERT");
+		p.setDistrict("เมือง");
+		p.setSubdistrict("ในเมือง");
+		p.setHousenumber("386");
+		p.setPostcode("30000");
+		p.setPatientdetail("caght a cold");
+		try {
+			entityManager.persist(p);
+			entityManager.flush();
+			fail("Should not pass to this line");
+		} catch (javax.validation.ConstraintViolationException e) {
+			Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+			assertEquals(violations.isEmpty(), false);
+			assertEquals(violations.size(), 1);
+			System.out.println("can detect Shorten Firstname");
+			System.out.println(e);
+			System.out.println();
+		}
+	}
+
+	@Test
+	public void PatientShortenLastnameTest(){
+		//Patient Shorten test
+		Patient p = new Patient();
+		Patienttype b = this.patienttypeRepository.findByid(1L);
+        Province o = this.provinceRepository.findByid(1L);
+        Sex n = this.sexRepository.findByid(1L);
+        p.setPatienttype(b);
+        p.setProvince(o);
+        p.setSex(n);
+		p.setFirstname("NUTTAWUT");
+		p.setLastname("T");
+		p.setDistrict("เมือง");
+		p.setSubdistrict("ในเมือง");
+		p.setHousenumber("386");
+		p.setPostcode("30000");
+		p.setPatientdetail("caght a cold");
+		try {
+			entityManager.persist(p);
+			entityManager.flush();
+			fail("Should not pass to this line");
+		} catch (javax.validation.ConstraintViolationException e) {
+			Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+			assertEquals(violations.isEmpty(), false);
+			assertEquals(violations.size(), 1);
+			System.out.println("can detect Shorten Lastname");
+			System.out.println(e);
+			System.out.println();
+		}
+	}
+
+	@Test
+	public void PatientShortenDistrictTest(){
+		//Patient Shorten test
+		Patient p = new Patient();
+		Patienttype b = this.patienttypeRepository.findByid(1L);
+        Province o = this.provinceRepository.findByid(1L);
+        Sex n = this.sexRepository.findByid(1L);
+        p.setPatienttype(b);
+        p.setProvince(o);
+        p.setSex(n);
+		p.setFirstname("NUTTAWUT");
+		p.setLastname("TUNPRASERT");
+		p.setDistrict("เ");
+		p.setSubdistrict("ในเมือง");
+		p.setHousenumber("386");
+		p.setPostcode("30000");
+		p.setPatientdetail("caght a cold");
+		try {
+			entityManager.persist(p);
+			entityManager.flush();
+			fail("Should not pass to this line");
+		} catch (javax.validation.ConstraintViolationException e) {
+			Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+			assertEquals(violations.isEmpty(), false);
+			assertEquals(violations.size(), 1);
+			System.out.println("can detect Shorten District");
+			System.out.println(e);
+			System.out.println();
+		}
+	}
+
+	@Test
+	public void PatientShortenSubdistrictTest(){
+		//Patient Shorten test
+		Patient p = new Patient();
+		Patienttype b = this.patienttypeRepository.findByid(1L);
+        Province o = this.provinceRepository.findByid(1L);
+        Sex n = this.sexRepository.findByid(1L);
+        p.setPatienttype(b);
+        p.setProvince(o);
+        p.setSex(n);
+		p.setFirstname("NUTTAWUT");
+		p.setLastname("TUNPRASERT");
+		p.setDistrict("เมือง");
+		p.setSubdistrict("ใ");
+		p.setHousenumber("386");
+		p.setPostcode("30000");
+		p.setPatientdetail("caght a cold");
+		try {
+			entityManager.persist(p);
+			entityManager.flush();
+			fail("Should not pass to this line");
+		} catch (javax.validation.ConstraintViolationException e) {
+			Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+			assertEquals(violations.isEmpty(), false);
+			assertEquals(violations.size(), 1);
+			System.out.println("can detect Shorten Subdistrict");
+			System.out.println(e);
+			System.out.println();
+		}
+	}
+
+	@Test
+	public void PatientShortenHousenumberTest(){
+		//Patient Shorten test
+		Patient p = new Patient();
+		Patienttype b = this.patienttypeRepository.findByid(1L);
+        Province o = this.provinceRepository.findByid(1L);
+        Sex n = this.sexRepository.findByid(1L);
+        p.setPatienttype(b);
+        p.setProvince(o);
+        p.setSex(n);
+		p.setFirstname("NUTTAWUT");
+		p.setLastname("TUNPRASERT");
+		p.setDistrict("เมือง");
+		p.setSubdistrict("ในเมือง");
+		p.setHousenumber("3");
+		p.setPostcode("30000");
+		p.setPatientdetail("caght a cold");
+		try {
+			entityManager.persist(p);
+			entityManager.flush();
+			fail("Should not pass to this line");
+		} catch (javax.validation.ConstraintViolationException e) {
+			Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+			assertEquals(violations.isEmpty(), false);
+			assertEquals(violations.size(), 1);
+			System.out.println("can detect Shorten Housenumber");
+			System.out.println(e);
+			System.out.println();
+		}
+	}
+
+	@Test
+	public void PatientShortenPostcodeTest(){
+		//Patient Shorten test
+		Patient p = new Patient();
+		Patienttype b = this.patienttypeRepository.findByid(1L);
+        Province o = this.provinceRepository.findByid(1L);
+        Sex n = this.sexRepository.findByid(1L);
+        p.setPatienttype(b);
+        p.setProvince(o);
+        p.setSex(n);
+		p.setFirstname("NUTTAWUT");
+		p.setLastname("TUNPRASERT");
+		p.setDistrict("เมือง");
+		p.setSubdistrict("ในเมือง");
+		p.setHousenumber("386");
+		p.setPostcode("3");
+		p.setPatientdetail("caght a cold");
+		try {
+			entityManager.persist(p);
+			entityManager.flush();
+			fail("Should not pass to this line");
+		} catch (javax.validation.ConstraintViolationException e) {
+			Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+			assertEquals(violations.isEmpty(), false);
+			assertEquals(violations.size(), 1);
+			System.out.println("can detect Shorten Postcode");
+			System.out.println(e);
+			System.out.println();
+		}
+	}
+
+	@Test
+	public void PatientShortenPatientdetailTest(){
+		//Patient Shorten test
+		Patient p = new Patient();
+		Patienttype b = this.patienttypeRepository.findByid(1L);
+        Province o = this.provinceRepository.findByid(1L);
+        Sex n = this.sexRepository.findByid(1L);
+        p.setPatienttype(b);
+        p.setProvince(o);
+        p.setSex(n);
+		p.setFirstname("NUTTAWUT");
+		p.setLastname("TUNPRASERT");
+		p.setDistrict("เมือง");
+		p.setSubdistrict("ในเมือง");
+		p.setHousenumber("386");
+		p.setPostcode("30000");
+		p.setPatientdetail("c");
+		try {
+			entityManager.persist(p);
+			entityManager.flush();
+			fail("Should not pass to this line");
+		} catch (javax.validation.ConstraintViolationException e) {
+			Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+			assertEquals(violations.isEmpty(), false);
+			assertEquals(violations.size(), 1);
+			System.out.println("can detect Shorten Patientdetail");
+			System.out.println(e);
+			System.out.println();
+		}
+	}
+
+	@Test
+	public void PatientLongerFirstnameTest(){
+		//Patient Longer test
+		Patient p = new Patient();
+		Patienttype b = this.patienttypeRepository.findByid(1L);
+        Province o = this.provinceRepository.findByid(1L);
+        Sex n = this.sexRepository.findByid(1L);
+        p.setPatienttype(b);
+        p.setProvince(o);
+        p.setSex(n);
+		p.setFirstname("NUTTAWUTTTTTTTTTTTTTTTTTT");
+		p.setLastname("TUNPRASERT");
+		p.setDistrict("เมือง");
+		p.setSubdistrict("ในเมือง");
+		p.setHousenumber("386");
+		p.setPostcode("30000");
+		p.setPatientdetail("caght a cold");
+		try {
+			entityManager.persist(p);
+			entityManager.flush();
+			fail("Should not pass to this line");
+		} catch (javax.validation.ConstraintViolationException e) {
+			Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+			assertEquals(violations.isEmpty(), false);
+			assertEquals(violations.size(), 1);
+			System.out.println("can detect Longer Firstname");
+			System.out.println(e);
+			System.out.println();
+		}
+	}
+
+	@Test
+	public void PatientLongerLastnameTest(){
+		//Patient Longer test
+		Patient p = new Patient();
+		Patienttype b = this.patienttypeRepository.findByid(1L);
+        Province o = this.provinceRepository.findByid(1L);
+        Sex n = this.sexRepository.findByid(1L);
+        p.setPatienttype(b);
+        p.setProvince(o);
+        p.setSex(n);
+		p.setFirstname("NUTTAWUT");
+		p.setLastname("TUNPRASERTTTTTTTTTTTTTTTT");
+		p.setDistrict("เมือง");
+		p.setSubdistrict("ในเมือง");
+		p.setHousenumber("386");
+		p.setPostcode("30000");
+		p.setPatientdetail("caght a cold");
+		try {
+			entityManager.persist(p);
+			entityManager.flush();
+			fail("Should not pass to this line");
+		} catch (javax.validation.ConstraintViolationException e) {
+			Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+			assertEquals(violations.isEmpty(), false);
+			assertEquals(violations.size(), 1);
+			System.out.println("can detect Longer Lastname");
+			System.out.println(e);
+			System.out.println();
+		}
+	}
+
+	@Test
+	public void PatientLongerDistrictTest(){
+		//Patient Longer test
+		Patient p = new Patient();
+		Patienttype b = this.patienttypeRepository.findByid(1L);
+        Province o = this.provinceRepository.findByid(1L);
+        Sex n = this.sexRepository.findByid(1L);
+        p.setPatienttype(b);
+        p.setProvince(o);
+        p.setSex(n);
+		p.setFirstname("NUTTAWUT");
+		p.setLastname("TUNPRASERT");
+		p.setDistrict("เมืองงงงงงงงงงงงงงงงงงงงง");
+		p.setSubdistrict("ในเมือง");
+		p.setHousenumber("386");
+		p.setPostcode("30000");
+		p.setPatientdetail("caght a cold");
+		try {
+			entityManager.persist(p);
+			entityManager.flush();
+			fail("Should not pass to this line");
+		} catch (javax.validation.ConstraintViolationException e) {
+			Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+			assertEquals(violations.isEmpty(), false);
+			assertEquals(violations.size(), 1);
+			System.out.println("can detect Longer District");
+			System.out.println(e);
+			System.out.println();
+		}
+	}
+
+	@Test
+	public void PatientLongerSubdistrictTest(){
+		//Patient Longer test
+		Patient p = new Patient();
+		Patienttype b = this.patienttypeRepository.findByid(1L);
+        Province o = this.provinceRepository.findByid(1L);
+        Sex n = this.sexRepository.findByid(1L);
+        p.setPatienttype(b);
+        p.setProvince(o);
+        p.setSex(n);
+		p.setFirstname("NUTTAWUT");
+		p.setLastname("TUNPRASERT");
+		p.setDistrict("เมือง");
+		p.setSubdistrict("ในเมืองงงงงงงงงงงงงงงงงงง");
+		p.setHousenumber("386");
+		p.setPostcode("30000");
+		p.setPatientdetail("caght a cold");
+		try {
+			entityManager.persist(p);
+			entityManager.flush();
+			fail("Should not pass to this line");
+		} catch (javax.validation.ConstraintViolationException e) {
+			Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+			assertEquals(violations.isEmpty(), false);
+			assertEquals(violations.size(), 1);
+			System.out.println("can detect Longer Subdistrict");
+			System.out.println(e);
+			System.out.println();
+		}
+	}
+
+	@Test
+	public void PatientLongerHousenumberTest(){
+		//Patient Longer test
+		Patient p = new Patient();
+		Patienttype b = this.patienttypeRepository.findByid(1L);
+        Province o = this.provinceRepository.findByid(1L);
+        Sex n = this.sexRepository.findByid(1L);
+        p.setPatienttype(b);
+        p.setProvince(o);
+        p.setSex(n);
+		p.setFirstname("NUTTAWUT");
+		p.setLastname("TUNPRASERT");
+		p.setDistrict("เมือง");
+		p.setSubdistrict("ในเมือง");
+		p.setHousenumber("386 หมู่ 1 ถนน สุรรารายณ์");
+		p.setPostcode("30000");
+		p.setPatientdetail("caght a cold");
+		try {
+			entityManager.persist(p);
+			entityManager.flush();
+			fail("Should not pass to this line");
+		} catch (javax.validation.ConstraintViolationException e) {
+			Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+			assertEquals(violations.isEmpty(), false);
+			assertEquals(violations.size(), 1);
+			System.out.println("can detect Longer Housenumber");
+			System.out.println(e);
+			System.out.println();
+		}
+	}
+
+	@Test
+	public void PatientLongerPostcodeTest(){
+		//Patient Longer test
+		Patient p = new Patient();
+		Patienttype b = this.patienttypeRepository.findByid(1L);
+        Province o = this.provinceRepository.findByid(1L);
+        Sex n = this.sexRepository.findByid(1L);
+        p.setPatienttype(b);
+        p.setProvince(o);
+        p.setSex(n);
+		p.setFirstname("NUTTAWUT");
+		p.setLastname("TUNPRASERT");
+		p.setDistrict("เมือง");
+		p.setSubdistrict("ในเมือง");
+		p.setHousenumber("386");
+		p.setPostcode("30000000000000");
+		p.setPatientdetail("caght a cold");
+		try {
+			entityManager.persist(p);
+			entityManager.flush();
+			fail("Should not pass to this line");
+		} catch (javax.validation.ConstraintViolationException e) {
+			Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+			assertEquals(violations.isEmpty(), false);
+			assertEquals(violations.size(), 1);
+			System.out.println("can detect Longer Postcode");
+			System.out.println(e);
+			System.out.println();
+		}
+	}
+
+	@Test
+	public void PatientLongerPatientdetailTest(){
+		//Patient Longer test
+		Patient p = new Patient();
+		Patienttype b = this.patienttypeRepository.findByid(1L);
+        Province o = this.provinceRepository.findByid(1L);
+        Sex n = this.sexRepository.findByid(1L);
+        p.setPatienttype(b);
+        p.setProvince(o);
+        p.setSex(n);
+		p.setFirstname("NUTTAWUT");
+		p.setLastname("TUNPRASERT");
+		p.setDistrict("เมือง");
+		p.setSubdistrict("ในเมือง");
+		p.setHousenumber("386");
+		p.setPostcode("30000");
+		p.setPatientdetail("caght a coldddddddddddddddddddddddddddddddddddddddd");
+		try {
+			entityManager.persist(p);
+			entityManager.flush();
+			fail("Should not pass to this line");
+		} catch (javax.validation.ConstraintViolationException e) {
+			Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+			assertEquals(violations.isEmpty(), false);
+			assertEquals(violations.size(), 1);
+			System.out.println("can detect Longer Patientdetail");
+			System.out.println(e);
+			System.out.println();
+		}
+	}
+
+	@Test
+	public void PatientPatternFirstnameTest(){
+		//Patient Pattern test
+		Patient p = new Patient();
+		Patienttype b = this.patienttypeRepository.findByid(1L);
+        Province o = this.provinceRepository.findByid(1L);
+        Sex n = this.sexRepository.findByid(1L);
+        p.setPatienttype(b);
+        p.setProvince(o);
+        p.setSex(n);
+		p.setFirstname("NUTTAWUT1");
+		p.setLastname("TUNPRASERT");
+		p.setDistrict("เมือง");
+		p.setSubdistrict("ในเมือง");
+		p.setHousenumber("386");
+		p.setPostcode("30000");
+		p.setPatientdetail("caght a cold");
+		try {
+			entityManager.persist(p);
+			entityManager.flush();
+			fail("Should not pass to this line");
+		} catch (javax.validation.ConstraintViolationException e) {
+			Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+			assertEquals(violations.isEmpty(), false);
+			assertEquals(violations.size(), 1);
+			System.out.println("can detect wrong Pattern Firstname");
+			System.out.println(e);
+			System.out.println();
+		}
+	}
+
+	@Test
+	public void PatientPatternLastnameTest(){
+		//Patient Pattern test
+		Patient p = new Patient();
+		Patienttype b = this.patienttypeRepository.findByid(1L);
+        Province o = this.provinceRepository.findByid(1L);
+        Sex n = this.sexRepository.findByid(1L);
+        p.setPatienttype(b);
+        p.setProvince(o);
+        p.setSex(n);
+		p.setFirstname("NUTTAWUT");
+		p.setLastname("TUNPRASERT1");
+		p.setDistrict("เมือง");
+		p.setSubdistrict("ในเมือง");
+		p.setHousenumber("386");
+		p.setPostcode("30000");
+		p.setPatientdetail("caght a cold");
+		try {
+			entityManager.persist(p);
+			entityManager.flush();
+			fail("Should not pass to this line");
+		} catch (javax.validation.ConstraintViolationException e) {
+			Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+			assertEquals(violations.isEmpty(), false);
+			assertEquals(violations.size(), 1);
+			System.out.println("can detect wrong Pattern Lastname");
+			System.out.println(e);
+			System.out.println();
+		}
+	}
+
+	@Test
+	public void PatientPatternDistrictTest(){
+		//Patient Pattern test
+		Patient p = new Patient();
+		Patienttype b = this.patienttypeRepository.findByid(1L);
+        Province o = this.provinceRepository.findByid(1L);
+        Sex n = this.sexRepository.findByid(1L);
+        p.setPatienttype(b);
+        p.setProvince(o);
+        p.setSex(n);
+		p.setFirstname("NUTTAWUT");
+		p.setLastname("TUNPRASERT");
+		p.setDistrict("เมือง1");
+		p.setSubdistrict("ในเมือง");
+		p.setHousenumber("386");
+		p.setPostcode("30000");
+		p.setPatientdetail("caght a cold");
+		try {
+			entityManager.persist(p);
+			entityManager.flush();
+			fail("Should not pass to this line");
+		} catch (javax.validation.ConstraintViolationException e) {
+			Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+			assertEquals(violations.isEmpty(), false);
+			assertEquals(violations.size(), 1);
+			System.out.println("can detect wrong Pattern District");
+			System.out.println(e);
+			System.out.println();
+		}
+	}
+
+	@Test
+	public void PatientPatternSubdistrictTest(){
+		//Patient Pattern test
+		Patient p = new Patient();
+		Patienttype b = this.patienttypeRepository.findByid(1L);
+        Province o = this.provinceRepository.findByid(1L);
+        Sex n = this.sexRepository.findByid(1L);
+        p.setPatienttype(b);
+        p.setProvince(o);
+        p.setSex(n);
+		p.setFirstname("NUTTAWUT");
+		p.setLastname("TUNPRASERT");
+		p.setDistrict("เมือง");
+		p.setSubdistrict("ในเมือง1");
+		p.setHousenumber("386");
+		p.setPostcode("30000");
+		p.setPatientdetail("caght a cold");
+		try {
+			entityManager.persist(p);
+			entityManager.flush();
+			fail("Should not pass to this line");
+		} catch (javax.validation.ConstraintViolationException e) {
+			Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+			assertEquals(violations.isEmpty(), false);
+			assertEquals(violations.size(), 1);
+			System.out.println("can detect wrong Pattern Subdistrict");
+			System.out.println(e);
+			System.out.println();
+		}
+	}
+
+	@Test
+	public void PatientPatternPostcodeTest(){
+		//Patient Pattern test
+		Patient p = new Patient();
+		Patienttype b = this.patienttypeRepository.findByid(1L);
+        Province o = this.provinceRepository.findByid(1L);
+        Sex n = this.sexRepository.findByid(1L);
+        p.setPatienttype(b);
+        p.setProvince(o);
+        p.setSex(n);
+		p.setFirstname("NUTTAWUT");
+		p.setLastname("TUNPRASERT");
+		p.setDistrict("เมือง");
+		p.setSubdistrict("ในเมือง");
+		p.setHousenumber("386");
+		p.setPostcode("3GGWP");
+		p.setPatientdetail("caght a cold");
+		try {
+			entityManager.persist(p);
+			entityManager.flush();
+			fail("Should not pass to this line");
+		} catch (javax.validation.ConstraintViolationException e) {
+			Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+			assertEquals(violations.isEmpty(), false);
+			assertEquals(violations.size(), 1);
+			System.out.println("can detect wrong Pattern Postcode");
+			System.out.println(e);
+			System.out.println();
+		}
+	}
+
+	@Test
+	public void PatientPatternPatientdetailTest(){
+		//Patient Pattern test
+		Patient p = new Patient();
+		Patienttype b = this.patienttypeRepository.findByid(1L);
+        Province o = this.provinceRepository.findByid(1L);
+        Sex n = this.sexRepository.findByid(1L);
+        p.setPatienttype(b);
+        p.setProvince(o);
+        p.setSex(n);
+		p.setFirstname("NUTTAWUT");
+		p.setLastname("TUNPRASERT");
+		p.setDistrict("เมือง");
+		p.setSubdistrict("ในเมือง");
+		p.setHousenumber("386");
+		p.setPostcode("30000");
+		p.setPatientdetail("caght a cold1");
+		try {
+			entityManager.persist(p);
+			entityManager.flush();
+			fail("Should not pass to this line");
+		} catch (javax.validation.ConstraintViolationException e) {
+			Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+			assertEquals(violations.isEmpty(), false);
+			assertEquals(violations.size(), 1);
+			System.out.println("can detect wrong Pattern Patientdetail");
+			System.out.println(e);
+			System.out.println();
+		}
+	}
+
 	//Sprint 2 test
 	//test labclass
 	@Test
@@ -357,7 +1215,6 @@ public class DemoApplicationTests {
 		entityManager.persist(l2);
 		entityManager.flush();
 		System.out.println("It's a normal input test");
-
 	}
 
 	@Test
@@ -535,6 +1392,303 @@ public class DemoApplicationTests {
 			assertEquals(violations.size(), 1);
 			System.out.println();
 			System.out.println("can detect null Password");
+			System.out.println(e);
+			System.out.println();
+		}
+	}
+
+	@Test
+	public void OndutyinsertTest(){
+		//insert Onduty
+		Onduty on = new Onduty();
+		Lab a = this.labRepository.findByid(1L);
+        Doctor b = this.doctorRepository.findByid(1L);
+        on.setLab(a);
+        on.setDoctor(b);
+        Date date = new Date();
+        on.setOndutydate(date);
+		on.setSign("ณัฐวุฒิ");
+		on.setDailyreport("everything's fine");
+		on.setBrokenreport("none");
+		entityManager.persist(on);
+		entityManager.flush();
+	}
+
+	@Test
+	public void OndutyNullSignTest(){
+		//null Sign test
+		Onduty on = new Onduty();
+		Lab b = this.labRepository.findByid(1L);
+        Doctor o = this.doctorRepository.findByid(1L);
+        on.setLab(b);
+        on.setDoctor(o);
+        Date date = new Date();
+        on.setOndutydate(date);
+		on.setSign(null);
+		on.setDailyreport("everything's fine");
+		on.setBrokenreport("none");
+		try {
+			entityManager.persist(on);
+			entityManager.flush();
+			fail("Should not pass to this line");
+		} catch (javax.validation.ConstraintViolationException e) {
+			Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+			assertEquals(violations.isEmpty(), false);
+			assertEquals(violations.size(), 1);
+			System.out.println();
+			System.out.println("can detect null Sign");
+			System.out.println(e);
+			System.out.println();
+		}
+	}
+
+	@Test
+	public void OndutyNullDailyreportTest(){
+		//null Dailyreport test 
+		Onduty on = new Onduty();
+		Lab b = this.labRepository.findByid(1L);
+        Doctor o = this.doctorRepository.findByid(1L);
+        on.setLab(b);
+        on.setDoctor(o);
+        Date date = new Date();
+        on.setOndutydate(date);
+		on.setSign("ณัฐวุฒิ");
+		on.setDailyreport(null);
+		on.setBrokenreport("none");
+		try {
+			entityManager.persist(on);
+			entityManager.flush();
+			fail("Should not pass to this line");
+		} catch (javax.validation.ConstraintViolationException e) {
+			Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+			assertEquals(violations.isEmpty(), false);
+			assertEquals(violations.size(), 1);
+			System.out.println();
+			System.out.println("can detect null Dailyreport");
+			System.out.println(e);
+			System.out.println();
+		}
+	}
+
+	@Test
+	public void OndutyNullBrokenreportTest(){
+		//null Brokenreport test
+		Onduty on = new Onduty();
+		Lab b = this.labRepository.findByid(1L);
+        Doctor o = this.doctorRepository.findByid(1L);
+        on.setLab(b);
+        on.setDoctor(o);
+        Date date = new Date();
+        on.setOndutydate(date);
+		on.setSign("ณัฐวุฒิ");
+		on.setDailyreport("everything's fine");
+		on.setBrokenreport(null);
+		try {
+			entityManager.persist(on);
+			entityManager.flush();
+			fail("Should not pass to this line");
+		} catch (javax.validation.ConstraintViolationException e) {
+			Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+			assertEquals(violations.isEmpty(), false);
+			assertEquals(violations.size(), 1);
+			System.out.println();
+			System.out.println("can detect null Brokenreport");
+			System.out.println(e);
+			System.out.println();
+		}
+	}
+
+	@Test
+	public void OndutyNullOndutydateTest(){
+		//null Ondutydate test
+		Onduty on = new Onduty();
+		Lab b = this.labRepository.findByid(1L);
+        Doctor o = this.doctorRepository.findByid(1L);
+        on.setLab(b);
+        on.setDoctor(o);
+        Date date = new Date();
+        on.setOndutydate(null);
+		on.setSign("ณัฐวุฒิ");
+		on.setDailyreport("everything's fine");
+		on.setBrokenreport("none");
+		try {
+			entityManager.persist(on);
+			entityManager.flush();
+			fail("Should not pass to this line");
+		} catch (javax.validation.ConstraintViolationException e) {
+			Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+			assertEquals(violations.isEmpty(), false);
+			assertEquals(violations.size(), 1);
+			System.out.println();
+			System.out.println("can detect null Ondutydate");
+			System.out.println(e);
+			System.out.println();
+		}
+	}
+
+	@Test
+	public void OndutyShortenSignTest(){
+		//Shorten Sign test
+		Onduty on = new Onduty();
+		Lab b = this.labRepository.findByid(1L);
+        Doctor o = this.doctorRepository.findByid(1L);
+        on.setLab(b);
+        on.setDoctor(o);
+        Date date = new Date();
+        on.setOndutydate(date);
+		on.setSign("ณ");
+		on.setDailyreport("everything's fine");
+		on.setBrokenreport("none");
+		try {
+			entityManager.persist(on);
+			entityManager.flush();
+			fail("Should not pass to this line");
+		} catch (javax.validation.ConstraintViolationException e) {
+			Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+			assertEquals(violations.isEmpty(), false);
+			assertEquals(violations.size(), 1);
+			System.out.println();
+			System.out.println("can detect Shorten Brokenreport");
+			System.out.println(e);
+			System.out.println();
+		}
+	}
+
+	@Test
+	public void OndutyShortenDailyreportTest(){
+		//Shorten Sign test
+		Onduty on = new Onduty();
+		Lab b = this.labRepository.findByid(1L);
+        Doctor o = this.doctorRepository.findByid(1L);
+        on.setLab(b);
+        on.setDoctor(o);
+        Date date = new Date();
+        on.setOndutydate(date);
+		on.setSign("ณัฐวุฒิ");
+		on.setDailyreport("e");
+		on.setBrokenreport("none");
+		try {
+			entityManager.persist(on);
+			entityManager.flush();
+			fail("Should not pass to this line");
+		} catch (javax.validation.ConstraintViolationException e) {
+			Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+			assertEquals(violations.isEmpty(), false);
+			assertEquals(violations.size(), 1);
+			System.out.println();
+			System.out.println("can detect Shorten Dailyreport");
+			System.out.println(e);
+			System.out.println();
+		}
+	}
+
+	@Test
+	public void OndutyShortenBrokenreportTest(){
+		//Shorten Sign test
+		Onduty on = new Onduty();
+		Lab b = this.labRepository.findByid(1L);
+        Doctor o = this.doctorRepository.findByid(1L);
+        on.setLab(b);
+        on.setDoctor(o);
+        Date date = new Date();
+        on.setOndutydate(date);
+		on.setSign("ณัฐวุฒิ");
+		on.setDailyreport("everything's fine");
+		on.setBrokenreport("n");
+		try {
+			entityManager.persist(on);
+			entityManager.flush();
+			fail("Should not pass to this line");
+		} catch (javax.validation.ConstraintViolationException e) {
+			Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+			assertEquals(violations.isEmpty(), false);
+			assertEquals(violations.size(), 1);
+			System.out.println();
+			System.out.println("can detect Shorten Brokenreport");
+			System.out.println(e);
+			System.out.println();
+		}
+	}
+
+	@Test
+	public void OndutyLongestSignTest(){
+		//Longest Sign test
+		Onduty on = new Onduty();
+		Lab b = this.labRepository.findByid(1L);
+        Doctor o = this.doctorRepository.findByid(1L);
+        on.setLab(b);
+        on.setDoctor(o);
+        Date date = new Date();
+        on.setOndutydate(date);
+		on.setSign("ณัฐวุฒิณณณณณณณณณณณณณณ");
+		on.setDailyreport("everything's fine");
+		on.setBrokenreport("none");
+		try {
+			entityManager.persist(on);
+			entityManager.flush();
+			fail("Should not pass to this line");
+		} catch (javax.validation.ConstraintViolationException e) {
+			Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+			assertEquals(violations.isEmpty(), false);
+			assertEquals(violations.size(), 1);
+			System.out.println();
+			System.out.println("can detect Longest Sign");
+			System.out.println(e);
+			System.out.println();
+		}
+	}
+
+	@Test
+	public void OndutyLongestDailyreportTest(){
+		//Longest Dailyreport test
+		Onduty on = new Onduty();
+		Lab b = this.labRepository.findByid(1L);
+        Doctor o = this.doctorRepository.findByid(1L);
+        on.setLab(b);
+        on.setDoctor(o);
+        Date date = new Date();
+        on.setOndutydate(date);
+		on.setSign("ณัฐวุฒิ");
+		on.setDailyreport("everything's fineeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
+		on.setBrokenreport("none");
+		try {
+			entityManager.persist(on);
+			entityManager.flush();
+			fail("Should not pass to this line");
+		} catch (javax.validation.ConstraintViolationException e) {
+			Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+			assertEquals(violations.isEmpty(), false);
+			assertEquals(violations.size(), 1);
+			System.out.println();
+			System.out.println("can detect Longest Dailyreport");
+			System.out.println(e);
+			System.out.println();
+		}
+	}
+
+	@Test
+	public void OndutyLongestBrokenreportTest(){
+		//Longest Brokenreport test
+		Onduty on = new Onduty();
+		Lab b = this.labRepository.findByid(1L);
+        Doctor o = this.doctorRepository.findByid(1L);
+        on.setLab(b);
+        on.setDoctor(o);
+        Date date = new Date();
+        on.setOndutydate(date);
+		on.setSign("ณัฐวุฒิ");
+		on.setDailyreport("everything's fine");
+		on.setBrokenreport("nonenonenonenonenonenonenonenonenonenonenonenonenone");
+		try {
+			entityManager.persist(on);
+			entityManager.flush();
+			fail("Should not pass to this line");
+		} catch (javax.validation.ConstraintViolationException e) {
+			Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+			assertEquals(violations.isEmpty(), false);
+			assertEquals(violations.size(), 1);
+			System.out.println();
+			System.out.println("can detect Longest Brokenreport");
 			System.out.println(e);
 			System.out.println();
 		}
