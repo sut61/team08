@@ -12,6 +12,8 @@ import { HomemainComponent } from './components/homemain/homemain.component';
 import { LogingComponent } from './components/loging/loging.component';
 import { SuggestionComponent } from './components/suggestion/suggestion.component';
 import { TreatComponent } from './treat/treat.component';
+import { PaymentinfoComponent } from './paymentinfo/paymentinfo.component';
+import { MediscriptComponent } from './mediscript/mediscript.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/homemain', pathMatch: 'full'},
@@ -25,7 +27,9 @@ const routes: Routes = [
   {path: 'homemain', component: HomemainComponent},
   {path: 'workSchedule-register', component: WorkScheduleRegComponent},
   {path: 'suggestion', component: SuggestionComponent},
-  {path: 'treat', component: TreatComponent}
+  {path: 'treat', component: TreatComponent},
+  {path: 'paymentinfo', component: PaymentinfoComponent},
+  {path: 'mediscript', component: MediscriptComponent}
 
 ];
 
