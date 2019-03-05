@@ -8,13 +8,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.Column;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.*;
-import java.util.List;
+
 import javax.persistence.*;
-import java.sql.Timestamp;
-import java.util.Date;
-import java.util.Collection;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
 
 @Getter @Setter
 @Entity
@@ -26,10 +25,12 @@ public class Mediscript {
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="Mediscript_seq")
     @Column(name="Mediscript_ID")
 
-
+    @NotNull
     private  Long MediscriptID;
 
-
+    @NotNull
+    @Pattern(regexp = "[0-9]+")
+    @Size(min = 1, max = 5 )
     private String AmountMedi;
 
 
@@ -37,14 +38,17 @@ public class Mediscript {
     }
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "Doctor_ID", insertable = true)
+    @NotNull
     private  Doctor doctor;
 
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "Medi_ID", insertable = true)
+    @NotNull
     private  Medi medi;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name= "IdCompany",insertable = true)
+    @NotNull
     private Company company;
 
 

@@ -56,7 +56,13 @@ public class ServerApplication {
 						HealthProgramRepository healthProgramRepository,
 						RequestSuggestionRepository requestSuggestionRepository,
 						PersonnelRepository personnelRepository,
-						SuggestionRepository suggestionRepository,
+
+                           CompanyRepository companyRepository,
+                           PayerRepository payerRepository,
+                           PaymentStatusRepository paymentStatusRepository,
+                           PayTypeRepository paytypeRepository,
+
+                           SuggestionRepository suggestionRepository,
 						UserRepository userRepository) {
 		
 		return args -> {
@@ -108,8 +114,8 @@ public class ServerApplication {
 
 			Nurse nurse = new Nurse();
 			Nurse nurse1 = new Nurse();
-			nurse.setNameNurse("N1");
-			nurse1.setNameNurse("N2");
+			nurse.setNameNurse("พยาบาลคนสวย");
+			nurse1.setNameNurse("พยาบาลใจดี");
 			nurseRepository.save(nurse);
 			nurseRepository.save(nurse1);
 
@@ -179,6 +185,38 @@ public class ServerApplication {
 			toolRepository.save(t1);
 			toolRepository.save(t2);
 			toolRepository.save(t3);
+
+            Company company = new Company();
+            Company company1 = new Company();
+            company.setCompanyName("บริษัทสยามยา");
+            company1.setCompanyName("บริษัทไทยฟาร์มาซี");
+            companyRepository.save(company);
+            companyRepository.save(company1);
+
+            Payer payer = new Payer();
+            Payer payer1 = new Payer();
+            payer.setPayerName("นายใจดี");
+            payer1.setPayerName("นางสาวสดใส");
+            payerRepository.save(payer);
+            payerRepository.save(payer1);
+
+
+            PaymentStatus paymentStatus = new PaymentStatus();
+            PaymentStatus paymentStatus1 = new PaymentStatus();
+            paymentStatus.setPaymentStatusName("Not pay yet");
+            paymentStatus1.setPaymentStatusName("Paid");
+            paymentStatusRepository.save(paymentStatus);
+            paymentStatusRepository.save(paymentStatus1);
+
+
+            PayType paytype = new PayType();
+            PayType paytype1 = new PayType();
+            paytype.setPayTypeName("Cash");
+            paytype1.setPayTypeName("Installment");
+            paytypeRepository.save(paytype);
+            paytypeRepository.save(paytype1);
+
+
 
 //			Patient p = new Patient();
 //			p.setFirstname("ไงงง");
