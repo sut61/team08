@@ -8,4 +8,5 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 @RepositoryRestResource
 @CrossOrigin(origins = "http://localhost:4200")
 public interface SexRepository extends JpaRepository<Sex, Long> {
+	Sex findByid(Long id);
 }
