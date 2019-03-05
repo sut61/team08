@@ -44,6 +44,8 @@ import { SuggestionService } from './shared/suggestion/suggestion.service';
 import { TreatComponent } from './treat/treat.component';
 import { MediscriptComponent } from './mediscript/mediscript.component';
 import { MediscriptService } from './mediscript.service';
+import { PaymentinfoComponent } from './paymentinfo/paymentinfo.component';
+import { PaymentinfoService } from './paymentinfo.service';
 
 
 @NgModule({
@@ -61,7 +63,8 @@ import { MediscriptService } from './mediscript.service';
     WorkScheduleRegComponent,
     SuggestionComponent,
     TreatComponent,
-    MediscriptComponent
+    MediscriptComponent,
+    PaymentinfoComponent
   ],
   imports: [
     HttpModule,
