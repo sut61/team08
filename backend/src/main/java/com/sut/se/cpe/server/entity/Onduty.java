@@ -16,10 +16,13 @@ public class Onduty {
     @Column(name = "IdOnduty")
 
     private @NonNull Long id;
-    private Date ondutydate;
-    private String sign;
-    private String dailyreport;
-    private String brokenreport;
+    private @NotNull Date ondutydate;
+    @Size(min=2,max=20)
+    private @NotNull String sign;
+    @Size(min=2,max=50)
+    private @NotNull String dailyreport;
+    @Size(min=2,max=50)
+    private @NotNull String brokenreport;
 
     public Onduty(){}
     public Onduty(Long id){}
