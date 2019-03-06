@@ -40,7 +40,7 @@ public class MediscriptTest {
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         validator = factory.getValidator();
     }
-/*ooo*/
+
     @Test
     public void testDataSuccess(){
         Mediscript mediscript = new Mediscript();
