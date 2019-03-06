@@ -131,7 +131,7 @@ public class TreathistoryTest {
             entityManager.persist(th);
             entityManager.flush();
 
-           // fail("Should not pass to this line");
+           fail("Should not pass to this line");
         } catch (javax.validation.ConstraintViolationException e) {
             System.out.println("================ from testSymptomMinSize =================");
             System.out.println(e);
@@ -153,7 +153,7 @@ public class TreathistoryTest {
             entityManager.persist(th);
             entityManager.flush();
 
-           // fail("Should not pass to this line");
+           fail("Should not pass to this line");
         } catch (javax.validation.ConstraintViolationException e) {
             System.out.println("================ from testRangePressure =================");
             System.out.println(e);

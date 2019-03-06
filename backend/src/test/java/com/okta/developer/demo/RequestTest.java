@@ -59,6 +59,11 @@ public class RequestTest {
         rq.setAmount(5);
         rq.setObjective("ล่าช้า");
         rq.setSgname("นายสนาน");
+        rq.setDepartment(departmentRepository.findByDepartment("แผนกอยุรกรรม"));
+        rq.setSurrogate(surrogateRepository.findBySurrogate("พยาบาล"));
+        rq.setTool(toolRepository.findByTool("กระดาษ(รีม)"));
+        rq.setDoctor(doctorRepository.findByDoctorid("Tonkaw"));
+        rq.setApprover(approverRepository.findByApprover("นายญาติ"));
 
         try {
 
@@ -83,6 +88,11 @@ public class RequestTest {
         rq.setAmount(5);
         rq.setObjective("สบาย");
         rq.setSgname(null);
+        rq.setDepartment(departmentRepository.findByDepartment("แผนกอยุรกรรม"));
+        rq.setSurrogate(surrogateRepository.findBySurrogate("พยาบาล"));
+        rq.setTool(toolRepository.findByTool("กระดาษ(รีม)"));
+        rq.setDoctor(doctorRepository.findByDoctorid("Tonkaw"));
+        rq.setApprover(approverRepository.findByApprover("นายญาติ"));
 
         try {
 
@@ -104,6 +114,11 @@ public class RequestTest {
             rq.setAmount(5);
             rq.setObjective("สบาย");
             rq.setSgname("ddddd");
+            rq.setDepartment(departmentRepository.findByDepartment("แผนกอยุรกรรม"));
+            rq.setSurrogate(surrogateRepository.findBySurrogate("พยาบาล"));
+            rq.setTool(toolRepository.findByTool("กระดาษ(รีม)"));
+            rq.setDoctor(doctorRepository.findByDoctorid("Tonkaw"));
+            rq.setApprover(approverRepository.findByApprover("นายญาติ"));
 
             try {
                 entityManager.persist(rq);
@@ -127,6 +142,11 @@ public class RequestTest {
             rq.setAmount(5);
             rq.setObjective("สบาย");
             rq.setSgname("dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd");
+            rq.setDepartment(departmentRepository.findByDepartment("แผนกอยุรกรรม"));
+            rq.setSurrogate(surrogateRepository.findBySurrogate("พยาบาล"));
+            rq.setTool(toolRepository.findByTool("กระดาษ(รีม)"));
+            rq.setDoctor(doctorRepository.findByDoctorid("Tonkaw"));
+            rq.setApprover(approverRepository.findByApprover("นายญาติ"));
 
             try {
                 entityManager.persist(rq);
@@ -150,6 +170,11 @@ public class RequestTest {
             rq.setAmount(5);
             rq.setObjective("สบาย");
             rq.setSgname("56789");
+            rq.setDepartment(departmentRepository.findByDepartment("แผนกอยุรกรรม"));
+            rq.setSurrogate(surrogateRepository.findBySurrogate("พยาบาล"));
+            rq.setTool(toolRepository.findByTool("กระดาษ(รีม)"));
+            rq.setDoctor(doctorRepository.findByDoctorid("Tonkaw"));
+            rq.setApprover(approverRepository.findByApprover("นายญาติ"));
 
             try {
                 entityManager.persist(rq);

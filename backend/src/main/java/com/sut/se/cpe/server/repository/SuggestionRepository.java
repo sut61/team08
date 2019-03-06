@@ -6,5 +6,5 @@ import com.sut.se.cpe.server.entity.Suggestion;
 
 @RepositoryRestResource
 public interface SuggestionRepository extends JpaRepository<Suggestion, Long>{
-	Suggestion findById(long suggestionId);
+	Suggestion findById(long suggestionId);	
 }
