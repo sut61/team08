@@ -31,8 +31,6 @@ public class MediscriptTest {
     @Autowired
     private MediscriptRepository mediscriptRepository;
 
-
-
     private Validator validator;
 
     @Before
@@ -45,6 +43,10 @@ public class MediscriptTest {
     public void testDataSuccess(){
         Mediscript mediscript = new Mediscript();
         mediscript.setAmountMedi("55555");
+        mediscript.setNote("okay");
+        mediscript.setOrderPlace("Lab");
+        mediscript.setPostPlace("30000");
+        mediscript.setPriceOrder("500000");
 
         try {
             entityManager.persist(mediscript);
@@ -62,6 +64,10 @@ public class MediscriptTest {
     public void testsetMediscriptNotBeNull(){
         Mediscript mediscript = new Mediscript();
         mediscript.setAmountMedi(null);
+        mediscript.setNote("okay");
+        mediscript.setOrderPlace("Lab");
+        mediscript.setPostPlace("30000");
+        mediscript.setPriceOrder("500000");
 
         try {
             entityManager.persist(mediscript);
@@ -73,13 +79,17 @@ public class MediscriptTest {
             System.out.println(violations);
             System.out.println("\n");
             assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 1);
+            assertEquals(violations.size(), 4);
         }
     }
     @Test
     public void testsetMediscriptNotBeSize(){
         Mediscript mediscript = new Mediscript();
         mediscript.setAmountMedi("4444444444444444444444444444444444444444444");
+        mediscript.setNote("okay");
+        mediscript.setOrderPlace("Lab");
+        mediscript.setPostPlace("30000");
+        mediscript.setPriceOrder("500000");
 
         try {
             entityManager.persist(mediscript);
@@ -91,13 +101,17 @@ public class MediscriptTest {
             System.out.println(violations);
             System.out.println("\n");
             assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 1);
+            assertEquals(violations.size(), 4);
         }
     }
     @Test
     public void testsetMediscriptNotPattern(){
         Mediscript mediscript = new Mediscript();
         mediscript.setAmountMedi("hhhhh");
+        mediscript.setNote("okay");
+        mediscript.setOrderPlace("Lab");
+        mediscript.setPostPlace("30000");
+        mediscript.setPriceOrder("500000");
 
         try {
             entityManager.persist(mediscript);
@@ -109,8 +123,101 @@ public class MediscriptTest {
             System.out.println(violations);
             System.out.println("\n");
             assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 1);
+            assertEquals(violations.size(), 4);
         }
     }
+
+
+    public void testsetNoteNotBeNull(){
+        Mediscript mediscript = new Mediscript();
+        mediscript.setAmountMedi("55555");
+        mediscript.setNote(null);
+        mediscript.setOrderPlace("Lab");
+        mediscript.setPostPlace("30000");
+        mediscript.setPriceOrder("500000");
+
+        try {
+            entityManager.persist(mediscript);
+            entityManager.flush();
+            //fail("Should not pass to this line");
+        }  catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            System.out.println("\n\n======================>mediscriptNotBeNullCase<========================");
+            System.out.println(violations);
+            System.out.println("\n");
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 4);
+        }
+    }
+
+    public void testsetOrderNotBeNull(){
+        Mediscript mediscript = new Mediscript();
+        mediscript.setAmountMedi("55555");
+        mediscript.setNote("okay");
+        mediscript.setOrderPlace(null);
+        mediscript.setPostPlace("30000");
+        mediscript.setPriceOrder("500000");
+
+        try {
+            entityManager.persist(mediscript);
+            entityManager.flush();
+            //fail("Should not pass to this line");
+        }  catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            System.out.println("\n\n======================>mediscriptNotBeNullCase<========================");
+            System.out.println(violations);
+            System.out.println("\n");
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 4);
+        }
+    }
+
+    public void testsetPostNotBeNull(){
+        Mediscript mediscript = new Mediscript();
+        mediscript.setAmountMedi("55555");
+        mediscript.setNote("okay");
+        mediscript.setOrderPlace("Lab");
+        mediscript.setPostPlace(null);
+        mediscript.setPriceOrder("500000");
+
+        try {
+            entityManager.persist(mediscript);
+            entityManager.flush();
+            //fail("Should not pass to this line");
+        }  catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            System.out.println("\n\n======================>mediscriptNotBeNullCase<========================");
+            System.out.println(violations);
+            System.out.println("\n");
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 4);
+        }
+    }
+
+    public void testsetPriceNotBeNull(){
+        Mediscript mediscript = new Mediscript();
+        mediscript.setAmountMedi("55555");
+        mediscript.setNote("okay");
+        mediscript.setOrderPlace("Lab");
+        mediscript.setPostPlace("30000");
+        mediscript.setPriceOrder(null);
+
+        try {
+            entityManager.persist(mediscript);
+            entityManager.flush();
+            //fail("Should not pass to this line");
+        }  catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            System.out.println("\n\n======================>mediscriptNotBeNullCase<========================");
+            System.out.println(violations);
+            System.out.println("\n");
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 4);
+        }
+    }
+
+
+
+
 
 }

@@ -1,4 +1,4 @@
-package com.sut.se.cpe.server.test;
+﻿package com.sut.se.cpe.server.test;
 import lombok.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -31,8 +31,6 @@ public class PaymentinfoTest {
     @Autowired
     private PaymentinfoRepository paymentinfoRepository;
 
-
-
     private Validator validator;
 
     @Before
@@ -45,6 +43,10 @@ public class PaymentinfoTest {
     public void testDataSuccess(){
         Paymentinfo paymentinfo = new Paymentinfo();
         paymentinfo.setPayPrice("55555");
+        paymentinfo.setNote("pass");
+        paymentinfo.setMediList("ยาแก้แวด");;
+        paymentinfo.setTreatList("รักษาอาการปวด");
+        paymentinfo.setSpecialNote("ส่วนลดพิเศษค่ารักษาพยาบาล");
 
         try {
             entityManager.persist(paymentinfo);
@@ -55,13 +57,17 @@ public class PaymentinfoTest {
         }  catch(javax.validation.ConstraintViolationException e) {
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 3);
+            assertEquals(violations.size(), 4);
         }
     }
     @Test
     public void testsetsetPayPriceNotBeNull(){
         Paymentinfo paymentinfo = new Paymentinfo();
         paymentinfo.setPayPrice(null);
+        paymentinfo.setNote("pass");
+        paymentinfo.setMediList("ยาแก้แวด");;
+        paymentinfo.setTreatList("รักษาอาการปวด");
+        paymentinfo.setSpecialNote("ส่วนลดพิเศษค่ารักษาพยาบาล");
 
         try {
             entityManager.persist(paymentinfo);
@@ -73,13 +79,17 @@ public class PaymentinfoTest {
             System.out.println(violations);
             System.out.println("\n");
             assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 1);
+            assertEquals(violations.size(), 5);
         }
     }
     @Test
     public void testsetsetPayPriceNotBeSize(){
         Paymentinfo paymentinfo = new Paymentinfo();
         paymentinfo.setPayPrice("4444444444444444444444444444444444444444444");
+        paymentinfo.setNote("pass");
+        paymentinfo.setMediList("ยาแก้แวด");;
+        paymentinfo.setTreatList("รักษาอาการปวด");
+        paymentinfo.setSpecialNote("ส่วนลดพิเศษค่ารักษาพยาบาล");
 
         try {
             entityManager.persist(paymentinfo);
@@ -91,13 +101,17 @@ public class PaymentinfoTest {
             System.out.println(violations);
             System.out.println("\n");
             assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 1);
+            assertEquals(violations.size(), 5);
         }
     }
     @Test
     public void testsetsetPayPriceNotPattern(){
         Paymentinfo paymentinfo = new Paymentinfo();
         paymentinfo.setPayPrice("hhhhh");
+        paymentinfo.setNote("pass");
+        paymentinfo.setMediList("ยาแก้แวด");;
+        paymentinfo.setTreatList("รักษาอาการปวด");
+        paymentinfo.setSpecialNote("ส่วนลดพิเศษค่ารักษาพยาบาล");
 
         try {
             entityManager.persist(paymentinfo);
@@ -109,7 +123,7 @@ public class PaymentinfoTest {
             System.out.println(violations);
             System.out.println("\n");
             assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 1);
+            assertEquals(violations.size(), 5);
         }
     }
 
