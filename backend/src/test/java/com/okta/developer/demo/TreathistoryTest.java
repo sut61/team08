@@ -34,6 +34,12 @@ public class TreathistoryTest {
 
     @Autowired 
     private TreatHistoryRepository treatHistoryRepository;
+    @Autowired
+    private DoctorRepository doctorRepository;
+    @Autowired 
+    private MedicineRepository medicineRepository;
+    @Autowired 
+    private PatientRepository patientRepository;
 
     private Validator validator;
 
@@ -49,6 +55,9 @@ public class TreathistoryTest {
         th.setPressure(165);
         th.setWeight(75);
         th.setSymptom("มัีไข้เล็กน้อย");
+        th.setDoctor(doctorRepository.findByDoctorid("Tonkaw"));
+        th.setMedicine(medicineRepository.findByMedicine("ยาแก้ปวด"));
+        th.setPatient(patientRepository.getOne(1L));
         try {
 
             entityManager.persist(th);
@@ -70,12 +79,14 @@ public class TreathistoryTest {
         th.setPressure(165);
         th.setWeight(75);
         th.setSymptom(null);
+        th.setDoctor(doctorRepository.findByDoctorid("Tonkaw"));
+        th.setMedicine(medicineRepository.findByMedicine("ยาแก้ปวด"));
         try {
 
             entityManager.persist(th);
             entityManager.flush();
 
-            //fail("Should not pass to this line");
+            fail("Should not pass to this line");
         } catch (javax.validation.ConstraintViolationException e) {
             System.out.println("================ from testSymptomNotNull =================");
             System.out.println(e);
@@ -91,12 +102,14 @@ public class TreathistoryTest {
         th.setPressure(165);
         th.setWeight(75);
         th.setSymptom("123456");
+        th.setDoctor(doctorRepository.findByDoctorid("Tonkaw"));
+        th.setMedicine(medicineRepository.findByMedicine("ยาแก้ปวด"));
         try {
 
             entityManager.persist(th);
             entityManager.flush();
 
-            //fail("Should not pass to this line");
+            fail("Should not pass to this line");
         } catch (javax.validation.ConstraintViolationException e) {
             System.out.println("================ from testSymptomPattern =================");
             System.out.println(e);
@@ -111,6 +124,8 @@ public class TreathistoryTest {
         th.setPressure(165);
         th.setWeight(75);
         th.setSymptom("ปวด");
+        th.setDoctor(doctorRepository.findByDoctorid("Tonkaw"));
+        th.setMedicine(medicineRepository.findByMedicine("ยาแก้ปวด"));
         try {
 
             entityManager.persist(th);
@@ -131,6 +146,8 @@ public class TreathistoryTest {
         th.setPressure(250);
         th.setWeight(75);
         th.setSymptom("มีไข้เล็กน้อย");
+        th.setDoctor(doctorRepository.findByDoctorid("Tonkaw"));
+        th.setMedicine(medicineRepository.findByMedicine("ยาแก้ปวด"));
         try {
 
             entityManager.persist(th);
@@ -151,12 +168,14 @@ public class TreathistoryTest {
         th.setPressure(50);
         th.setWeight(75);
         th.setSymptom("มีไข้เล็กน้อย");
+        th.setDoctor(doctorRepository.findByDoctorid("Tonkaw"));
+        th.setMedicine(medicineRepository.findByMedicine("ยาแก้ปวด"));
         try {
 
             entityManager.persist(th);
             entityManager.flush();
 
-           // fail("Should not pass to this line");
+            fail("Should not pass to this line");
         } catch (javax.validation.ConstraintViolationException e) {
             System.out.println("================ from testRangePressure =================");
             System.out.println(e);
@@ -172,12 +191,14 @@ public class TreathistoryTest {
         th.setPressure(120);
         th.setWeight(20);
         th.setSymptom("มีไข้เล็กน้อย");
+        th.setDoctor(doctorRepository.findByDoctorid("Tonkaw"));
+        th.setMedicine(medicineRepository.findByMedicine("ยาแก้ปวด"));
         try {
 
             entityManager.persist(th);
             entityManager.flush();
 
-           // fail("Should not pass to this line");
+           fail("Should not pass to this line");
         } catch (javax.validation.ConstraintViolationException e) {
             System.out.println("================ from testRangePressure =================");
             System.out.println(e);
@@ -192,12 +213,14 @@ public class TreathistoryTest {
         th.setPressure(120);
         th.setWeight(200);
         th.setSymptom("มีไข้เล็กน้อย");
+        th.setDoctor(doctorRepository.findByDoctorid("Tonkaw"));
+        th.setMedicine(medicineRepository.findByMedicine("ยาแก้ปวด"));
         try {
 
             entityManager.persist(th);
             entityManager.flush();
 
-           // fail("Should not pass to this line");
+           fail("Should not pass to this line");
         } catch (javax.validation.ConstraintViolationException e) {
             System.out.println("================ from testRangePressure =================");
             System.out.println(e);
