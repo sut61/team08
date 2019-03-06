@@ -14,6 +14,10 @@ export class MediscriptComponent implements OnInit {
   CompanyNameSelect: any ='';
   MediName: Array<any>;
   MediNameSelect: any ='';
+  PostPlace='';
+  PriceOrder='';
+  OrderPlace='';
+  Note='';
 
   constructor(private mediscriptService:  MediscriptService,
                             private httpClient: HttpClient) { }
@@ -35,10 +39,10 @@ export class MediscriptComponent implements OnInit {
   }
 
 insert() {
-  if (this.MediNameSelect == '' || this.CompanyNameSelect == '' ||  this.DoctorSelecte == '' || this.amountMedi =='' ) {
-        alert('ใส่ข้อมูลไม่ครบจะไม่ถูกบันทึกนะ');
+  if (this.MediNameSelect == '' || this.CompanyNameSelect == '' ||  this.DoctorSelecte == '' || this.amountMedi =='' || this.Note ==''|| this.OrderPlace ==''|| this.PostPlace ==''|| this.PriceOrder =='') {
+        alert('ใใส่ข้อมูลไม่ครบ');
     } else {
-         this.httpClient.post('http://localhost:8080/Mediscript/' + this.MediNameSelect + '/' + this.CompanyNameSelect +'/'  + this.DoctorSelecte +'/'  + this.amountMedi ,{})
+         this.httpClient.post('http://localhost:8080/Mediscript/' + this.MediNameSelect + '/' + this.CompanyNameSelect +'/'  + this.DoctorSelecte +'/'  + this.amountMedi+'/'  + this.Note +'/'  + this.OrderPlace+'/'  + this.PostPlace +'/'  + this.PriceOrder,{})
      .subscribe(
        data => {
          console.log('PUT Request is successful', data);
@@ -47,7 +51,7 @@ insert() {
           console.log('Error', error);
         }
       );
-    alert('บันทึกข้อมูลเรียบร้อย');
+    alert('บันทึกสำเร็จ');
   }
 }
 
