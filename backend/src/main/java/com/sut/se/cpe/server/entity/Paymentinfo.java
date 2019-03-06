@@ -32,6 +32,21 @@ public class Paymentinfo {
     @Size(min = 1, max = 5 )
     private String PayPrice;
 
+
+    private @NotNull String Note;
+
+    private @NotNull String MediList;
+
+    private @NotNull String TreatList;
+
+    private @NotNull String SpecialNote;
+
+
+
+
+
+
+
     public Paymentinfo() {
     }
     @ManyToOne(fetch = FetchType.EAGER)
@@ -57,6 +72,21 @@ public class Paymentinfo {
 
     public void setPayPrice(String PayPrice){this.PayPrice=PayPrice;}
     public String getPayPrice(){return PayPrice;}
+
+    public void setNote(String Note){this.Note=Note;}
+    public String getNote(){return Note;}
+
+    public void setMediList(String MediList){this.MediList=MediList;}
+    public String getMediList(){return MediList;}
+
+    public void setTreatList(String TreatList){this.TreatList=TreatList;}
+    public String getTreatList(){return TreatList;}
+
+    public void setSpecialNote(String SpecialNote){this.SpecialNote=SpecialNote;}
+    public String getSpecialNote(){return SpecialNote;}
+
+
+
     public void setPaymentStatus(PaymentStatus paymentStatus){
         this.paymentStatus = paymentStatus;
     }
@@ -72,13 +102,17 @@ public class Paymentinfo {
 
 
 
-    public Paymentinfo(String PayPrice, Nurse nurse,Payer payer,  PayType paytype,PaymentStatus paymentStatus) {
+    public Paymentinfo(String PayPrice, Nurse nurse,Payer payer,  PayType paytype,PaymentStatus paymentStatus,String Note,String TreatList,String MediList,String SpecialNote) {
 
         this.PayPrice=PayPrice;
         this.paymentStatus=paymentStatus;
         this.nurse=nurse;
         this.paytype=paytype;
         this.payer=payer;
+        this.Note=Note;
+        this.TreatList=TreatList;
+        this.SpecialNote=SpecialNote;
+        this.MediList=MediList;
 
     }
 }
