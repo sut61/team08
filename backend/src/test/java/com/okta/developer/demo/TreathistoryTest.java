@@ -211,7 +211,7 @@ public class TreathistoryTest {
     public void testMaxWeight() {
         TreatHistory th = new TreatHistory();
         th.setPressure(120);
-        th.setWeight(200);
+        th.setWeight(250);
         th.setSymptom("มีไข้เล็กน้อย");
         th.setDoctor(doctorRepository.findByDoctorid("Tonkaw"));
         th.setMedicine(medicineRepository.findByMedicine("ยาแก้ปวด"));
