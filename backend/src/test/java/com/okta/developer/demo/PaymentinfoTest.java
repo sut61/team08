@@ -1,4 +1,4 @@
-package com.sut.se.cpe.server.test;
+﻿package com.sut.se.cpe.server.test;
 import lombok.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -30,8 +30,6 @@ public class PaymentinfoTest {
 
     @Autowired
     private PaymentinfoRepository paymentinfoRepository;
-
-
 
     private Validator validator;
 

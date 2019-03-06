@@ -31,8 +31,6 @@ public class MediscriptTest {
     @Autowired
     private MediscriptRepository mediscriptRepository;
 
-
-
     private Validator validator;
 
     @Before
