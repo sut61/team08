@@ -218,16 +218,16 @@ public class ServerApplication {
 
 
 
-//			Patient p = new Patient();
-//			p.setFirstname("ไงงง");
-//			p.setLastname("wlll");
-//			p.setAge(15);
-//			p.setDistrict("sdsd");
-//			p.setSubdistrict("dfdfd");
-//			p.setHousenumber("dfdfdf");
-//			p.setPostcode("15616");
-//			p.setPatientdetail("dfsvssdv");
-//			patientRepository.save(p);
+			Patient p = new Patient();
+			p.setFirstname("ไงงง");
+			p.setLastname("wlll");
+			p.setAge(15);
+			p.setDistrict("sdsd");
+			p.setSubdistrict("dfdfd");
+			p.setHousenumber("dfdfdf");
+			p.setPostcode("15616");
+			p.setPatientdetail("dfsvssdv");
+			patientRepository.save(p);
 		
 
 
