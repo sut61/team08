@@ -1,6 +1,8 @@
+html
+
 <html>
 <form>
-  <h2 style = "text-align:center">ระบบออกใบสั่งยา</h2>
+  <h2 style = "text-align:center">ระบบย่อยออกใบสั่งยา</h2>
   <mat-grid-list cols="1" rowHeight="2:1">
     <mat-grid-tile class="nav-color">
       <div  >
@@ -45,6 +47,29 @@
 
 
         <br>
+
+
+        <mat-form-field >
+          <input matInput [(ngModel)]="Note" [ngModelOptions]="{standalone: true}" placeholder="Note"  name="Note">
+        </mat-form-field>
+        <br>
+
+        <mat-form-field >
+          <input matInput [(ngModel)]="OrderPlace" [ngModelOptions]="{standalone: true}" placeholder="OrderPlace"  name="OrderPlace">
+        </mat-form-field>
+        <br>
+
+        <mat-form-field >
+          <input matInput [(ngModel)]="PostPlace" [ngModelOptions]="{standalone: true}" placeholder="PostPlace"  name="PostPlace">
+        </mat-form-field>
+        <br>
+
+        <mat-form-field >
+          <input matInput [(ngModel)]="PriceOrder" [ngModelOptions]="{standalone: true}" placeholder="PriceOrder"  name="PriceOrder">
+        </mat-form-field>
+        <br>
+
+
 
 
 
