@@ -42,11 +42,6 @@ public class Paymentinfo {
     private @NotNull String SpecialNote;
 
 
-
-
-
-
-
     public Paymentinfo() {
     }
     @ManyToOne(fetch = FetchType.EAGER)
