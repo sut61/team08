@@ -34,6 +34,21 @@ public class Mediscript {
     private String AmountMedi;
 
 
+    @NotNull
+    @Size(min=1,max=20)
+    @Pattern(regexp="\\D+")
+    private String Note;
+
+
+    private @NotNull String OrderPlace;
+
+
+    private @NotNull String PriceOrder;
+
+
+    private @NotNull String PostPlace;
+
+
     public Mediscript() {
     }
     @ManyToOne(fetch = FetchType.EAGER)
@@ -54,6 +69,23 @@ public class Mediscript {
 
     public void setAmountMedi(String AmountMedi){this.AmountMedi=AmountMedi;}
     public String getAmountMedi(){return AmountMedi;}
+
+    public void setNote(String Note){this.Note=Note;}
+    public String getNote(){return Note;}
+
+
+    public void setOrderPlace(String OrderPlace){this.OrderPlace=OrderPlace;}
+    public String getOrderPlace(){return OrderPlace;}
+
+    public void setPostPlace(String PostPlace){this.PostPlace=PostPlace;}
+    public String getPostPlace(){return PostPlace;}
+
+    public void setPriceOrder(String PriceOrder){this.PriceOrder=PriceOrder;}
+    public String getPriceOrder(){return PriceOrder;}
+
+
+
+
     public void setMedi(Medi medi){
         this.medi = medi;
     }
@@ -67,16 +99,20 @@ public class Mediscript {
 
 
 
-    public Mediscript(String AmountMedi, Doctor doctor,  Company company,Medi medi) {
+    public Mediscript(String AmountMedi, Doctor doctor,  Company company,Medi medi,String Note,String PriceOrder,String OrderPlace,String PostPlace) {
 
         this.AmountMedi=AmountMedi;
         this.medi=medi;
         this.doctor=doctor;
-
         this.company=company;
-
+        this.Note=Note;
+        this.OrderPlace=OrderPlace;
+        this.PriceOrder=PriceOrder;
+        this.PostPlace=PostPlace;
 
 
     }
 }
+/*
 
+*/
