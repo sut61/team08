@@ -16,6 +16,10 @@ export class PaymentinfoComponent implements OnInit {
   PayTypeNameSelect: any ='';
   PaymentStatusName: Array<any>;
   PaymentStatusNameSelect: any ='';
+  Note='';
+  TreatList='';
+  MediList='';
+  SpecialNote='';
 
   constructor(private paymentinfoService:  PaymentinfoService,
                             private httpClient: HttpClient) { }
@@ -42,10 +46,10 @@ export class PaymentinfoComponent implements OnInit {
   }
 
 insert() {
-  if (this.PayTypeNameSelect === '' || this.PayerNameSelect === '' ||  this.NurseNameSelecte === '' || this.PayPrice ==='' || this.PaymentStatusNameSelect === '' ) {
+  if (this.PayTypeNameSelect === '' || this.PayerNameSelect === '' ||  this.NurseNameSelecte === '' || this.PayPrice ==='' || this.PaymentStatusNameSelect === '' || this.Note ==='' || this.MediList ===''|| this.TreatList ==='' || this.SpecialNote ==='') {
         alert('ใส่ข้อมูลไม่ครบจะไม่ถูกบันทึกนะ');
     } else {
-         this.httpClient.post('http://localhost:8080/PaymentInfo/' + this.PayTypeNameSelect + '/' + this.PayerNameSelect +'/'  + this.NurseNameSelecte +'/'  + this.PayPrice + '/' + this.PaymentStatusNameSelect  ,{})
+         this.httpClient.post('http://localhost:8080/PaymentInfo/' + this.PayTypeNameSelect + '/' + this.PayerNameSelect +'/'  + this.NurseNameSelecte +'/'  + this.PayPrice + '/' + this.PaymentStatusNameSelect + '/' + this.Note + '/' + this.MediList + '/' + this.TreatList + '/' + this.SpecialNote  ,{})
      .subscribe(
        data => {
          console.log('PUT Request is successful', data);

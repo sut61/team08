@@ -1,6 +1,6 @@
-<html>
+﻿<html>
 <form>
-  <h2 style = "text-align:center">ระบบออก.บเสร็จชำระเงิน</h2>
+  <h2 style = "text-align:center">ระบบออกใบเสร็จชำระเงิน</h2>
   <mat-grid-list cols="1" rowHeight="2:1">
     <mat-grid-tile>
       <div  >
@@ -39,18 +39,43 @@
         </mat-card-content>
         <br>
 
-        <!--<mat-form-field appearance="outline">-->
-          <!--<mat-select [(ngModel)]="NurseNameSelecte"  placeholder ="Nurse:"  name="NurseName" >-->
-            <!--<mat-option *ngFor="let Nurse of NurseName" [value]="Nurse.nurseID"> {{Nurse.NurseName}}-->
-            <!--</mat-option>-->
-          <!--</mat-select>-->
-        <!--</mat-form-field>-->
-        <!--<br>-->
-
         <mat-form-field >
           <input matInput [(ngModel)]="PayPrice" [ngModelOptions]="{standalone: true}" placeholder="PayPrice"  name="PayPrice">
         </mat-form-field>
         <br>
+
+
+        <mat-form-field >
+          <input matInput [(ngModel)]="TreatList" [ngModelOptions]="{standalone: true}" placeholder="TreatList"  name="TreatList">
+        </mat-form-field>
+        <br>
+
+/*oo*/
+
+
+        <mat-form-field >
+          <input matInput [(ngModel)]="MediList" [ngModelOptions]="{standalone: true}" placeholder="MediList"  name="MediList">
+        </mat-form-field>
+        <br>
+
+        <mat-form-field >
+          <input matInput [(ngModel)]="SpecialNote" [ngModelOptions]="{standalone: true}" placeholder="SpecialNote"  name="SpecialNote">
+        </mat-form-field>
+        <br>
+
+
+        <mat-form-field >
+          <input matInput [(ngModel)]="Note" [ngModelOptions]="{standalone: true}" placeholder="Note"  name="Note">
+        </mat-form-field>
+        <br>
+
+
+
+
+
+
+
+
         <mat-card-content>
           &nbsp; PaymentStatus : &nbsp;&nbsp;&nbsp;
           <mat-form-field appearance="outline">
