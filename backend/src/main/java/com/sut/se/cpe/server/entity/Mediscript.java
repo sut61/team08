@@ -32,7 +32,7 @@ public class Mediscript {
 
     @NotNull
     @Pattern(regexp = "[0-9]+")
-    @Size(min = 1, max = 5 )
+    @Size(min = 3, max = 5 )
     private String AmountMedi;
 
 

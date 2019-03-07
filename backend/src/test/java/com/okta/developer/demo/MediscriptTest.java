@@ -60,6 +60,28 @@ public class MediscriptTest {
             assertEquals(violations.size(), 3);
         }
     }
+
+    @Test
+    public void testTooShort(){
+        Mediscript mediscript = new Mediscript();
+        mediscript.setAmountMedi("1");
+        mediscript.setNote("okay");
+        mediscript.setOrderPlace("Lab");
+        mediscript.setPostPlace("30000");
+        mediscript.setPriceOrder("500000");
+
+        try {
+            entityManager.persist(mediscript);
+            entityManager.flush();
+
+            System.out.println("\n\n======================>DataSuccessCase<========================");
+            System.out.println("\n");
+        }  catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 4);
+        }
+    }
     @Test
     public void testsetMediscriptNotBeNull(){
         Mediscript mediscript = new Mediscript();
