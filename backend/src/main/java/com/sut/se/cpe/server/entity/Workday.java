@@ -1,8 +1,9 @@
 package com.sut.se.cpe.server.entity;
 
+import lombok.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
+import javax.validation.constraints.NotNull;
 
 import javax.persistence.*;
 
@@ -13,8 +14,9 @@ public class Workday {
     @Id
     @SequenceGenerator(name = "workday_seq", sequenceName = "workday_seq")
     @GeneratedValue(generator = "workday_seq", strategy = GenerationType.SEQUENCE)
-    private @NonNull Long workdayId;
+    @NotNull private Long workdayId;
 
-    @NonNull private String daywork;
+    @Column(unique = true)
+    @NotNull private String daywork;
 
 }

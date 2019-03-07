@@ -36,6 +36,12 @@ public class WorkScheduleTests {
     @Autowired
     private StaffRepository staffRepository;
 
+    @Autowired
+    private WorktimeRepository worktimeRepository;
+
+    @Autowired
+    private WorkdayRepository workdayRepository;
+
     private Validator validator;
 
     @Before
@@ -142,4 +148,92 @@ public class WorkScheduleTests {
         }
     }
 
+    @Test
+    public void testStaffIdMustBeUnique() {
+        Staff staff1 = new Staff();
+        staff1.setStaffName("mingminn");
+        staff1.setLabStaffId("S12345");
+        staff1.setTel("09123456781");
+
+        try{
+            entityManager.persist(staff1);
+            entityManager.flush();
+
+        }  catch(javax.validation.ConstraintViolationException e) {
+           Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            System.out.println("\n\n======================>StaffIdUniqeCase<========================");
+            System.out.println(violations);
+            System.out.println("\n");
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }
+
+        Staff staff2 = new Staff();
+        staff2.setStaffName("mingming");
+        staff2.setLabStaffId("S12345");
+        staff2.setTel("09123456789");
+
+        try{
+            entityManager.persist(staff2);
+            entityManager.flush();
+            fail("Should not pass to this line");
+        }  catch(javax.validation.ConstraintViolationException e) {
+           Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            System.out.println("\n\n======================>StaffIdUniqeCase<========================");
+            System.out.println(violations);
+            System.out.println("\n");
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }
+    }
+
+    @Test(expected=javax.persistence.PersistenceException.class)
+    public void testWorktimeMustBeUnique() {
+        Worktime time1 = new Worktime();
+        time1.setTimework("11.00-20.00");
+
+        entityManager.persist(time1);
+        entityManager.flush();
+
+        Worktime time2 = new Worktime();
+        time2.setTimework("11.00-20.00");
+
+        try{
+            entityManager.persist(time2);
+            entityManager.flush();
+            fail("Should not pass to this line");
+        }  catch(javax.validation.ConstraintViolationException e) {
+           Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            System.out.println("\n\n======================>WorktimeUniqeCase<========================");
+            System.out.println(violations);
+            System.out.println("\n");
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }
+    }
+
+    @Test(expected=javax.persistence.PersistenceException.class)
+    public void testDaytimeMustBeUnique() {
+        Workday day1 = new Workday();
+        day1.setDaywork("จันทร์");
+
+        entityManager.persist(day1);
+        entityManager.flush();
+
+        Workday day2 = new Workday();
+        day2.setDaywork("จันทร์");
+
+        try{
+            entityManager.persist(day2);
+            entityManager.flush();
+            fail("Should not pass to this line");
+        }  catch(javax.validation.ConstraintViolationException e) {
+           Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            System.out.println("\n\n======================>WorkdayUniqeCase<========================");
+            System.out.println(violations);
+            System.out.println("\n");
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }
+    }
 }
