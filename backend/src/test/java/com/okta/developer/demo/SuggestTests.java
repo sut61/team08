@@ -48,7 +48,6 @@ public class SuggestTests {
         Personnel personnel = new Personnel();
         personnel.setPersonnelName("ming mingmi");
         personnel.setLabPersonnelId("P1234567");
-        personnel.setInfoActivities("ลดราคา");
         personnel.setGuidanced("งดเครื่องดื่ม");
         try {
             entityManager.persist(personnel);
@@ -68,7 +67,6 @@ public class SuggestTests {
         Personnel personnel = new Personnel();
         personnel.setPersonnelName(null);
         personnel.setLabPersonnelId("P1234567");
-        personnel.setInfoActivities("ลดราคา");
         personnel.setGuidanced("งดเครื่องดื่ม");
         try {
             entityManager.persist(personnel);
@@ -89,7 +87,6 @@ public class SuggestTests {
         Personnel personnel = new Personnel();
         personnel.setPersonnelName("mingming");
         personnel.setLabPersonnelId("P12345666");
-        personnel.setInfoActivities("ลดราคฟา");
         personnel.setGuidanced("งดเครื่องดื่มาา");
         try {
             entityManager.persist(personnel);
@@ -110,7 +107,6 @@ public class SuggestTests {
         Personnel personnel = new Personnel();
         personnel.setPersonnelName("mingming");
         personnel.setLabPersonnelId("I1234566");
-        personnel.setInfoActivities("ลดราคหกหา");
         personnel.setGuidanced("งดเครื่องดื่มาา");
         try {
             entityManager.persist(personnel);
@@ -131,7 +127,6 @@ public class SuggestTests {
         Personnel personnel = new Personnel();
         personnel.setPersonnelName("ming");
         personnel.setLabPersonnelId("P1234567");
-        personnel.setInfoActivities("ลดราคหกหา");
         personnel.setGuidanced("งดเครื่องดื่มาา");
         try {
             entityManager.persist(personnel);
