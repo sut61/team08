@@ -302,28 +302,20 @@ public class ServerApplication {
 				});
 
 				// For Question
-				Stream.of("ผมสงสัยเกี่ยวกับการตรวจเม็ดเลือดครับว่าต้อง  เตรียมตัวยังไงราคาเท่าไหร่ครับ").forEach(request -> {
+				Stream.of("ขอราคาการตรวจโรคติดต่อหน่อยค่ะ").forEach(request -> {
 					RequestSuggestion requestSuggestion1 = new RequestSuggestion();
 					requestSuggestion1.setQuestion(request);
-					requestSuggestion1.setUserRequestName("Tongchai Jaidee");
-					requestSuggestion1.setEmail("tongchai@gmail.com");
+					requestSuggestion1.setUserRequestName("Manee Jairai");
+					requestSuggestion1.setEmail("manee@gmail.com");
 					requestSuggestionRepository.save(requestSuggestion1);
 				});
 
-				Stream.of("ขอราคาการตรวจโรคติดต่อหน่อยค่ะ").forEach(request -> {
+				Stream.of("มีตรวจเอ็กซเรย์ปอดไหมครับ").forEach(request -> {
 					RequestSuggestion requestSuggestion2 = new RequestSuggestion();
 					requestSuggestion2.setQuestion(request);
-					requestSuggestion2.setUserRequestName("Manee Jairai");
-					requestSuggestion2.setEmail("manee@gmail.com");
+					requestSuggestion2.setUserRequestName("Nut Tong");
+					requestSuggestion2.setEmail("tongnut@gmail.com");
 					requestSuggestionRepository.save(requestSuggestion2);
-				});
-
-				Stream.of("มีตรวจเอ็กซเรย์ปอดไหมครับ").forEach(request -> {
-					RequestSuggestion requestSuggestion3 = new RequestSuggestion();
-					requestSuggestion3.setQuestion(request);
-					requestSuggestion3.setUserRequestName("Nut Tong");
-					requestSuggestion3.setEmail("tongnut@gmail.com");
-					requestSuggestionRepository.save(requestSuggestion3);
 				});
 
 				// For Work Day
