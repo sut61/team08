@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NotificationService } from 'src/app/shared/notification/notification.service'
+import { Subscription } from 'rxjs';
 import { SuggestionService, HealthProgram, Personnel, RequestSuggestion, Suggestion} from '../../shared/suggestion/suggestion.service';
 import 'rxjs/add/observable/of';
 @Component({
@@ -20,7 +22,8 @@ export class SuggestionComponent implements OnInit {
 
 
   constructor(
-    private service: SuggestionService
+    private service: SuggestionService,
+    public notificaion: NotificationService
   ) { 
     // this.personnel.personnel
   }
@@ -35,7 +38,11 @@ export class SuggestionComponent implements OnInit {
     });
     this.service.getAllDirection().subscribe((guide) => {
       this.directioned = guide;
-    });
+    }, err => {
+      console.log(err);
+    }
+
+    );
     this.service.getAllDirection().subscribe((personnel) => {
       this.suggestions = personnel;
       console.log(this.suggestions);
@@ -69,7 +76,12 @@ export class SuggestionComponent implements OnInit {
           console.log(res);
         });
       }
-    });
+    }, err => {
+        this.notificaion.error();
+        console.log(err);
+       }
+
+    );
   }
   getRepeat(){
     this.service.getAllDirection().subscribe((personnel) => {
