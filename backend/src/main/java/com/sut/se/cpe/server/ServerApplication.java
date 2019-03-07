@@ -29,6 +29,20 @@ public class ServerApplication {
 	SurrogateRepository surrogateRepository;
 	@Autowired
 	ToolRepository toolRepository;
+	@Autowired
+	MedicaltechniqueRepository medicaltechniqueRepository;
+	@Autowired
+	OrderlabRepository orderlabRepository;
+	@Autowired
+	PatientRepository patientRepository;
+	@Autowired
+	CompanyRepository companyRepository;
+	@Autowired
+	 PayerRepository payerRepository;
+	 @Autowired
+	 PaymentStatusRepository paymentStatusRepository;
+	 @Autowired
+	PayTypeRepository paytypeRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(ServerApplication.class, args);
@@ -65,7 +79,9 @@ public class ServerApplication {
                            SuggestionRepository suggestionRepository,
 						UserRepository userRepository,
 						WorkdayRepository workdayRepository,
-						WorktimeRepository worktimeRepository) {
+						WorktimeRepository worktimeRepository,
+						OrderlabRepository orderlabRepository,
+						MedicaltechniqueRepository medicaltechniqueRepository) {
 		
 		return args -> {
 			//set Patient type
@@ -219,10 +235,9 @@ public class ServerApplication {
             paytypeRepository.save(paytype1);
 
 
-
 			Patient p = new Patient();
-			p.setFirstname("ไงงง");
-			p.setLastname("wlll");
+			p.setFirstname("Sompong");
+			p.setLastname("Seayim");
 			p.setAge(15);
 			p.setDistrict("sdsd");
 			p.setSubdistrict("dfdfd");
@@ -230,6 +245,29 @@ public class ServerApplication {
 			p.setPostcode("15616");
 			p.setPatientdetail("dfsvssdv");
 			patientRepository.save(p);
+
+			Patient pt2 = new Patient();
+			pt2.setFirstname("Somchai");
+			pt2.setLastname("wlllfa");
+			pt2.setAge(15);
+			pt2.setDistrict("sdsd");
+			pt2.setSubdistrict("dfdfd");
+			pt2.setHousenumber("dfdfdf");
+			pt2.setPostcode("15616");
+			pt2.setPatientdetail("dfsvssdv");
+			patientRepository.save(pt2);
+		
+		// set ชื่อเทคนิคการแพทย์
+			Medicaltechnique mt = new Medicaltechnique();
+			mt.setMtname("Johny");
+			mt.setPhonenumber("0912321312");
+			medicaltechniqueRepository.save(mt);
+
+			Medicaltechnique mt2 = new Medicaltechnique();
+			mt2.setMtname("Alex");
+			mt2.setPhonenumber("0902442324");
+			medicaltechniqueRepository.save(mt2);
+
 		
 
 
