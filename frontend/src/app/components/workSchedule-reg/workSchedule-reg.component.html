@@ -44,9 +44,9 @@
               <b>  เลือกวันทำงาน : </b>
               </div>
               <div class="day">
-                <mat-radio-group name="dayWork" [(ngModel)]="staff.dayWork" required>
-                  <mat-radio-button *ngFor="let dayWork of dayWorks" [value]="dayWork">
-                    {{dayWork}}
+                <mat-radio-group name="workday" [(ngModel)]="workdaySelected" required>
+                  <mat-radio-button *ngFor="let workday of workdays" [value]="workday">
+                    {{workday.daywork}}
                   </mat-radio-button>
                 </mat-radio-group>
               </div>
@@ -55,9 +55,9 @@
               <b>  เลือกเวลาทำงาน : </b>
               </div>
               <mat-form-field class="time">
-                <mat-select placeholder="เลือกเวลาทำงาน" name="workTime" [(ngModel)]="staff.workTime" required>
-                  <mat-option *ngFor="let workTime of workTimes" [value]="workTime">
-                    {{workTime}}
+                <mat-select placeholder="เลือกเวลาทำงาน" name="worktime" [(ngModel)]="worktimeSelected" required>
+                  <mat-option *ngFor="let worktime of worktimes" [value]="worktime">
+                    {{worktime.timework}}
                   </mat-option>
                 </mat-select>
               </mat-form-field>
@@ -116,14 +116,14 @@
           <td mat-cell *matCellDef="let element" class="datatable"> {{element.staff.tel}} </td>
         </ng-container>
 
-        <ng-container matColumnDef="dayWork">
+        <ng-container matColumnDef="workday">
           <th mat-header-cell *matHeaderCellDef class="headertable"> วันทำงาน </th>
-          <td mat-cell *matCellDef="let element" class="datatable"> {{element.staff.dayWork}} </td>
+          <td mat-cell *matCellDef="let element" class="datatable"> {{element.workday.daywork}} </td>
         </ng-container>
 
-        <ng-container matColumnDef="workTime">
+        <ng-container matColumnDef="worktime">
           <th mat-header-cell *matHeaderCellDef class="headertable"> เวลาทำงาน </th>
-          <td mat-cell *matCellDef="let element" class="datatable"> {{element.staff.workTime}} </td>
+          <td mat-cell *matCellDef="let element" class="datatable"> {{element.worktime.timework}} </td>
         </ng-container>
 
         <ng-container matColumnDef="staffPosition">

@@ -22,6 +22,12 @@ export class WorkScheduleRegService {
   getStaffPositions(): Observable<any>{
     return this.http.get(this.API + '/StaffPosition');
   }
+  getWorkdays(): Observable<any>{
+    return this.http.get(this.API + '/Workday');
+  }
+  getWorktimes(): Observable<any>{
+    return this.http.get(this.API + '/Worktime');
+  }
   getAllRegister(): Observable<any>{
     return this.http.get(this.API + '/WorkSchedule');
   }
@@ -29,10 +35,12 @@ export class WorkScheduleRegService {
     return this.http.post(this.API + '/Staff', staff);
   }
 
-  register(lab: HealthLab, staff: Staff, staffPosition: StaffPosition): Observable<any>{
+  register(lab: HealthLab, staff: Staff, staffPosition: StaffPosition, workday: Workday, worktime: Worktime): Observable<any>{
     this.regis = new WorkSchedule();
     this.regis.staff = staff;
     this.regis.staffPosition = staffPosition;
+    this.regis.workday = workday;
+    this.regis.worktime = worktime;
     this.regis.healthLab = lab;
     return this.http.post(this.API + '/Register', this.regis);
   }
@@ -41,8 +49,6 @@ export class WorkScheduleRegService {
 export class Staff{
   staffId: any;
   staffName: string;
-  dayWork: string;
-  workTime: string;
   labStaffId: string;
   tel: string;
 }
@@ -53,6 +59,8 @@ export class HealthLab{
 export class WorkSchedule{
   scheduleId: any;
   staffPosition: StaffPosition;
+  workday: Workday;
+  worktime: Worktime;
   staff: Staff;
   healthLab: HealthLab;
   date: Date;
@@ -60,5 +68,14 @@ export class WorkSchedule{
 export class StaffPosition{
   staffPositId: any;
   staffPositName: string;
+}
+export class Workday{
+  workdayId: any;
+  daywork: string;
+
+}
+export class Worktime{
+  worktimeId: any;
+  timework: string;
 }
 

@@ -13,10 +13,9 @@ export class SuggestionComponent implements OnInit {
   requestSelected: RequestSuggestion;
   directioned: Suggestion[];
   checkSelected = false;
-  infoActivitiess = ["ตรวจเม็ดเลือดเดือนนี้จากราคา 250- เหลือ 200-", "ตรวจโรคติดต่อพร้อมเอ็กซเรย์ปอด ลดเหลือ 900-"];
   personnel: Personnel = new Personnel();
   suggestions: Suggestion[];
-  uiTable: string[] = ['userRequestName','email','request','guidanced','program','infoActivities'];
+  uiTable: string[] = ['userRequestName','email','request','guidanced','program'];
 
 
 
