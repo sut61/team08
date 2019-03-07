@@ -42,7 +42,6 @@ export class Personnel{
   personnelId: any;
   personnelName: string;
   labPersonnelId: string;
-  infoActivities: string;
   guidanced: string;
 }
 export class HealthProgram{

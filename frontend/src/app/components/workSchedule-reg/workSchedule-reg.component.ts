@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { WorkScheduleRegService, HealthLab, Staff, StaffPosition, WorkSchedule} from '../../shared/workSchedule-reg/workSchedule-reg.service';
+import { WorkScheduleRegService, HealthLab, Staff, StaffPosition, WorkSchedule, Workday, Worktime} from '../../shared/workSchedule-reg/workSchedule-reg.service';
 import 'rxjs/add/observable/of';
 @Component({
   selector: 'app-workSchedule-reg',
@@ -11,13 +11,15 @@ export class WorkScheduleRegComponent implements OnInit {
   labSelected = [];
   staffPositions: StaffPosition[];
   staffPositionSelected: StaffPosition;
+  workdays: Workday[];
+  workdaySelected: Workday;
+  worktimes: Worktime[];
+  worktimeSelected: Worktime;
   registered: WorkSchedule[];
   checkSelected = false;
-  dayWorks = ["จันทร์", "อังคาร", "พุธ", "พฤหัสบดี", "ศุกร์", "เสาร์", "อาทิตย์"];
-  workTimes = ["08.00-15.00 น.", "09.00-16.00 น.", "10.00-17.00 น.", "11.00-18.00 น.", "12.00-19.00 น.", "13.00-20.00 น."];
   staff: Staff = new Staff(); 
   workSchedules: WorkSchedule[];
-  uiTable: string[] = ['name','labStaffID','telNumber','dayWork','workTime','staffPosition','lab'];
+  uiTable: string[] = ['name','labStaffID','telNumber','workday','worktime','staffPosition','lab'];
 
 
 
@@ -31,6 +33,13 @@ export class WorkScheduleRegComponent implements OnInit {
     this.service.getStaffPositions().subscribe((staffPosition) => {
       this.staffPositions = staffPosition;
       // console.log(this.staffPositions);
+    });
+    this.service.getWorkdays().subscribe((workday) => {
+      this.workdays = workday;
+      // console.log(this.days);
+    });
+    this.service.getWorktimes().subscribe((worktime) => {
+      this.worktimes = worktime;
     });
     this.service.getHealthLabs().subscribe((lab) => {
       this.labs = lab;
@@ -66,7 +75,7 @@ export class WorkScheduleRegComponent implements OnInit {
     this.service.newStaff(this.staff).subscribe((resp) => {
       let len = this.labSelected.length;
       for(let i = 0; i < this.labSelected.length; i++){
-        this.service.register(this.labSelected[i], resp, this.staffPositionSelected).subscribe((res) => {
+        this.service.register(this.labSelected[i], resp, this.staffPositionSelected, this.workdaySelected, this.worktimeSelected).subscribe((res) => {
           this.getRepeat();
           console.log(res);
         });
