@@ -14,6 +14,8 @@ import { SuggestionComponent } from './components/suggestion/suggestion.componen
 import { TreatComponent } from './treat/treat.component';
 import { PaymentinfoComponent } from './paymentinfo/paymentinfo.component';
 import { MediscriptComponent } from './mediscript/mediscript.component';
+import { OrderComponent } from './order/order.component';
+import { ReportComponent } from './report/report.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/homemain', pathMatch: 'full'},
@@ -29,7 +31,9 @@ const routes: Routes = [
   {path: 'suggestion', component: SuggestionComponent},
   {path: 'treat', component: TreatComponent},
   {path: 'paymentinfo', component: PaymentinfoComponent},
-  {path: 'mediscript', component: MediscriptComponent}
+  {path: 'mediscript', component: MediscriptComponent},
+  {path:'Order',component:OrderComponent},
+  {path: 'report', component: ReportComponent}
 
 ];
 

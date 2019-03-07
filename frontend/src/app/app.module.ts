@@ -46,6 +46,10 @@ import { MediscriptComponent } from './mediscript/mediscript.component';
 import { MediscriptService } from './mediscript.service';
 import { PaymentinfoComponent } from './paymentinfo/paymentinfo.component';
 import { PaymentinfoService } from './paymentinfo.service';
+import { OrderComponent } from './order/order.component';
+import { OrderService } from './order.service';
+import { ReportComponent } from './report/report.component';
+import { ReportService} from './report.service';
 
 
 @NgModule({
@@ -64,7 +68,9 @@ import { PaymentinfoService } from './paymentinfo.service';
     SuggestionComponent,
     TreatComponent,
     MediscriptComponent,
-    PaymentinfoComponent
+    PaymentinfoComponent,
+    OrderComponent,
+    ReportComponent
   ],
   imports: [
     HttpModule,
@@ -92,7 +98,9 @@ import { PaymentinfoService } from './paymentinfo.service';
   providers: [
       LogingService,
       WorkScheduleRegService,
-      SuggestionService
+      SuggestionService,
+      OrderService,
+      ReportService
   ],
   bootstrap: [AppComponent]
 })
