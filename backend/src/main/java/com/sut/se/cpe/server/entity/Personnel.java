@@ -27,11 +27,13 @@ public class Personnel {
     @NotNull
     private String personnelName;
     
+    @Column(unique = true)
     @Pattern(regexp = "[P]{1}[0-9]+")
     @Size(min = 8, max = 8)
     @NotNull
     private String labPersonnelId;
 
+    @Size(min = 5)
     @NotNull
     private String guidanced;
 

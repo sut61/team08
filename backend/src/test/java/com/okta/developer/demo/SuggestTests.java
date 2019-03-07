@@ -36,6 +36,9 @@ public class SuggestTests {
     @Autowired
     private PersonnelRepository personnelRepository;
 
+    @Autowired
+    private RequestSuggestionRepository requestSuggestionRepository;
+
     private Validator validator;
 
     @Before
@@ -135,6 +138,105 @@ public class SuggestTests {
         }  catch(javax.validation.ConstraintViolationException e) {
            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             System.out.println("\n\n======================>SizeNameLess<========================");
+            System.out.println(violations);
+            System.out.println("\n");
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }
+    }
+
+    @Test
+    public void testSizeGuidancedLess(){
+        Personnel personnel = new Personnel();
+        personnel.setPersonnelName("mingming");
+        personnel.setLabPersonnelId("P1234567");
+        personnel.setGuidanced("qwq");
+        try {
+            entityManager.persist(personnel);
+            entityManager.flush();
+            fail("Should not pass to this line");
+        }  catch(javax.validation.ConstraintViolationException e) {
+           Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            System.out.println("\n\n======================>SizeGuidancedLess<========================");
+            System.out.println(violations);
+            System.out.println("\n");
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }
+    }
+
+    @Test(expected=javax.persistence.PersistenceException.class)
+    public void testPersonnelIdMustBeUnique() {
+        Personnel personnel1 = new Personnel();
+        personnel1.setPersonnelName("sunthi");
+        personnel1.setLabPersonnelId("P1234567");
+        personnel1.setGuidanced("งดเครื่องดื่ม");
+
+        try{
+            entityManager.persist(personnel1);
+            entityManager.flush();
+
+        }  catch(javax.validation.ConstraintViolationException e) {
+           Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            System.out.println("\n\n======================>PersonnelIdUniqeCase<========================");
+            System.out.println(violations);
+            System.out.println("\n");
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }
+
+        Personnel personnel2 = new Personnel();
+        personnel2.setPersonnelName("sunthipp");
+        personnel2.setLabPersonnelId("P1234567");
+        personnel2.setGuidanced("มีครับ");
+
+        try{
+            entityManager.persist(personnel2);
+            entityManager.flush();
+            fail("Should not pass to this line");
+        }  catch(javax.validation.ConstraintViolationException e) {
+           Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            System.out.println("\n\n======================>PersonnelIdUniqeCase<========================");
+            System.out.println(violations);
+            System.out.println("\n");
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }
+    }
+
+    @Test
+    public void testSizeUserRequestNameOver(){
+        RequestSuggestion suggest = new RequestSuggestion();
+        suggest.setUserRequestName("mingmingmingmingmingmingmingmingmingmingming");
+        suggest.setQuestion("มีตรวจมั้ยครับ");
+        suggest.setEmail("non@hotmail.com");
+        try {
+            entityManager.persist(suggest);
+            entityManager.flush();
+            fail("Should not pass to this line");
+        }  catch(javax.validation.ConstraintViolationException e) {
+           Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            System.out.println("\n\n======================>SizeUserRequestNameOver<========================");
+            System.out.println(violations);
+            System.out.println("\n");
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }
+    }
+
+    @Test
+    public void testSizeQuestionOver(){
+        RequestSuggestion suggest = new RequestSuggestion();
+        suggest.setUserRequestName("mingming");
+        suggest.setQuestion("มีตรวจมั้ยครับaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+        suggest.setEmail("non@hotmail.com");
+        try {
+            entityManager.persist(suggest);
+            entityManager.flush();
+            fail("Should not pass to this line");
+        }  catch(javax.validation.ConstraintViolationException e) {
+           Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            System.out.println("\n\n======================>SizeQuestionOver<========================");
             System.out.println(violations);
             System.out.println("\n");
             assertEquals(violations.isEmpty(), false);

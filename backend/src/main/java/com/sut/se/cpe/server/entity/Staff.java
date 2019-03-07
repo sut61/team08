@@ -24,6 +24,7 @@ public class Staff {
     @NotNull 
     private String staffName;
 
+    @Column(unique = true)
     @Pattern(regexp = "[S]{1}[0-9]{5}+")
     @NotNull private String labStaffId;
 
