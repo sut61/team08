@@ -39,14 +39,18 @@ public class PaymentinfoController {
 
 
 
-    @PostMapping(path ="/PaymentInfo/{PayTypeNameSelect}/{PayerNameSelect}/{NurseNameSelecte}/{PayPrice}/{PaymentStatusNameSelect}")
+    @PostMapping(path ="/PaymentInfo/{PayTypeNameSelect}/{PayerNameSelect}/{NurseNameSelecte}/{PayPrice}/{PaymentStatusNameSelect}/{Note}/{TreatList}/{MediList}/{SpecialNote}")
     @CrossOrigin(origins = "http://localhost:4200")
     public Paymentinfo Paymentinfo(
             @PathVariable  Long PayTypeNameSelect,
             @PathVariable  Long PayerNameSelect,
             @PathVariable  Long NurseNameSelecte,
             @PathVariable  String PayPrice,
-            @PathVariable  Long PaymentStatusNameSelect
+            @PathVariable  Long PaymentStatusNameSelect,
+            @PathVariable  String Note,
+            @PathVariable  String TreatList,
+            @PathVariable  String MediList,
+            @PathVariable  String SpecialNote
 
     ){
         PayType paytype = paytypeRepository.findById(PayTypeNameSelect).get();
@@ -60,6 +64,10 @@ public class PaymentinfoController {
         paymentinfo.setNurse(nurse);
         paymentinfo.setPayPrice(PayPrice);
         paymentinfo.setPaymentStatus(paymentstatus);
+        paymentinfo.setNote(Note);
+        paymentinfo.setTreatList(TreatList);
+        paymentinfo.setMediList(MediList);
+        paymentinfo.setSpecialNote(SpecialNote);
 
         paymentinfoRepository.save(paymentinfo);
         return paymentinfo;
