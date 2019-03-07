@@ -41,13 +41,18 @@ public class MediscriptController {
         return doctorRepository.findAll().stream().collect(Collectors.toList());
     }
 
-    @PostMapping(path ="/Mediscript/{MediNameSelect}/{CompanyNameSelect}/{DoctorSelecte}/{amountMedi}")
+    @PostMapping(path ="/Mediscript/{MediNameSelect}/{CompanyNameSelect}/{DoctorSelecte}/{amountMedi}/{Note}/{PostPlace}/{PriceOrder}/{OrderPlace}")
     @CrossOrigin(origins = "http://localhost:4200")
     public Mediscript Mediscript(
             @PathVariable  Long MediNameSelect,
             @PathVariable  Long CompanyNameSelect,
             @PathVariable  Long DoctorSelecte,
-             @PathVariable  String amountMedi
+            @PathVariable  String amountMedi,
+            @PathVariable  String Note,
+            @PathVariable  String PostPlace,
+            @PathVariable  String PriceOrder,
+            @PathVariable  String OrderPlace
+
 
     ){
         Medi medi = mediRepository.findById(MediNameSelect).get();
@@ -59,6 +64,11 @@ public class MediscriptController {
         mediscript.setCompany(company);
         mediscript.setDoctor(doctorr);
         mediscript.setAmountMedi(amountMedi);
+        mediscript.setNote(Note);
+        mediscript.setPostPlace(PostPlace);
+        mediscript.setPriceOrder(PriceOrder);
+        mediscript.setOrderPlace(OrderPlace);
+
 
         mediscriptRepository.save(mediscript);
         return mediscript;
