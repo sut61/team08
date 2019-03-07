@@ -48,8 +48,6 @@ public class WorkScheduleTests {
         Staff staff = new Staff();
         staff.setStaffName("mingming");
         staff.setLabStaffId("S12345");
-        staff.setDayWork("จันทร์");
-        staff.setWorkTime("11.00-20.00 น.");
         staff.setTel("0912345678");
         try {
             entityManager.persist(staff);
@@ -69,8 +67,6 @@ public class WorkScheduleTests {
         Staff staff = new Staff();
         staff.setStaffName("mingming");
         staff.setLabStaffId(null);
-        staff.setDayWork("จันทร์");
-        staff.setWorkTime("11.00-20.00 น.");
         staff.setTel("0912345678");
         try {
             entityManager.persist(staff);
@@ -91,8 +87,6 @@ public class WorkScheduleTests {
         Staff staff = new Staff();
         staff.setStaffName("mingmingmingmingmingmingmingmingmingmingg");
         staff.setLabStaffId("S12345");
-        staff.setDayWork("จันทร์");
-        staff.setWorkTime("11.00-20.00 น.");
         staff.setTel("0912345678");
         try {
             entityManager.persist(staff);
@@ -113,8 +107,6 @@ public class WorkScheduleTests {
         Staff staff = new Staff();
         staff.setStaffName("mingming");
         staff.setLabStaffId("S12345ww");
-        staff.setDayWork("จันทร์");
-        staff.setWorkTime("11.00-20.00 น.");
         staff.setTel("0912345678");
         try {
             entityManager.persist(staff);
@@ -135,8 +127,6 @@ public class WorkScheduleTests {
         Staff staff = new Staff();
         staff.setStaffName("mingming");
         staff.setLabStaffId("S12345");
-        staff.setDayWork("จันทร์");
-        staff.setWorkTime("11.00-20.00 น.");
         staff.setTel("09123456789");
         try {
             entityManager.persist(staff);
