@@ -23,9 +23,6 @@ public class Staff {
     @Size(min=6, max=30)
     @NotNull 
     private String staffName;
-    
-    @NotNull private String dayWork;
-    @NotNull private String workTime;
 
     @Pattern(regexp = "[S]{1}[0-9]{5}+")
     @NotNull private String labStaffId;

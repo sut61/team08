@@ -63,7 +63,9 @@ public class ServerApplication {
                            PayTypeRepository paytypeRepository,
 
                            SuggestionRepository suggestionRepository,
-						UserRepository userRepository) {
+						UserRepository userRepository,
+						WorkdayRepository workdayRepository,
+						WorktimeRepository worktimeRepository) {
 		
 		return args -> {
 			//set Patient type
@@ -277,6 +279,28 @@ public class ServerApplication {
 					requestSuggestion2.setEmail("manee@gmail.com");
 					requestSuggestionRepository.save(requestSuggestion2);
 				});
+
+				Stream.of("มีตรวจเอ็กซเรย์ปอดไหมครับ").forEach(request -> {
+					RequestSuggestion requestSuggestion3 = new RequestSuggestion();
+					requestSuggestion3.setQuestion(request);
+					requestSuggestion3.setUserRequestName("Nut Tong");
+					requestSuggestion3.setEmail("tongnut@gmail.com");
+					requestSuggestionRepository.save(requestSuggestion3);
+				});
+
+				// For Work Day
+				Stream.of("จันทร์", "อังคาร", "พุธ", "พฤหัสบดี", "ศุกร์", "เสาร์", "อาทิตย์").forEach(d -> {
+					Workday workday = new Workday();
+					workday.setDaywork(d);
+					workdayRepository.save(workday);
+				});
+
+				// For Work Time
+				Stream.of("09.00-18.00", "10.00-19.00", "11.00-20.00", "12.00-21.00").forEach(t -> {
+					Worktime worktime = new Worktime();
+					worktime.setTimework(t);
+					worktimeRepository.save(worktime);
+				});			
 				
 				// For User Login
 				Stream.of("staff", "cpe").forEach(username ->{

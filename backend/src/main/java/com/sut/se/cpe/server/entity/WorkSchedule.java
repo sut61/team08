@@ -31,11 +31,19 @@ public class WorkSchedule {
     private HealthLab healthLab;
     
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "staffPositIdId")
+    @JoinColumn(name = "staffPositId")
     private StaffPosition staffPosition;
     
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "staffId")
     private Staff staff;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "workdayId")
+    private Workday workday;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "worktimeId")
+    private Worktime worktime;
 
 }

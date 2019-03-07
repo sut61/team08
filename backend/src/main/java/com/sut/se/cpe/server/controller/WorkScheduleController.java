@@ -6,10 +6,14 @@ import com.sut.se.cpe.server.entity.Staff;
 import com.sut.se.cpe.server.entity.WorkSchedule;
 import com.sut.se.cpe.server.entity.HealthLab;
 import com.sut.se.cpe.server.entity.StaffPosition;
+import com.sut.se.cpe.server.entity.Workday;
+import com.sut.se.cpe.server.entity.Worktime;
 import com.sut.se.cpe.server.repository.StaffRepository;
 import com.sut.se.cpe.server.repository.WorkScheduleRepository;
 import com.sut.se.cpe.server.repository.HealthLabRepository;
 import com.sut.se.cpe.server.repository.StaffPositionRepository;
+import com.sut.se.cpe.server.repository.WorkdayRepository;
+import com.sut.se.cpe.server.repository.WorktimeRepository;
 
 import java.util.Date;
 import java.util.List;
@@ -26,6 +30,10 @@ public class WorkScheduleController {
     public WorkScheduleRepository workScheduleRepository;
     @Autowired
     public StaffRepository staffRepository;
+    @Autowired
+    public WorkdayRepository workdayRepository;
+    @Autowired
+    public WorktimeRepository worktimeRepository;
 
     @GetMapping("/WorkSchedule")
     public List<WorkSchedule> getWorkSchedules(){

@@ -31,9 +31,6 @@ public class Personnel {
     @Size(min = 8, max = 8)
     @NotNull
     private String labPersonnelId;
-    
-    @NotNull
-    private String infoActivities;
 
     @NotNull
     private String guidanced;
