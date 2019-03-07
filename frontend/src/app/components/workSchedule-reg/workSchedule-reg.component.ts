@@ -101,9 +101,5 @@ export class WorkScheduleRegComponent implements OnInit {
           alert("บันทึกสำเร็จ");
     });
   }
-
-//  alert(){
-//    alert("บันทึกสำเร็จ");
-//  }
 }
 
