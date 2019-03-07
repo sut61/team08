@@ -90,9 +90,5 @@ export class SuggestionComponent implements OnInit {
       alert('ตอบกลับสำเร็จ');
     });
   }
-
-//  alert(){
-//    alert("ตอบกลับสำเร็จ");
-//  }
 }
 
