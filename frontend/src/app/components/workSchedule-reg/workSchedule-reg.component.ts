@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NotificationService } from 'src/app/shared/notification/notification.service'
+import { Subscription } from 'rxjs';
 import { WorkScheduleRegService, HealthLab, Staff, StaffPosition, WorkSchedule, Workday, Worktime} from '../../shared/workSchedule-reg/workSchedule-reg.service';
 import 'rxjs/add/observable/of';
 @Component({
@@ -24,7 +26,8 @@ export class WorkScheduleRegComponent implements OnInit {
 
 
   constructor(
-    private service: WorkScheduleRegService
+    private service: WorkScheduleRegService,
+    public notificaion: NotificationService
   ) { 
     // this.staff.staf
   }
@@ -46,7 +49,11 @@ export class WorkScheduleRegComponent implements OnInit {
     });
     this.service.getAllRegister().subscribe((reg) => {
       this.registered = reg;
-    });
+    }, err => {
+      console.log(err);
+    }
+
+    );
     this.service.getAllRegister().subscribe((staff) => {
       this.workSchedules = staff;
       console.log(this.workSchedules);
@@ -80,7 +87,12 @@ export class WorkScheduleRegComponent implements OnInit {
           console.log(res);
         });
       }
-    });
+    }, err => {
+        this.notificaion.error();
+        console.log(err);
+       }
+
+    );
   }
   getRepeat(){
     this.service.getAllRegister().subscribe((staff) => {

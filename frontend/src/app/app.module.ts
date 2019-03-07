@@ -18,7 +18,8 @@ import {
         MatOptionModule,
         MatFormFieldModule,
         MatRadioModule,
-        MatNativeDateModule
+        MatNativeDateModule,
+        MatSnackBarModule
 } from '@angular/material/';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
@@ -93,7 +94,8 @@ import { ReportService} from './report.service';
     MatCheckboxModule,
     MatProgressSpinnerModule,
     MatOptionModule,
-    MatRadioModule
+    MatRadioModule,
+    MatSnackBarModule
   ],
   providers: [
       LogingService,
