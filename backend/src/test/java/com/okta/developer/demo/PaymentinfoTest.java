@@ -63,6 +63,27 @@ public class PaymentinfoTest {
         }
     }
     @Test
+    public void testTooShortPay(){
+        Paymentinfo paymentinfo = new Paymentinfo();
+        paymentinfo.setPayPrice("1");
+        paymentinfo.setNote("okay");
+        paymentinfo.setMediList("พาราเซตามอล");
+        paymentinfo.setTreatList("รักษาอาการปวด");
+        paymentinfo.setSpecialNote("non");
+
+        try {
+            entityManager.persist(paymentinfo);
+            entityManager.flush();
+
+            System.out.println("\n\n======================>DataSuccessCase<========================");
+            System.out.println("\n");
+        }  catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 5);
+        }
+    }
+    @Test
     public void testsetsetPayPriceNotBeNull(){
         Paymentinfo paymentinfo = new Paymentinfo();
         paymentinfo.setPayPrice(null);

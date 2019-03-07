@@ -29,7 +29,7 @@ public class Paymentinfo {
 
     @NotNull
     @Pattern(regexp = "[0-9]+")
-    @Size(min = 1, max = 5 )
+    @Size(min = 2, max = 5 )
     private String PayPrice;
 
 
