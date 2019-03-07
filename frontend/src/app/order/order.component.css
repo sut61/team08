@@ -1,0 +1,21 @@
+.nav-color{
+    color:#ffffff;
+    background-color: salmon;
+}
+
+.button-color{
+    color:#ffffff;
+    background-color:#E8475B;
+}
+
+.contain {
+    width: 50%;
+
+  }
+
+  .example-full-width {
+    width: 20%;
+  }
+  .example-full-width1{
+    width: 35%;
+  }
