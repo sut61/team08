@@ -1,0 +1,90 @@
+<html>
+<form>
+  <h2 style = "text-align:center">ระบบรายงานผลแล็บ</h2>
+  <mat-grid-list cols="1" rowHeight="2:1">
+    <mat-grid-tile class="nav-color">
+    <fieldset>    
+          <legend style="color:white; size:60px; margin-bottom:10px"><b>รายงานแผลแล็ป</b></legend>
+      <div>
+
+        <mat-card-content>
+          <mat-form-field>
+            <mat-select placeholder="ชื่อผู้ป่วย" [(ngModel)]="PatientSelec" name="patient">
+              <mat-option *ngFor="let patie of patient" [value]="patie.id"> {{patie.firstname}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-card-content>
+        <br>
+
+
+
+
+        <mat-form-field>
+          <mat-select [(ngModel)]="MedicaltechniqueSelec" placeholder ="ผู้ทำแลป" name="medicaltechnique">
+            <mat-option *ngFor="let medical of medicaltechnique" [value]="medical.medicaltechniqueID">
+              {{medical.medicaltechnique}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <br>
+
+
+
+        <mat-form-field>
+          <mat-select [(ngModel)]="DoctorSelec"  placeholder ="ชื่อแพทย์"  name="docter" >
+            <mat-option *ngFor="let docxx of doctor" [value]="docxx.id">
+              {{docxx.doctorname}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field> &nbsp;&nbsp;
+        <br>
+
+        <mat-form-field>
+          <mat-select [(ngModel)]="DepartmentSelec"  placeholder ="แผนก"  name="department" >
+            <mat-option *ngFor="let department of department" [value]="department.id">
+              {{department.department}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field> &nbsp;&nbsp;
+        <br>
+
+        <mat-form-field >
+          <input matInput [(ngModel)]="description" [ngModelOptions]="{standalone: true}" placeholder="แลปที่ทำ"  name="description">
+        </mat-form-field>
+        <br>
+        <mat-form-field >
+          <input matInput [(ngModel)]="result_lab" [ngModelOptions]="{standalone: true}" placeholder="ผลแล็บ"  name="result_lab">
+        </mat-form-field>
+        <br>
+        <mat-form-field >
+          <input matInput [(ngModel)]="normal_range" [ngModelOptions]="{standalone: true}" placeholder="ค่าปกติ"  name="normal_range">
+        </mat-form-field>
+        <br>
+        <mat-form-field >
+          <input matInput [(ngModel)]="other" [ngModelOptions]="{standalone: true}" placeholder="หมายเหตุ"  name="other">
+        </mat-form-field>
+        <br>
+
+
+        <br>
+          <button mat-raised-button size="2" color="primary"  (click)= "insert()">บันทึก</button>
+          &nbsp;&nbsp;
+          <button mat-raised-button type="reset" color = "primary">ยกเลิก</button>
+
+
+
+
+
+
+
+
+
+      </div>
+      </fieldset>
+
+    </mat-grid-tile>
+  </mat-grid-list>
+</form>
+</html>
+

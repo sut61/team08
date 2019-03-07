@@ -1,0 +1,21 @@
+.nav-color{
+    color:#ffffff;
+    background-color: rgb(81, 73, 202);
+}
+
+.button-color{
+    color:#ffffff;
+    background-color:rgb(71, 127, 232);
+}
+
+.contain {
+    width: 50%;
+
+  }
+
+  .example-full-width {
+    width: 20%;
+  }
+  .example-full-width1{
+    width: 35%;
+  }
